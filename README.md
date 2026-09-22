@@ -39,7 +39,7 @@ Trips are the routes or journeys associated with each driver. On a driver's deta
 - **Price** (price)
 - **Intercommunity** (inter) (boolean)
 
-###Images
+### Images
 Each entity will have an associated image of the driver and the secondary entity will have an associated image of the city.
   
 ## Documentación Práctica 1
