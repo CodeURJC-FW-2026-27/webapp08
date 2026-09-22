@@ -16,26 +16,31 @@
 
 ### Entities
   
-#### Main entity: Conductor (Driver)
-Nuestra idea es tener una página donde los conductores se dan de alta mostrando su información pública. Esta será la entidad principal que se mostrará en formato Grid en la página de inicio. Al seleccionar un conductor, podremos ver sus detalles específicos y el listado de viajes que tiene programados o completados.
+#### Main entity: Driver
+Our idea is to have a page where drivers can sign up and display their public information. This will be the main section displayed in a grid format on the home page. When you select a driver, you will be able to view their specific details and the list of trips they have scheduled or completed.
 
 **Attributes:**
-- **ID** (Identificador único)
-- **Nombre y Apellidos** (Name)
-- **Vehículo** (Vehicle - Marca y modelo)
-- **Puntuación** (Rating - ej. 4.5/5 estrellas)
-- **Años de experiencia** (Experience)
-- **Imagen de perfil** (Profile Picture)
+- **ID** (ID)
+- **Full Name** (name)
+- **City** (city)
+- **Vehículo** (vehicle)
+- **Puntuación** (rating) (1-5) 
+- **Experience** (exp)
+- **Availability** (available) (boolean)
+- **Available Spots** (spots)
   
-#### Secondary entity: Viaje (Trip)
-Los viajes son las rutas o trayectos asociados a cada conductor. En la página de detalle de un conductor, se mostrará un listado con los viajes que este ofrece.
+#### Secondary entity: Journey
+Trips are the routes or journeys associated with each driver. On a driver's detail page, a list of the trips they offer will be displayed.
 
 **Attributes:**
-- **Origen** (Start Location)
-- **Destino** (End Location)
-- **Fecha y Hora** (Date & Time)
-- **Precio** (Price)
-- **Plazas disponibles** (Available seats)
+- **Origin** (origin)
+- **Destination** (dest)
+- **Date and time** (date_time)
+- **Price** (price)
+- **Intercommunity** (inter) (boolean)
+
+###Images
+Each entity will have an associated image of the driver and the secondary entity will have an associated image of the city.
   
 ## Documentación Práctica 1
 
