@@ -56,19 +56,17 @@ Each entity will have an associated image of the driver and the secondary entity
   - Página de Nuevo Elemento (Formulario de alta de conductor)
   ![new_driver 1](image-5.png)
 
-#esto es de ejemplo
 
 ➡ **Raúl Martín Sánchez**
-- Mi principal aportación ha sido la maquetación de la **página principal (main)**. He utilizado el Grid de Bootstrap para mostrar los 9 conductores de ejemplo, configurando las columnas para que sean responsive (1 columna en móviles, 2 en tablets/pantallas pequeñas y 3 en monitores grandes). Además, he diseñado el **pie de página (footer)** común y he colaborado en armonizar los archivos CSS para que todas las páginas mantengan la misma identidad visual.
+-Mi contribución principal se centró en el desarrollo frontend del módulo de creación de registros **(newdriver.html)**. Diseñé e implementé la interfaz de usuario para la captura de datos, estructurando los componentes del formulario. Además, asumí un rol clave en la arquitectura de estilos del proyecto, unificando y refactorizando los archivos CSS para garantizar un sistema de diseño escalable y una identidad visual coherente en toda la aplicación
 - **Commits**:
-  - [Creación del HTML de la página principal](https://github.com/tu-repo/commit/ejemplo1)
-  - [Implementación del Grid responsive 1-2-3 columnas](https://github.com/tu-repo/commit/ejemplo2)
-  - [Creación del footer compartido y su CSS](https://github.com/tu-repo/commit/ejemplo3)
-  - [Inserción de los 9 elementos (conductores) de ejemplo](https://github.com/tu-repo/commit/ejemplo4)
-  - [Botón 'Crear nuevo elemento' alineado y enlazado](https://github.com/tu-repo/commit/ejemplo5)
+  - [Crecion del formulario](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/7248a866844ed6f7f23d245aed284dc079725407)
+  - [Cambios en los tipos de input](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/7248a866844ed6f7f23d245aed284dc079725407)
+  - [Aportacion de contenido para el estilo](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/41c898c8f43bc2469c9841cbe78a57e05b351aab)
+  - [Mas aportaciones de estilo](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/75b5b8321d3e67c863ab825615ce4bbb588350f5)
+  - [Creacion de los ficheros html y css y orden en carpetas](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/1321e602601eaa13c07bab5a001c24f0d506056f)
 - **Ficheros en los que más he participado:**
-  - `main.html`
-  - `style_main.css`
-  - `footer.css`
-  - `estilos_globales.css`
   - `nuevo_conductor.html`
+  - `style.css`
+  - `main.html`
+  - `detail.html`
