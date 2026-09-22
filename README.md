@@ -22,7 +22,7 @@ Our idea is to have a page where drivers can sign up and display their public in
 **Attributes:**
 - **ID** (ID)
 - **Full Name** (name)
-- **City** (city)
+- **Autonomous comunity** (com)
 - **Vehículo** (vehicle)
 - **Puntuación** (rating) (1-5) 
 - **Experience** (exp)
