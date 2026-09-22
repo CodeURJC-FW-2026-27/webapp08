@@ -30,7 +30,7 @@ Our idea is to have a page where drivers can sign up and display their public in
 - **Available Spots** (spots)
   
 #### Secondary entity: Journey
-Trips are the routes or journeys associated with each driver. On a driver's detail page, a list of the trips they offer will be displayed.
+Journeys associated with each driver. On a driver's detail page, a list of the trips they offer will be displayed.
 
 **Attributes:**
 - **Origin** (origin)
