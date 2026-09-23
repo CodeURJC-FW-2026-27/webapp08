@@ -11,10 +11,10 @@
 
         </header>
         <main>
-            <section id="info-driver" class="card">
+            <section id="info-driver" class="card" style="text-align: center; align-items: center;">
                 <img src="{{ driver.image }}" alt="Driver image" style="width: 100%; max-width: 300px; border-radius: 5px; margin-bottom: 20px;">
 
-                // Driver information
+                <!-- Driver information -->
                 <h2>Ana López</h2>
                 <p><strong>ID:</strong> 12345</p>
                 <p><strong>Community:</strong> Madrid</p>
@@ -24,10 +24,10 @@
                 <p><strong>Availability:</strong> Yes</p>
                 <p><strong>Seats available:</strong> 3</p>
 
-                <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 20px;">
-                    <button type="submit">Edit</button>
-                    <button type="button">Delete</button>
-                    <button type="button">Back to Main Page</button>
+                <div style="display: flex; flex-direction: row; justify-content: center; gap: 10px; margin-top: 20px;">
+                    <button type="submit" class="btn-green">Edit</button>
+                    <button type="button" class="btn-red">Delete</button>
+                    <button type="button" class="btn-blue">Back to Main Page</button>
                 </div>
             </section>
         </main>
