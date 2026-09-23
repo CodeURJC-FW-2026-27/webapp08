@@ -5,6 +5,11 @@
     font-family: 'Arial', sans-serif;
 }
 
+main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 body {
     background-color: #fffae7;
     
@@ -20,7 +25,7 @@ h1 {
     color: #333;
     margin-bottom: 20px;
 }
-form {
+.card {
     background-color: #ffffff;
     padding: 30px;
     border-radius: 10px; 
