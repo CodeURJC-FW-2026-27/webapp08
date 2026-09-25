@@ -209,7 +209,7 @@ button.btn-blue:hover {
 .driver-card {
     background-color: #ffffff;
     padding: 20px;
-    border-radius: 10px; 
+    border-radius: 30px; 
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); 
     width: 100%;
     max-width: 400px;
@@ -218,4 +218,22 @@ button.btn-blue:hover {
     justify-content: space-between;
     align-items: center;
     text-align: center;
+}
+
+.driver-card img {
+    width: 100%;               /* Llena el ancho de la tarjeta */
+    height: 250px;             /* Misma altura para todas */
+    object-fit: cover;         /* Recorta proporcionalmente sin deformar la foto */
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+.main-container{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    gap:10px
+
+    
+    
 }
