@@ -13,149 +13,181 @@
 
         </header>
         <main>
-            <div class="detail-container">
-                <h1 style="text-align: center; margin-bottom: 30px;">Ana López</h1>
-                <section id="info-driver" class="card" style="text-align: center; align-items: center;">
-                    <img src="../public/images/ana_lopez.jpg" alt="Ana López image" style="width: 100%; max-width: 300px; border-radius: 5px; margin-bottom: 20px;">
+            <div class="py-5" style="background-color: #fffae7; min-height: 100vh;">
+                <div class="container">
+                    <h1 class="text-center mb-5 text-dark">Ana López</h1>
+                    <div class="row justify-content-center mb-5">
+                        <div class="col-12 col-md-8 col-lg-8">
+                            <section id="info-driver" class="card p-4 text-center align-items-center">
+                                <img src="../public/images/ana_lopez.jpg" alt="Ana López image" class="img-fluid rounded mb-3">
 
-                    <!-- Driver information -->
-                    <p><strong>ID:</strong> 12345</p>
-                    <p><strong>Community:</strong> Madrid</p>
-                    <p><strong>Vehicle:</strong> Toyota Prius</p>
-                    <p><strong>Rating:</strong> 4.5 / 5</p>
-                    <p><strong>Experience:</strong> 3 years</p>
-                    <p><strong>Availability:</strong> Yes</p>
-                    <p><strong>Seats available:</strong> 3</p>
+                                <!-- Driver information -->
+                                <p><strong>ID:</strong> 12345</p>
+                                <p><strong>Community:</strong> Madrid</p>
+                                <p><strong>Vehicle:</strong> Toyota Prius</p>
+                                <p><strong>Rating:</strong> 4.5 / 5</p>
+                                <p><strong>Experience:</strong> 3 years</p>
+                                <p><strong>Availability:</strong> Yes</p>
+                                <p><strong>Seats available:</strong> 3</p>
 
-                    <div class="button-group">
-                        <button type="submit" class="btn-green" style="width: 75px;">Edit</button>
-                        <button type="button" class="btn-red" style="width: 75px;">Delete</button>
-                        <button type="button" class="btn-blue" onclick="window.location.href='main.html'">Back to Main Page</button>
+                                <div class="d-flex flex-row justify-content-center gap-2 mt-3 flex-wrap">
+                                    <button type="submit" class="btn btn-success" style="width: 75px;">Edit</button>
+                                    <button type="button" class="btn btn-danger" style="width: 75px;">Delete</button>
+                                    <button type="button" class="btn btn-primary" onclick="window.location.href='main.html'">Back to Main Page</button>    
+                                </div>
+                            </section>
+                        </div>
                     </div>
-                </section>
-
-                <h2 style="text-align: center; margin-top: 50px; margin-bottom: 20px; color: #333;">Scheduled Trips</h2>
-                <div class="trips-grid">
-                    <!-- Trip cards -->
-                    <article class="trip-card">
-                        <img src="../public/images/madrid_getafe.jpg" alt="Getafe">
-                        <h3>Madrid Central - Getafe</h3>
-                        <p><strong>Origin:</strong> Calle de Atocha, 50, Madrid</p>
-                        <p><strong>Destination:</strong> Universidad Carlos III, Campus Getafe</p>
-                        <p><strong>Date and time:</strong> 15/11/2026 10:00</p>
-                        <p><strong>Price:</strong> 5€</p>
-                        <p><strong>Inter-community:</strong> No</p>
-
-                        <div class="button-group">
-                            <button type="button" class="btn-green">Edit</button>
-                            <button type="button" class="btn-red">Delete</button>
+                    <h2 class="text-center mb-3 text-dark">Scheduled Trips</h2>
+                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                        <!-- Trip card 1 -->
+                        <div class="col">
+                            <article class="card h100 shadow-sm p-4 text-center d-flex flex-column justify-content-between">
+                                <div>
+                                    <img src="../public/images/madrid_getafe.jpg" alt="Getafe" class="card-img-top rounded mb-3" style="height: 150px; object-fit: cover;">
+                                    <h3 class="mb-3">Madrid Central - Getafe</h3>
+                                    <p class="mb-1"><strong>Origin:</strong> Calle de Atocha, 50, Madrid</p>
+                                    <p class="mb-1"><strong>Destination:</strong> Universidad Carlos III, Campus Getafe</p>
+                                    <p class="mb-1"><strong>Date and time:</strong> 15/11/2026 10:00</p>
+                                    <p class="mb-1"><strong>Price:</strong> 5€</p>
+                                    <p class="mb-3"><strong>Inter-community:</strong> No</p>
+                                </div>   
+                                <div class="d-flex justify-content-center gap-2">
+                                    <button type="button" class="btn btn-success px-3">Edit</button>
+                                    <button type="button" class="btn btn-danger px-3">Delete</button>
+                                </div>
+                            </article>
                         </div>
-                    </article>
-                    
-                    <article class="trip-card">
-                        <img src="../public/images/madrid_alcala.jpg" alt="Ciudad de Alcalá de Henares">
-                        <h3>Madrid - Alcalá de Henares</h3>
-                        <p><strong>Origen:</strong> Intercambiador de Plaza de Castilla, Madrid</p>
-                        <p><strong>Destino:</strong> Plaza de Cervantes, Alcalá de Henares</p>
-                        <p><strong>Fecha y hora:</strong> 18/11/2026 16:30</p>
-                        <p><strong>Precio:</strong> 4€</p>
-                        <p><strong>Intercomunitario:</strong> No</p>
-        
-                        <div class="button-group">
-                            <button type="button" class="btn-green">Edit</button>
-                            <button type="button" class="btn-red">Delete</button>
-                        </div>
-                    </article>
 
-                    <article class="trip-card">
-                        <img src="../public/images/madrid_leganes.jpg" alt="Ciudad de Leganés">
-                        <h3>Madrid - Leganés</h3>
-                        <p><strong>Origen:</strong> Paseo de la Esperanza, 12, Madrid</p>
-                        <p><strong>Destino:</strong> C.C. Sambil Outlet, Leganés</p>
-                        <p><strong>Fecha y hora:</strong> 20/11/2026 09:15</p>
-                        <p><strong>Precio:</strong> 4.50€</p>
-                        <p><strong>Intercomunitario:</strong> No</p>
-        
-                        <div class="button-group">
-                            <button type="button" class="btn-green">Edit</button>
-                            <button type="button" class="btn-red">Delete</button>
+                        <!-- Trip card 2 -->
+                        <div class="col">
+                            <article class="card h100 shadow-sm p-4 text-center d-flex flex-column justify-content-between">
+                                <div>
+                                    <img src="../public/images/madrid_alcala.jpg" alt="Ciudad de Alcalá de Henares" class="card-img-top rounded mb-3" style="height: 150px; object-fit: cover;">
+                                    <h3 class="mb-3">Madrid - Alcalá de Henares</h3>
+                                    <p class="mb-1"><strong>Origin:</strong> Intercambiador de Plaza de Castilla, Madrid</p>
+                                    <p class="mb-1"><strong>Destination:</strong> Plaza de Cervantes, Alcalá de Henares</p>
+                                    <p class="mb-1"><strong>Date and time:</strong> 18/11/2026 16:30</p>
+                                    <p class="mb-1"><strong>Price:</strong> 4€</p>
+                                    <p class="mb-3"><strong>Inter-community:</strong> No</p>
+                                </div>
+                                <div class="d-flex justify-content-center gap-2">
+                                    <button type="button" class="btn btn-success">Edit</button>
+                                    <button type="button" class="btn btn-danger">Delete</button>
+                                </div>
+                            </article>
                         </div>
-                    </article>
 
-                    <article class="trip-card">
-                        <img src="../public/images/madrid_toledo.jpg" alt="Ciudad de Toledo">
-                        <h3>Madrid - Toledo</h3>
-                        <p><strong>Origen:</strong> Estación Sur de Autobuses, Méndez Álvaro, Madrid</p>
-                        <p><strong>Destino:</strong> Plaza de Zocodover, Toledo</p>
-                        <p><strong>Fecha y hora:</strong> 18/11/2026 09:00</p>
-                        <p><strong>Precio:</strong> 12€</p>
-                        <p><strong>Intercomunitario:</strong> <span class="badge-intercomunitary">Sí</span></p>
-        
-                        <div class="button-group">
-                            <button type="button" class="btn-green">Edit</button>
-                            <button type="button" class="btn-red">Delete</button>
-                        </div>
-                    </article>
+                        <!-- Trip card 3 -->
+                        <div class="col">
+                            <article class="card h100 shadow-sm p-4 text-center d-flex flex-column justify-content-between">
+                                <div>
+                                    <img src="../public/images/madrid_leganes.jpg" alt="Ciudad de Leganés" class="card-img-top rounded mb-3" style="height: 150px; object-fit: cover;">
+                                    <h3 class="mb-3">Madrid - Leganés</h3>
+                                    <p class="mb-1"><strong>Origin:</strong> Paseo de la Esperanza, 12, Madrid</p>
+                                    <p class="mb-1"><strong>Destination:</strong> C.C. Sambil Outlet, Leganés</p>
+                                    <p class="mb-1"><strong>Date and time:</strong> 20/11/2026 09:15</p>
+                                    <p class="mb-1"><strong>Price:</strong> 4.50€</p>
+                                    <p class="mb-3"><strong>Inter-community:</strong> No</p>
+                                </div>
 
-                    <article class="trip-card">
-                        <img src="../public/images/madrid_segovia.jpg" alt="Ciudad de Segovia">
-                        <h3>Madrid - Segovia</h3>
-                        <p><strong>Origen:</strong> Intercambiador de Moncloa, Madrid</p>
-                        <p><strong>Destino:</strong> Acueducto de Segovia, Segovia</p>
-                        <p><strong>Fecha y hora:</strong> 20/11/2026 08:30</p>
-                        <p><strong>Precio:</strong> 15€</p>
-                        <p><strong>Intercomunitario:</strong> <span class="badge-intercomunitary">Sí</span></p>
-        
-                    <div class="button-group">
-                        <button type="button" class="btn-green">Edit</button>
-                        <button type="button" class="btn-red">Delete</button>
+                                <div class="d-flex justify-content-center gap-2">
+                                    <button type="button" class="btn btn-success">Edit</button>
+                                    <button type="button" class="btn btn-danger">Delete</button>
+                                </div>
+                            </article>
                         </div>
-                    </article>
-                    
-                    <article class="trip-card">
-                        <img src="../public/images/madrid_alcobendas.jpg" alt="Ciudad de Alcobendas">
-                        <h3>Madrid - Alcobendas</h3>
-                        <p><strong>Origen:</strong> Plaza de Castilla, Madrid</p>
-                        <p><strong>Destino:</strong> Parque Comercial La Moraleja, Alcobendas</p>
-                        <p><strong>Fecha y hora:</strong> 22/11/2026 14:00</p>
-                        <p><strong>Precio:</strong> 3.50€</p>
-                        <p><strong>Intercomunitario:</strong> No</p>
-        
-                        <div class="button-group">
-                            <button type="button" class="btn-green">Edit</button>
-                            <button type="button" class="btn-red">Delete</button>
-                        </div>
-                    </article>
 
-                    <article class="trip-card">
-                        <img src="../public/images/madrid_alcorcon.jpg" alt="Ciudad de Alcorcón">
-                        <h3>Madrid - Alcorcón</h3>
-                        <p><strong>Origen:</strong> Príncipe Pío, Madrid</p>
-                        <p><strong>Destino:</strong> Hospital Universitario Fundación Alcorcón</p>
-                        <p><strong>Fecha y hora:</strong> 25/11/2026 08:30</p>
-                        <p><strong>Precio:</strong> 4€</p>
-                        <p><strong>Intercomunitario:</strong> No</p>
-        
-                        <div class="button-group">
-                            <button type="button" class="btn-green">Edit</button>
-                            <button type="button" class="btn-red">Delete</button>
+                        <!-- Trip card 4 -->
+                        <div class="col">
+                            <article class="card h100 shadow-sm p-4 text-center d-flex flex-column justify-content-between">
+                                <img src="../public/images/madrid_toledo.jpg" alt="Ciudad de Toledo" class="card-img-top rounded mb-3" style="height: 150px; object-fit: cover;">
+                                <h3 class="mb-3">Madrid - Toledo</h3>
+                                <p class="mb-1"><strong>Origen:</strong> Estación Sur de Autobuses, Méndez Álvaro, Madrid</p>
+                                <p class="mb-1"><strong>Destino:</strong> Plaza de Zocodover, Toledo</p>
+                                <p class="mb-1"><strong>Fecha y hora:</strong> 18/11/2026 09:00</p>
+                                <p class="mb-1"><strong>Precio:</strong> 12€</p>
+                                <p class="mb-3"><strong>Intercomunitario:</strong> <span class="badge-intercomunitary">Sí</span></p>
+                            
+                                <div class="d-flex justify-content-center gap-2">
+                                    <button type="button" class="btn btn-success">Edit</button>
+                                    <button type="button" class="btn btn-danger">Delete</button>
+                                </div>
+                            </article>
                         </div>
-                    </article>
 
-                    <article class="trip-card">
-                        <img src="../public/images/madrid_pozuelo.jpg" alt="Ciudad de Pozuelo de Alarcón">
-                        <h3>Madrid - Pozuelo</h3>
-                        <p><strong>Origen:</strong> Moncloa, Madrid</p>
-                        <p><strong>Destino:</strong> Avenida de Europa, Pozuelo de Alarcón</p>
-                        <p><strong>Fecha y hora:</strong> 28/11/2026 11:00</p>
-                        <p><strong>Precio:</strong> 3€</p>
-                        <p><strong>Intercomunitario:</strong> No</p>
+                        <!-- Trip card 5 -->
+                        <div class="col">
+                            <article class="card h100 shadow-sm p-4 text-center d-flex flex-column justify-content-between">
+                                <img src="../public/images/madrid_segovia.jpg" alt="Ciudad de Segovia" class="card-img-top rounded mb-3" style="height: 150px; object-fit: cover;">
+                                <h3 class="mb-3">Madrid - Segovia</h3>
+                                <p class="mb-1"><strong>Origen:</strong> Intercambiador de Moncloa, Madrid</p>
+                                <p class="mb-1"><strong>Destino:</strong> Acueducto de Segovia, Segovia</p>
+                                <p class="mb-1"><strong>Fecha y hora:</strong> 20/11/2026 08:30</p>
+                                <p class="mb-1"><strong>Precio:</strong> 15€</p>
+                                <p class="mb-3"><strong>Intercomunitario:</strong> <span class="badge-intercomunitary">Sí</span></p>
 
-                        <div class="button-group">
-                            <button type="button" class="btn-green">Edit</button>
-                            <button type="button" class="btn-red">Delete</button>
+                                <div class="d-flex justify-content-center gap-2">
+                                    <button type="button" class="btn btn-success">Edit</button>
+                                    <button type="button" class="btn btn-danger">Delete</button>
+                                </div>
+                            </article>
                         </div>
-                    </article>
+
+                        <!-- Trip card 6 -->
+                        <div class="col">
+                            <article class="card h100 shadow-sm p-4 text-center d-flex flex-column justify-content-between">
+                                <img src="../public/images/madrid_alcobendas.jpg" alt="Ciudad de Alcobendas" class="card-img-top rounded mb-3" style="height: 150px; object-fit: cover;">
+                                <h3 class="mb-3">Madrid - Alcobendas</h3>
+                                <p class="mb-1"><strong>Origen:</strong> Plaza de Castilla, Madrid</p>
+                                <p class="mb-1"><strong>Destino:</strong> Parque Comercial La Moraleja, Alcobendas</p>
+                                <p class="mb-1"><strong>Fecha y hora:</strong> 22/11/2026 14:00</p>
+                                <p class="mb-1"><strong>Precio:</strong> 3.50€</p>
+                                <p class="mb-3"><strong>Intercomunitario:</strong> No</p>
+
+                                <div class="d-flex justify-content-center gap-2">
+                                    <button type="button" class="btn btn-success">Edit</button>
+                                    <button type="button" class="btn btn-danger">Delete</button>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Trip card 7 -->
+                        <div class="col">
+                            <article class="card h100 shadow-sm p-4 text-center d-flex flex-column justify-content-between">
+                                <img src="../public/images/madrid_alcorcon.jpg" alt="Ciudad de Alcorcón" class="card-img-top rounded mb-3" style="height: 150px; object-fit: cover;">
+                                <h3 class="mb-3">Madrid - Alcorcón</h3>
+                                <p class="mb-1"><strong>Origen:</strong> Príncipe Pío, Madrid</p>
+                                <p class="mb-1"><strong>Destino:</strong> Hospital Universitario Fundación Alcorcón</p>
+                                <p class="mb-1"><strong>Fecha y hora:</strong> 25/11/2026 08:30</p>
+                                <p class="mb-1"><strong>Precio:</strong> 4€</p>
+                                <p class="mb-3"><strong>Intercomunitario:</strong> No</p>
+
+                                <div class="d-flex justify-content-center gap-2">
+                                    <button type="button" class="btn btn-success">Edit</button>
+                                    <button type="button" class="btn btn-danger">Delete</button>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Trip card 8 -->
+                        <div class="col">
+                            <article class="card h100 shadow-sm p-4 text-center d-flex flex-column justify-content-between">
+                                <img src="../public/images/madrid_pozuelo.jpg" alt="Ciudad de Pozuelo de Alarcón" class="card-img-top rounded mb-3" style="height: 150px; object-fit: cover;">
+                                <h3 class="mb-3">Madrid - Pozuelo</h3>
+                                <p class="mb-1"><strong>Origen:</strong> Moncloa, Madrid</p>
+                                <p class="mb-1"><strong>Destino:</strong> Avenida de Europa, Pozuelo de Alarcón</p>
+                                <p class="mb-1"><strong>Fecha y hora:</strong> 28/11/2026 11:00</p>
+                                <p class="mb-1"><strong>Precio:</strong> 3€</p>
+                                <p class="mb-3"><strong>Intercomunitario:</strong> No</p>
+                            
+                                <div class="d-flex justify-content-center gap-2">
+                                    <button type="button" class="btn btn-success">Edit</button>
+                                    <button type="button" class="btn btn-danger">Delete</button>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>
