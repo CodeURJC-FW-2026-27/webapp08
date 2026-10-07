@@ -72,33 +72,6 @@ button {
     transition: 0.3s;
 }
 
-.btn-green {
-    background-color: #28a745;
-    color: white;
-}
-
-button.btn-green:hover {
-    background-color: #218838;
-}
-
-.btn-red {
-    background-color: #dc3545;
-    color: white;
-}
-
-button.btn-red:hover {
-    background-color: #c82333;
-}
-
-.btn-blue {
-    background-color: #0055af;
-    color: white;
-}
-
-button.btn-blue:hover {
-    background-color: #00346c;
-}
-
 .badge-intercomunitary {
     border: 2px solid #0055af;
     background-color: #0055af;
