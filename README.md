@@ -41,7 +41,11 @@ Journeys associated with each driver. On a driver's detail page, a list of the t
 
 ### Images
 Each entity will have an associated image of the driver and the secondary entity will have an associated image of the city.
-  
+
+### Search bar
+
+It consists of a text box in the header that allows the user to enter a text string. It is used to search for the name of the driver whose information we want to know.
+
 ## Documentación Práctica 1
 
 ➡ **Imágenes (Capturas de pantalla)**
@@ -70,3 +74,17 @@ Each entity will have an associated image of the driver and the secondary entity
   - `style.css`
   - `main.html`
   - `detail.html`
+
+➡ **Rodrigo Blázquez Barbacid**
+-Durante esta práctica he sido el responsable de integrar el framework Bootstrap en dos de los tres archivos (main.html y detail.html). He maquetado los elementos estructurales compartidos por los archivos: la cabecera (header), que incluye un menú de navegación y el buscador, y el pie de página (footer). Además, me he encargado de refactorizar el código HTML y CSS del archivo main.html aplicando el Grid System de Bootstrap para estructurar las tarjetas en 1, 2 y 3 columnas según el tamaño de la pantalla.
+- **Commits**:
+  - [Implementación del Grid System en main](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/7c5d04c81e38bb4f9d52a740bed6e3399fa73322)
+  - [Integración de Bootstrap en detail](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/88d639a7a4f621f4a7aee5dbbffff6ffcef5a173)
+  - [Añado un buscador al header](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/10a3e78304f6b2502270386051f5946812e68253)
+  - [Integración de header y footer en main](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/f819103270ef7988d9337c25895a306c3d7c9a3d)
+  - [Integración de header y footer en detail](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/8c776a798bc9bc0602d54446bd0033a9ade9edfa)
+- **Ficheros en los que más he participado:**
+  - `main.html`
+  - `detail.html`
+  - `newdriver.html`
+  
