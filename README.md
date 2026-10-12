@@ -87,4 +87,18 @@ It consists of a text box in the header that allows the user to enter a text str
   - `main.html`
   - `detail.html`
   - `newdriver.html`
+
+
+➡ **Raúl García Piedra**
+-En esta práctica he sido el responsable de la página principal, mostrando las imágenes de todos los conductores, poniendo los títulos y textos de la página, añadiendo las redirecciones a las diferentes páginas, implementar el botón de nuevo elemento además de incluir los iconos y edición en css de todas las clases utilizadas en esta página. También he implementado inicialmente el grid de bootstrap para colocar los elementos correctamente.
+- **Commits**:
+  - [Imagenes de conductores](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/edb5a8bc5a08a68639607b5cda3097891b30b629)
+  - [Continuacion de cada conductor](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/f3ce89f90495d551747276aa2cadaeedf7e7221c)
+  - [Correcion tamaños imagenes](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/726bd55e4c4b58b1ae305f0a30403d72386811fa)
+  - [Redirecciones y adaptacion bootstrap](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/43d04001664e625e6af1c35be69b1b67006f0f1d)
+  - [Informacion conductores](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/098c3e4fbe6985a220f7696d4d2f31bfa2290bef)
+- **Ficheros en los que más he participado:**
+  - `main.html`
+  - `style.css`
+  
   
