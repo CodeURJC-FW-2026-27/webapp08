@@ -55,24 +55,24 @@ It consists on a button that filter the drivers that can be seen on the page dep
 
 ➡ **Imágenes (Capturas de pantalla)**
   - Página Principal (Grid de conductores)
-  ![main 1](main_1.1.png)
-  ![main 2](main_1.2.png)
-  ![main 3](main_1.3.png)
-  ![main 4](main_1.4.png)
+  ![main 1](public/images_web/main_1.1.png)
+  ![main 2](public/images_web/main_1.2.png)
+  ![main 3](public/images_web/main_1.3.png)
+  ![main 4](public/images_web/main_1.4.png)
 
   - Página de Detalle (Información del conductor y sus viajes)
-  ![detail 1](detail_1.1.png)
-  ![detail 1](detail_1.2.png)
-  ![detail 1](detail_1.3.png)
-  ![detail 1](detail_1.4.png)
-  ![detail 1](detail_1.5.png)
-  ![detail 1](detail_1.6.png)
-  ![detail 1](detail_1.7.png)
+  ![detail 1](public/images_web/detail_1.1.png)
+  ![detail 1](public/images_web/detail_1.2.png)
+  ![detail 1](public/images_web/detail_1.3.png)
+  ![detail 1](public/images_web/detail_1.4.png)
+  ![detail 1](public/images_web/detail_1.5.png)
+  ![detail 1](public/images_web/detail_1.6.png)
+  ![detail 1](public/images_web/detail_1.7.png)
 
   - Página de Nuevo Elemento (Formulario de alta de conductor)
-  ![new_driver 1](new_driver_1.1)
-  ![new_driver 1](new_driver_1.2)
-  ![new_driver 1](new_driver_1.3)
+  ![new_driver 1](public/images_web/new_driver_1.1)
+  ![new_driver 1](public/images_web/new_driver_1.2)
+  ![new_driver 1](public/images_web/new_driver_1.3)
   
 
   
