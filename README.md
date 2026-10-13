@@ -23,8 +23,8 @@ Our idea is to have a page where drivers can sign up and display their public in
 - **ID** (ID)
 - **Full Name** (name)
 - **Autonomous comunity** (com)
-- **Vehículo** (vehicle)
-- **Puntuación** (rating) (1-5) 
+- **Vehicle** (vehicle)
+- **Rating** (rating) (1-5) 
 - **Experience** (exp)
 - **Availability** (available) (boolean)
 - **Available Spots** (spots)
@@ -100,5 +100,18 @@ It consists of a text box in the header that allows the user to enter a text str
 - **Ficheros en los que más he participado:**
   - `main.html`
   - `style.css`
-  
+
+➡ **Daniel Villalón Muñoz**
+-For this project, I was responsible for designing and developing the responsive web interface for the "CarMe" driver information system. My work included structuring the main driver profile section to clearly display key user details and creating a dynamic gallery to showcase scheduled trips. Additionally, I designed specific visual indicators to differentiate between local and intercommunity routes, and built a standardized form that allows users to easily register new trips on the platform.
+- **Commits**:
+  -[Start of deatil page](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/cec3ae92086c3379c4d5941edde041f29cf500d2)
+  -[Tripsarea created using Format](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/9b311aa2d7f0712092554ceb7188a3e188f598a4)
+  -[bootstrap responsive](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/e92495f7ccfe3795e7a998310dd00424fc7af022)
+  -[form on detail page](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/59e53cc2ea35e7012eede31b3406dc5e1cb1eb28)
+  -[driver info](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/d3d4d469bb6b20c5e7f8571ae8427e26da028ce3)
+-**Files I have worked on:**
+  -[1. detail.html](https://github.com/CodeURJC-FW-2026-27/webapp08/blob/main/views/detail.html)
+  -[2. style.css](https://github.com/CodeURJC-FW-2026-27/webapp08/blob/main/public/style.css)
+  -[3. newdriver.html](https://github.com/CodeURJC-FW-2026-27/webapp08/blob/main/views/newdriver.html)
+  -[4. main.html](https://github.com/CodeURJC-FW-2026-27/webapp08/blob/main/views/main.html)
   
