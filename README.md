@@ -28,6 +28,7 @@ Our idea is to have a page where drivers can sign up and display their public in
 - **Experience** (exp)
 - **Availability** (available) (boolean)
 - **Available Spots** (spots)
+
   
 #### Secondary entity: Journey
 Journeys associated with each driver. On a driver's detail page, a list of the trips they offer will be displayed.
@@ -46,6 +47,10 @@ Each entity will have an associated image of the driver and the secondary entity
 
 It consists of a text box in the header that allows the user to enter a text string. It is used to search for the name of the driver whose information we want to know.
 
+### Filter
+
+It consists on a button that filter the drivers that can be seen on the page depending on the category selected.
+
 ## Documentación Práctica 1
 
 ➡ **Imágenes (Capturas de pantalla)**
@@ -62,7 +67,7 @@ It consists of a text box in the header that allows the user to enter a text str
 
 
 ➡ **Raúl Martín Sánchez**
--Mi contribución principal se centró en el desarrollo frontend del módulo de creación de registros **(newdriver.html)**. Diseñé e implementé la interfaz de usuario para la captura de datos, estructurando los componentes del formulario. Además, asumí un rol clave en la arquitectura de estilos del proyecto, unificando y refactorizando los archivos CSS para garantizar un sistema de diseño escalable y una identidad visual coherente en toda la aplicación
+-My primary contribution focused on the frontend development of the record creation module **(newdriver.html)**. I designed and implemented the user interface for data entry, structuring the form components. Additionally, I played a key role in the project's styling architecture, consolidating and refactoring CSS files to ensure a scalable design system and a consistent visual identity across the application.
 - **Commits**:
   - [Crecion del formulario](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/7248a866844ed6f7f23d245aed284dc079725407)
   - [Cambios en los tipos de input](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/7248a866844ed6f7f23d245aed284dc079725407)
@@ -76,7 +81,7 @@ It consists of a text box in the header that allows the user to enter a text str
   - `detail.html`
 
 ➡ **Rodrigo Blázquez Barbacid**
--Durante esta práctica he sido el responsable de integrar el framework Bootstrap en dos de los tres archivos (main.html y detail.html). He maquetado los elementos estructurales compartidos por los archivos: la cabecera (header), que incluye un menú de navegación y el buscador, y el pie de página (footer). Además, me he encargado de refactorizar el código HTML y CSS del archivo main.html aplicando el Grid System de Bootstrap para estructurar las tarjetas en 1, 2 y 3 columnas según el tamaño de la pantalla.
+-During this project, I was responsible for integrating the Bootstrap framework into two of the three files (main.html and detail.html). I laid out the structural elements shared by the files: the header—which includes a navigation menu and a search bar—and the footer. Additionally, I refactored the HTML and CSS for main.html, applying Bootstrap's Grid System to arrange the cards into 1, 2, or 3 columns depending on the screen size.
 - **Commits**:
   - [Implementación del Grid System en main](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/7c5d04c81e38bb4f9d52a740bed6e3399fa73322)
   - [Integración de Bootstrap en detail](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/88d639a7a4f621f4a7aee5dbbffff6ffcef5a173)
@@ -90,7 +95,7 @@ It consists of a text box in the header that allows the user to enter a text str
 
 
 ➡ **Raúl García Piedra**
--En esta práctica he sido el responsable de la página principal, mostrando las imágenes de todos los conductores, poniendo los títulos y textos de la página, añadiendo las redirecciones a las diferentes páginas, implementar el botón de nuevo elemento además de incluir los iconos y edición en css de todas las clases utilizadas en esta página. También he implementado inicialmente el grid de bootstrap para colocar los elementos correctamente.
+-For this project, I was responsible for the main page: displaying images of all the drivers, adding page titles and text, setting up redirects to the various other pages, implementing the "new item" button, and handling the icons and CSS styling for all classes used on the page. I also set up the initial Bootstrap grid to ensure the elements were positioned correctly.
 - **Commits**:
   - [Imagenes de conductores](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/edb5a8bc5a08a68639607b5cda3097891b30b629)
   - [Continuacion de cada conductor](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/f3ce89f90495d551747276aa2cadaeedf7e7221c)
