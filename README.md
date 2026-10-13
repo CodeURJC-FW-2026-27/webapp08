@@ -74,7 +74,7 @@ It consists on a button that filter the drivers that can be seen on the page dep
   - [Aportacion de contenido para el estilo](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/41c898c8f43bc2469c9841cbe78a57e05b351aab)
   - [Mas aportaciones de estilo](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/75b5b8321d3e67c863ab825615ce4bbb588350f5)
   - [Creacion de los ficheros html y css y orden en carpetas](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/1321e602601eaa13c07bab5a001c24f0d506056f)
-- **Ficheros en los que más he participado:**
+- **Files I have worked on:**
   - `nuevo_conductor.html`
   - `style.css`
   - `main.html`
@@ -88,7 +88,7 @@ It consists on a button that filter the drivers that can be seen on the page dep
   - [Añado un buscador al header](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/10a3e78304f6b2502270386051f5946812e68253)
   - [Integración de header y footer en main](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/f819103270ef7988d9337c25895a306c3d7c9a3d)
   - [Integración de header y footer en detail](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/8c776a798bc9bc0602d54446bd0033a9ade9edfa)
-- **Ficheros en los que más he participado:**
+- **Files I have worked on:**
   - `main.html`
   - `detail.html`
   - `newdriver.html`
@@ -102,7 +102,7 @@ It consists on a button that filter the drivers that can be seen on the page dep
   - [Correcion tamaños imagenes](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/726bd55e4c4b58b1ae305f0a30403d72386811fa)
   - [Redirecciones y adaptacion bootstrap](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/43d04001664e625e6af1c35be69b1b67006f0f1d)
   - [Informacion conductores](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/098c3e4fbe6985a220f7696d4d2f31bfa2290bef)
-- **Ficheros en los que más he participado:**
+- **Files I have worked on:**
   - `main.html`
   - `style.css`
 
