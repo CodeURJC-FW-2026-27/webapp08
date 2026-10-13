@@ -70,9 +70,9 @@ It consists on a button that filter the drivers that can be seen on the page dep
   ![detail 1](public/images_web/detail_1.7.png)
 
   - Página de Nuevo Elemento (Formulario de alta de conductor)
-  ![new_driver 1](public/images_web/new_driver_1.1)
-  ![new_driver 1](public/images_web/new_driver_1.2)
-  ![new_driver 1](public/images_web/new_driver_1.3)
+  ![new_driver 1](public/images_web/new_driver_1.1.png)
+  ![new_driver 1](public/images_web/new_driver_1.2.png)
+  ![new_driver 1](public/images_web/new_driver_1.3.png)
   
 
   
