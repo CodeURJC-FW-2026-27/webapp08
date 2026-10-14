@@ -53,14 +53,14 @@ It consists on a button that filter the drivers that can be seen on the page dep
 
 ## Documentación Práctica 1
 
-➡ **Imágenes (Capturas de pantalla)**
-  - Página Principal (Grid de conductores)
+➡ **Images (Screenshots)**
+  -  Main Page (Driver grid)
   ![main 1](public/images_web/main_1.1.png)
   ![main 2](public/images_web/main_1.2.png)
   ![main 3](public/images_web/main_1.3.png)
   ![main 4](public/images_web/main_1.4.png)
 
-  - Página de Detalle (Información del conductor y sus viajes)
+  - Details Page (Driver and trip information)
   ![detail 1](public/images_web/detail_1.1.png)
   ![detail 1](public/images_web/detail_1.2.png)
   ![detail 1](public/images_web/detail_1.3.png)
@@ -69,7 +69,7 @@ It consists on a button that filter the drivers that can be seen on the page dep
   ![detail 1](public/images_web/detail_1.6.png)
   ![detail 1](public/images_web/detail_1.7.png)
 
-  - Página de Nuevo Elemento (Formulario de alta de conductor)
+  - New Item Page (Driver Registration Form)
   ![new_driver 1](public/images_web/new_driver_1.1.png)
   ![new_driver 1](public/images_web/new_driver_1.2.png)
   ![new_driver 1](public/images_web/new_driver_1.3.png)
@@ -81,11 +81,11 @@ It consists on a button that filter the drivers that can be seen on the page dep
 ➡ **Raúl Martín Sánchez**
 -My primary contribution focused on the frontend development of the record creation module **(newdriver.html)**. I designed and implemented the user interface for data entry, structuring the form components. Additionally, I played a key role in the project's styling architecture, consolidating and refactoring CSS files to ensure a scalable design system and a consistent visual identity across the application.
 - **Commits**:
-  - [Crecion del formulario](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/7248a866844ed6f7f23d245aed284dc079725407)
-  - [Cambios en los tipos de input](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/7248a866844ed6f7f23d245aed284dc079725407)
-  - [Aportacion de contenido para el estilo](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/41c898c8f43bc2469c9841cbe78a57e05b351aab)
-  - [Mas aportaciones de estilo](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/75b5b8321d3e67c863ab825615ce4bbb588350f5)
-  - [Creacion de los ficheros html y css y orden en carpetas](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/1321e602601eaa13c07bab5a001c24f0d506056f)
+  - [Creation of the form](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/7248a866844ed6f7f23d245aed284dc079725407)
+  - [Changes in input types](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/7248a866844ed6f7f23d245aed284dc079725407)
+  - [Content contribution for the style](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/41c898c8f43bc2469c9841cbe78a57e05b351aab)
+  - [More style contributions](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/75b5b8321d3e67c863ab825615ce4bbb588350f5)
+  - [Creation of HTML and CSS files and organization into folders](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/1321e602601eaa13c07bab5a001c24f0d506056f)
 - **Files I have worked on:**
   - `nuevo_conductor.html`
   - `style.css`
@@ -95,11 +95,11 @@ It consists on a button that filter the drivers that can be seen on the page dep
 ➡ **Rodrigo Blázquez Barbacid**
 -During this project, I was responsible for integrating the Bootstrap framework into two of the three files (main.html and detail.html). I laid out the structural elements shared by the files: the header—which includes a navigation menu and a search bar—and the footer. Additionally, I refactored the HTML and CSS for main.html, applying Bootstrap's Grid System to arrange the cards into 1, 2, or 3 columns depending on the screen size.
 - **Commits**:
-  - [Implementación del Grid System en main](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/7c5d04c81e38bb4f9d52a740bed6e3399fa73322)
-  - [Integración de Bootstrap en detail](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/88d639a7a4f621f4a7aee5dbbffff6ffcef5a173)
-  - [Añado un buscador al header](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/10a3e78304f6b2502270386051f5946812e68253)
-  - [Integración de header y footer en main](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/f819103270ef7988d9337c25895a306c3d7c9a3d)
-  - [Integración de header y footer en detail](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/8c776a798bc9bc0602d54446bd0033a9ade9edfa)
+  - [Implementation of the Grid System in main](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/7c5d04c81e38bb4f9d52a740bed6e3399fa73322)
+  - [Bootstrap integration in detai](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/88d639a7a4f621f4a7aee5dbbffff6ffcef5a173)
+  - [Adding a search bar to the header](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/10a3e78304f6b2502270386051f5946812e68253)
+  - [Integration of header and footer into main](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/f819103270ef7988d9337c25895a306c3d7c9a3d)
+  - [Integration of header and footer into detail](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/8c776a798bc9bc0602d54446bd0033a9ade9edfa)
 - **Files I have worked on:**
   - `main.html`
   - `detail.html`
@@ -109,11 +109,11 @@ It consists on a button that filter the drivers that can be seen on the page dep
 ➡ **Raúl García Piedra**
 -For this project, I was responsible for the main page: displaying images of all the drivers, adding page titles and text, setting up redirects to the various other pages, implementing the "new item" button, and handling the icons and CSS styling for all classes used on the page. I also set up the initial Bootstrap grid to ensure the elements were positioned correctly.
 - **Commits**:
-  - [Imagenes de conductores](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/edb5a8bc5a08a68639607b5cda3097891b30b629)
-  - [Continuacion de cada conductor](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/f3ce89f90495d551747276aa2cadaeedf7e7221c)
-  - [Correcion tamaños imagenes](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/726bd55e4c4b58b1ae305f0a30403d72386811fa)
-  - [Redirecciones y adaptacion bootstrap](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/43d04001664e625e6af1c35be69b1b67006f0f1d)
-  - [Informacion conductores](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/098c3e4fbe6985a220f7696d4d2f31bfa2290bef)
+  - [Images of drivers](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/edb5a8bc5a08a68639607b5cda3097891b30b629)
+  - [Continuation of each conductor](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/f3ce89f90495d551747276aa2cadaeedf7e7221c)
+  - [Image size correction](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/726bd55e4c4b58b1ae305f0a30403d72386811fa)
+  - [Redirects and Bootstrap adaptation](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/43d04001664e625e6af1c35be69b1b67006f0f1d)
+  - [Driver information](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/098c3e4fbe6985a220f7696d4d2f31bfa2290bef)
 - **Files I have worked on:**
   - `main.html`
   - `style.css`
