@@ -4,7 +4,7 @@
 **Proyecto 2026 – 2027**
 
 ## Development Team
-| Nombre                           | Email                                          | Github Username                         |
+| Name                           | Email                                          | Github Username                         |
 |----------------------------------|------------------------------------------------|-----------------------------------------|
 | **Raúl Martín Sánchez**          | [r.martinsa.2024@alumnos.urjc.es](mailto:r.martinsa.2024@alumnos.urjc.es) | [@raulmrtnsa](https://github.com/raulmrtnsa) |
 | **Rodrigo Blazquez Barbacid** | [r.blazquez.2024@alumnos.urjc.es](mailto:r.blazquez.2024@alumnos.urjc.es) | [@RodrigoBlazquez](https://github.com/RodrigoBlazquez)   |
