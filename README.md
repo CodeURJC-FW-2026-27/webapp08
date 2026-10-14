@@ -51,7 +51,7 @@ It consists of a text box in the header that allows the user to enter a text str
 
 It consists on a button that filter the drivers that can be seen on the page depending on the category selected.
 
-## Documentación Práctica 1
+## Assignment 1 Documentation
 
 ➡ **Images (Screenshots)**
   -  Main Page (Driver grid)
