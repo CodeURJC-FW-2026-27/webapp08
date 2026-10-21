@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "express": "^5.3.0",
+    "multer": "^2.4.0"
+  },
+  "name": "webapp08",
+  "version": "1.0.0",
+  "description": "**Fundamentos de la Web**  \r **2º - Grado en Ingeniería del Software**  \r **Proyecto 2026 – 2027**",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodeURJC-FW-2026-27/webapp08.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/CodeURJC-FW-2026-27/webapp08/issues"
+  },
+  "homepage": "https://github.com/CodeURJC-FW-2026-27/webapp08#readme"
+}
