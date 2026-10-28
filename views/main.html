@@ -29,8 +29,9 @@
                 <a href="main.html" class="text-decoration-none"><h1 class="m-0 text-warning fw-bold">CarMe</h1></a>
             </div>
             <div class="col-auto mb-2 mb-md-0">
-                <form class="d-flex" role="search">
-                    <input class="form-control" type="search" placeholder="Buscar conductor..." aria-label="Buscar">
+                <form class="d-flex" role="search" action="/api/drivers/main" method="GET">
+                    <input class="form-control" type="search" name="search" placeholder="Buscar conductor..." aria-label="Buscar">
+                    <button class="btn btn-outline-success ms-2" type="submit">Buscar</button>
                 </form>
             </div>
         </div>
@@ -183,7 +184,14 @@
                 </div>
 
             </div>
+            
+<div class="row justify-content-end mb-4">
+    <div class="col-auto">
+        <a class="btn btn-primary" href="newdriver.html">Añadir conductor <i class="bi bi-bookmark-plus"></i></a>
+    </div>
+</div>
 
+<div class="row g-4" id="drivers-container"></div>
 
 
 

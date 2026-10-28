@@ -1,5 +1,24 @@
 import express from 'express';
 import multer from 'multer';
+import driverRoutes from './router.js'; 
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+//Initialize express app
+const app = express();
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json()); 
+
+app.use('/public', express.static(path.join(__dirname, '../public')));
+
+app.use('/api/drivers', driverRoutes);
+
+app.listen(3000, () => {
+    console.log('Server is running on http://localhost:3000/api/drivers/main');
+});
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -12,8 +31,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-//Initialize express app
-const app = express();
+
 
 function validateDriverData(body, file) {
     // Full validation logic 
