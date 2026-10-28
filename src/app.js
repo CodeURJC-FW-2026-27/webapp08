@@ -3,12 +3,18 @@ import multer from 'multer';
 import driverRoutes from './router.js'; 
 import path from 'path';
 import { fileURLToPath } from 'url';
+import mustacheExpress from 'mustache-express';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 //Initialize express app
 const app = express();
+
+app.engine('html', mustacheExpress());
+app.set('view engine', 'html');
+app.set('views', path.join(__dirname, 'views'));
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json()); 
 
@@ -104,6 +110,11 @@ app.post('/newdriver', upload.single('image'), (req, res) => {
     console.log("New driver created:", newDriver);
 
     res.status(200).send('Driver created successfully');
+});
+
+//ruta temporal para probar mustache
+app.get('/test-mustache', (req, res) => {
+    res.render('prueba', { nombre: 'CarMe' }); 
 });
 
 app.listen(3000, () => {
