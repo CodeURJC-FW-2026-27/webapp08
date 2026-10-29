@@ -1,29 +1,13 @@
 {
-  "dependencies": {
-    "express": "^5.3.0",
-    "mongodb": "^7.7.0",
-    "multer": "^2.4.0",
-    "mustache-express": "^1.3.2"
-  },
-  "name": "webapp08",
+  "name": "web-ejem2",
   "version": "1.0.0",
-  "description": "**Fundamentos de la Web**  \r **2º - Grado en Ingeniería del Software**  \r **Proyecto 2026 – 2027**",
-  "main": "src/app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/app.js",
-    "watch": "node --watch src/app.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/CodeURJC-FW-2026-27/webapp08.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "type": "module",
-  "bugs": {
-    "url": "https://github.com/CodeURJC-FW-2026-27/webapp08/issues"
+  "scripts": {
+    "start": "node src/app.js",
+    "watch": "npx  nodemon -e js,html,css src/app.js"
   },
-  "homepage": "https://github.com/CodeURJC-FW-2026-27/webapp08#readme"
+  "dependencies": {
+    "express": "5.1.0",
+    "mustache-express": "1.3.2"
+  }
 }
