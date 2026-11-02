@@ -27,7 +27,7 @@ MongoClient.connect(url, function(err, client) {
         console.error("Error conectando a MongoDB:", err);
         return;
     }
-    console.log("Conectado con éxito a la base de datos");
+    console.log("Conectado con éxito a MongoDB");
     
     const db = client.db(dbName);
     app.locals.db = db;
@@ -53,5 +53,5 @@ MongoClient.connect(url, function(err, client) {
 
     app.use('/', router);
 
-    app.listen(3000, () => console.log('Web ready in http://localhost:3000/'));
+    app.listen(3000, () => console.log('Web ready in http://localhost:3000/ 🦹‍♂️​'));
 });
