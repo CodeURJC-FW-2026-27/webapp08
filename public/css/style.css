@@ -252,3 +252,23 @@ body, html {
     text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
 }
 
+/* Color base (sin pulsar / inactivo) */
+.custom-pagination .page-link {
+    background-color: #ffc107; /* Amarillo/naranja de la imagen */
+    color: #212529; /* Texto oscuro para asegurar la legibilidad */
+    border-color: #e0a800;
+}
+
+/* Color al pasar el ratón por encima (hover) */
+.custom-pagination .page-link:hover {
+    background-color: #e0a800; /* Un tono más oscuro */
+    color: #212529;
+    border-color: #d39e00;
+}
+
+/* Color de la página actual (activa) */
+.custom-pagination .page-item.active .page-link {
+    background-color: #d39e00; /* Tono aún más oscuro para indicar dónde estás */
+    color: #ffffff; /* Texto blanco para contrastar con el fondo oscuro */
+    border-color: #c69500;
+}

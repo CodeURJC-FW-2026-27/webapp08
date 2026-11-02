@@ -3,145 +3,60 @@ import express from 'express';
 const router = express.Router();
 export default router;
 
-
-const drivers = [
-    {id: 12345,
-    nombre: "Ana López",
-    comunidad: "Madrid",
-    vehiculo: "XL",
-    puntuacion: 4.5,
-    experiencia: 3,
-    disponibilidad: true,
-    plazasDisponibles: 3,
-    imagen: "/images/ana_lopez.jpg"},
-
-
-
-    {id: 12346,
-    nombre: "Antonio Sanchez",
-    comunidad: "Madrid",
-    vehiculo: "Eco",
-    puntuacion: 3,
-    experiencia: 3,
-    disponibilidad: true,
-    plazasDisponibles: 4,
-    imagen: "/images/Antonio_sanchez.jpg"},
-    
-
-    {id: 12348,
-    nombre: "Carlos Vicente",
-    comunidad: "Madrid",
-    vehiculo: "Normal",
-    puntuacion: 3.5,
-    experiencia: 3,
-    disponibilidad: true,
-    plazasDisponibles: 3,
-    imagen: "/images/carlos_vicente.jpg"},
-
-
-
-
-    {id: 12356,
-    nombre: "Alejandro Aparisi",
-    comunidad: "Madrid",
-    vehiculo: "Luxury",
-    puntuacion: 4.5,
-    experiencia: 3,
-    disponibilidad: true,
-    plazasDisponibles: 2,
-    imagen: "/images/Alejandro_aparisi.avif"},
-
-    {id: 15347,
-    nombre: "Faustino Blazquez",
-    comunidad: "Madrid",
-    vehiculo: "XL",
-    puntuacion: 4,
-    experiencia: 3,
-    disponibilidad: false,
-    plazasDisponibles: 3,
-    imagen: "/images/Faustino_blazquez.jpg"},
-
-    {id: 43246,
-    nombre: "Fernando Redondo",
-    comunidad: "Madrid",
-    vehiculo: "XL",
-    puntuacion: 3.5,
-    experiencia: 3,
-    disponibilidad: true,
-    plazasDisponibles: 5,
-    imagen: "/images/Fernando_redondo.jpg"},
-    
-
-    {id: 74693,
-    nombre: "Makelelé Villalon",
-    comunidad: "Madrid",
-    vehiculo: "Eco",
-    puntuacion: 1.5,
-    experiencia: 3,
-    disponibilidad: true,
-    plazasDisponibles: 3,
-    imagen: "/images/Makelele_villalon.png"},
-    
-
-    {id: 43685,
-    nombre: "Apu Cherkvasky",
-    comunidad: "Madrid",
-    vehiculo: "Luxury",
-    puntuacion: 5,
-    experiencia: 3,
-    disponibilidad: false,
-    plazasDisponibles: 4,
-    imagen: "/images/Apu_Cherkvasky.jpg"},
-    
-
-    {id: 42167,
-    nombre: "Pepe Barbacid",
-    comunidad: "Madrid",
-    vehiculo: "Normal",
-    puntuacion: 4.5,
-    experiencia: 3,
-    disponibilidad: true,
-    plazasDisponibles: 2,
-    imagen: "/images/Pepe_barbacid.jpg"}
-
-];
-
-
-
 router.get('/', (req, res) => {
+    const db = req.app.locals.db;
+    const driversCollection = db.collection('drivers');
 
     const tipo = req.query.tipo;
-    let filtro = drivers;
-
-    if (tipo){
-        filtro = drivers.filter(drivers => drivers.vehiculo === tipo)
+    let query = {};
+    if (tipo) {
+        query = { vehiculo: tipo };
     }
-        
-    res.render('main', {
-        filtro
-        
-    });
 
+    // Lógica de Paginación
+    const limit = 6; // 6 elementos por página según enunciado
+    const page = parseInt(req.query.page) || 1; // Página actual, por defecto 1
+    const skip = (page - 1) * limit;
+
+    // Primero contamos el total de documentos para saber cuántas páginas hay
+    driversCollection.countDocuments(query, function(err, totalDocs) {
+        if (err) return res.status(500).send("Error al contar documentos");
+
+        const totalPages = Math.ceil(totalDocs / limit);
+
+        // Segundo, buscamos los documentos con limit y skip
+        driversCollection.find(query).skip(skip).limit(limit).toArray(function(err, docs) {
+            if (err) return res.status(500).send("Error al buscar documentos");
+
+            // Preparar las variables para Mustache
+            const prevPage = page > 1 ? page - 1 : null;
+            const nextPage = page < totalPages ? page + 1 : null;
+            
+            // Generar array de páginas para renderizar los números de abajo (1, 2, [3], 4...)
+            let pagesArray = [];
+            for (let i = 1; i <= totalPages; i++) {
+                pagesArray.push({
+                    pageNumber: i,
+                    isCurrent: i === page,
+                    tipo: tipo // Se pasa el tipo para no perder el filtro al cambiar de página
+                });
+            }
+
+            res.render('main', {
+                filtro: docs,
+                prevPage: prevPage,
+                nextPage: nextPage,
+                pages: pagesArray,
+                tipo: tipo
+            });
+        });
+    });
 });
 
-
-
-
 router.get('/newdriver', (req, res) => {
-    
-    res.render('newdriver', {
-        
-    });
-
+    res.render('newdriver', {});
 });
 
 router.get('/detail', (req, res) => {
-    
-    res.render('detail', {
-        
-    });
-
+    res.render('detail', {});
 });
-
-
-
