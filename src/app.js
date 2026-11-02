@@ -16,7 +16,6 @@ app.set('views', './views');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Leer los archivos JSON actualizados
 const driversData = JSON.parse(fs.readFileSync('./data/drivers.json', 'utf8'));
 const tripsData = JSON.parse(fs.readFileSync('./data/trips.json', 'utf8'));
 
@@ -36,7 +35,6 @@ MongoClient.connect(url, function(err, client) {
     const driversCollection = db.collection('drivers');
     const tripsCollection = db.collection('trips');
 
-    // BORRAR los datos antiguos y REINSERTAR los nuevos
     driversCollection.deleteMany({}, function(err) {
         if (err) console.error("Error borrando drivers:", err);
         driversCollection.insertMany(driversData, function(err, result) {
