@@ -1,7 +1,10 @@
 import express from 'express';
+import multer from 'multer';
 
 const router = express.Router();
 export default router;
+
+const upload = multer({ dest: 'uploads/' });
 
 router.get('/', (req, res) => {
     const db = req.app.locals.db;
@@ -54,4 +57,28 @@ router.get('/newdriver', (req, res) => {
 
 router.get('/detail', (req, res) => {
     res.render('detail', {});
+});
+
+router.post('/newdriver', upload.single('image'), async (req, res) => {
+    const db = req.app.locals.db;
+    const driversCollection = db.collection('drivers');
+
+    const newDriver = {
+        name: req.body.DriverName,
+        community: req.body.AutonomousComunity,
+        vehicle: req.body.Cartype,
+        puntuation: parseFloat(req.body.Punctuation) || 0,
+        experience: parseInt(req.body.Experience) || 0,
+        availabeSpots: parseInt(req.body.AvailableSpots) || 1,
+        availability: req.body.Availability === 'on',
+        imageFileName: req.file ? req.file.filename : null
+    };
+
+    try {
+        await driversCollection.insertOne(newDriver);
+        res.redirect('/');
+    } catch (error) {
+        console.error("Error inserting the new driver:", error);
+        res.status(500).send("Error while inserting the new driver on the database");
+    }
 });
