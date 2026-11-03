@@ -10,12 +10,17 @@ router.get('/', (req, res) => {
     const db = req.app.locals.db;
     const driversCollection = db.collection('drivers');
 
+
     const tipo = req.query.tipo;
+    const search = req.query.search;
     let query = {};
     if (tipo) {
-        query = { vehiculo: tipo };
+        query.vehiculo = tipo;
     }
 
+    if (search) {
+        query.nombre = { $regex: search, $options: 'i' };
+    }
     const limit = 6; 
     const page = parseInt(req.query.page) || 1; 
     const skip = (page - 1) * limit;
