@@ -1,0 +1,25 @@
+<header class="container-fluid bg-dark sticky-top">
+        <div class="row align-items-center">
+            <div class="col-auto">
+                <div class="dropdown mb-3">
+                    <button class="btn button btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">Tipo de vehículo</button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/?tipo=Normal">Normal</a></li>
+                        <li><a class="dropdown-item" href="/?tipo=XL">XL</a></li>
+                        <li><a class="dropdown-item" href="/?tipo=Eco">Eco</a></li>
+                        <li><a class="dropdown-item" href="/?tipo=Luxury">Luxury</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col text-center">
+                <a href="/" class="text-decoration-none"><h1 class="m-0 text-warning fw-bold">CarMe</h1></a>
+            </div>
+            <div class="col-auto mb-2 mb-md-0">
+                <form class="d-flex" role="search" action="/" method="GET">
+                    <input class="form-control" type="search" name="search" placeholder="Buscar conductor..." aria-label="Buscar" value="{{search}}">
+                    <button class="btn btn-outline-success ms-2" type="submit">Buscar</button>
+                </form>
+            </div>
+        </div>
+    </header>

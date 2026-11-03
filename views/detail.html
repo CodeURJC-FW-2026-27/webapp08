@@ -9,31 +9,9 @@
         <link rel="stylesheet" href="/css/style.css">
     </head>
     <body>
-        <header class="container-fluid bg-dark sticky-top">
-            <div class="row align-items-center">
+        
+        {{> header}}
 
-                <div class="col-auto">
-                    <div class="dropdown mb-3">
-                        <button class="btn button btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">Tipo de vehículo</button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item">Normal</a></li>
-                            <li><a class="dropdown-item">XL</a></li>
-                            <li><a class="dropdown-item">Eco</a></li>
-                            <li><a class="dropdown-item">Luxury</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col text-center">
-                    <a href="/" class="text-decoration-none"><h1 class="m-0 text-warning fw-bold">CarMe</h1></a>
-                </div>
-                <div class="col-auto mb-2 mb-md-0">
-                    <form class="d-flex" role="search">
-                        <input class="form-control" type="search" placeholder="Buscar conductor..." aria-label="Buscar">
-                    </form>
-                </div>
-            </div>
-        </header>
         <main>
             <div class="py-5" style="min-height: 100vh;">
                 <div class="container">
@@ -257,36 +235,8 @@
                 </div>
             </div>
         </main>
-        <footer class="container-fluid bg-dark text-white py-5 mt-5">
-            <div class="row text-center text-md-start">
-                
-                <div class="col-12 col-md-3 mb-4">
-                    <h3 class="fw-bold px-5">CarMe</h3>
-                    <p class="px-4">
-                        <img src="/images/icono-facebook.png" class="me-3">
-                        <img src="/images/icono-twitter.png" class="me-3">
-                        <img src="/images/icono-instagram.png">
-                    </p>
-                </div>
-
-                <div class="col-12 col-md-3 mb-4">
-                    <h6 class="text-warning">LLÁMANOS GRATIS</h6>
-                    <p class="fs-5 fw-bold">+34 636 654 321</p>
-                </div>
-
-                <div class="col-12 col-md-3 mb-4">
-                    <h6 class="text-warning">CONSÚLTANOS</h6>
-                    <p><img src="/images/icono-whatsapp.png"> Iniciar chat</p>
-                </div>
-
-                <div class="col-12 col-md-3 mb-4">
-                    <h6 class="text-warning">ESCRÍBENOS</h6>
-                    <p>soporte@carme.com</p>
-                </div>
-
-            </div>
-            <p class="text-center">© 2026 CarMe - Derechos reservados</p>
-        </footer>
+        
+        {{> footer}}
         
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     </body>
