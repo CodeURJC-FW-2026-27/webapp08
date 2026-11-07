@@ -8,6 +8,8 @@
     "plazasDisponibles": 3,
     "disponibilidad": true,
     "imagen": "/images/Alejandro_aparisi.avif"
+
+
   },
   {
     "nombre": "Ana López",
@@ -17,7 +19,91 @@
     "experiencia": 3,
     "plazasDisponibles": 5,
     "disponibilidad": true,
-    "imagen": "/images/ana_lopez.jpg"
+    "imagen": "/images/ana_lopez.jpg",
+    "viajes": [
+        {
+        "imagen": "/images/madrid_getafe.jpg",
+        "titulo": "Madrid Central - Getafe",
+        "origen": "Calle de Atocha, 50, Madrid",
+        "destino": "Universidad Carlos III, Campus Getafe",
+        "fechaHora": "15/11/2026 10:00",
+        "precio": 5,
+        "intercomunitario": false
+  },
+  {
+        
+        "imagen": "/images/madrid_alcala.jpg",
+        "titulo": "Madrid - Alcalá de Henares",
+        "origen": "Intercambiador de Plaza de Castilla, Madrid",
+        "destino": "Plaza de Cervantes, Alcalá de Henares",
+        "fechaHora": "18/11/2026 16:30",
+        "precio": 4,
+        "intercomunitario": false
+  },
+  {
+        
+        "imagen": "/images/madrid_leganes.jpg",
+        "titulo": "Madrid - Leganés",
+        "origen": "Paseo de la Esperanza, 12, Madrid",
+        "destino": "C.C. Sambil Outlet, Leganés",
+        "fechaHora": "20/11/2026 09:15",
+        "precio": 4.5,
+        "intercomunitario": false
+  },
+  {
+        
+        "imagen": "/images/madrid_toledo.jpg",
+        "titulo": "Madrid - Toledo",
+        "origen": "Estación Sur de Autobuses, Méndez Álvaro, Madrid",
+        "destino": "Plaza de Zocodover, Toledo",
+        "fechaHora": "18/11/2026 09:00",
+        "precio": 12,
+        "intercomunitario": true
+  },
+  {
+        
+        "imagen": "/images/madrid_segovia.jpg",
+        "titulo": "Madrid - Segovia",
+        "origen": "Intercambiador de Moncloa, Madrid",
+        "destino": "Acueducto de Segovia, Segovia",
+        "fechaHora": "20/11/2026 08:30",
+        "precio": 15,
+        "intercomunitario": true
+  },
+  {
+        
+        "imagen": "/images/madrid_alcobendas.jpg",
+        "titulo": "Madrid - Alcobendas",
+        "origen": "Plaza de Castilla, Madrid",
+        "destino": "Parque Comercial La Moraleja, Alcobendas",
+        "fechaHora": "22/11/2026 14:00",
+        "precio": 3.5,
+        "intercomunitario": false
+  },
+  {
+        
+        "imagen": "/images/madrid_alcorcon.jpg",
+        "titulo": "Madrid - Alcorcón",
+        "origen": "Príncipe Pío, Madrid",
+        "destino": "Hospital Universitario Fundación Alcorcón",
+        "fechaHora": "25/11/2026 08:30",
+        "precio": 4,
+        "intercomunitario": false
+  },
+  {
+        
+        "imagen": "/images/madrid_pozuelo.jpg",
+        "titulo": "Madrid - Pozuelo",
+        "origen": "Moncloa, Madrid",
+        "destino": "Avenida de Europa, Pozuelo de Alarcón",
+        "fechaHora": "28/11/2026 11:00",
+        "precio": 3,
+        "intercomunitario": false
+  } 
+        
+        
+    
+    ]
   },
   {
     "nombre": "Antonio Sánchez",
