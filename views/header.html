@@ -1,5 +1,6 @@
 <header class="container-fluid bg-dark sticky-top">
         <div class="row align-items-center">
+
             <div class="col-auto">
                 <div class="dropdown mb-3">
                     <button class="btn button btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">Tipo de vehículo</button>
@@ -16,8 +17,8 @@
                 <a href="/" class="text-decoration-none"><h1 class="m-0 text-warning fw-bold">CarMe</h1></a>
             </div>
             <div class="col-auto mb-2 mb-md-0">
-                <form class="d-flex" role="search" action="/" method="GET">
-                    <input class="form-control" type="search" name="search" placeholder="Buscar conductor..." aria-label="Buscar" value="{{search}}">
+                <form class="d-flex" role="search" action="/api/drivers/main" method="GET">
+                    <input class="form-control" type="search" name="search" placeholder="Buscar conductor..." aria-label="Buscar">
                     <button class="btn btn-outline-success ms-2" type="submit">Buscar</button>
                 </form>
             </div>

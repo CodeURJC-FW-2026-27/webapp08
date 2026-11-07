@@ -10,75 +10,68 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    
-    {{> header}}
+{{>header}}
 
+    
     <div class="presentacion">
-        <video autoplay muted loop playsinline class="video-fondo">
-            <source src="/images/video.mp4" type="video/mp4">
-        </video>
+    <video autoplay muted loop playsinline class="video-fondo">
+        <source src="/images/video.mp4" type="video/mp4">
+    </video>
 
-        <div class="contenido-texto">
-            <h1 class="display-1">CarMe</h1>
-            <p style="font-size: 40px">Bienvenidos a nuestra web, puedes seleccionar un conductor para iniciar un nuevo viaje</p>
-        </div>
+    <div class="contenido-texto">
+        <h1 class="display-1">CarMe</h1>
+        <p style="font-size: 40px">Bienvenidos a nuestra web, puedes seleccionar un conductor para iniciar un nuevo viaje</p>
     </div>
-    
+</div>
     <main class="container mt-4">
 
-        <div class="row justify-content-end mb-4">
-            <div class="col-auto">
-                <a class="btn btn-primary" href="/newdriver">Añadir conductor <i class="bi bi-bookmark-plus"></i></a>
-            </div>
-        </div>
+        
 
-        <div class="row g-4">
-        {{#filtro}}
-            <div class="col-12 col-sm-6 col-lg-4">
-                <div class="driver-card card">
-                    <h3 class="display-6">{{nombre}}</h3>
-                    <a href="/detail"><img src="{{imagen}}" alt="{{nombre}} image" ></a>
-                    <ul class="list-unstyled">
-                        <li ><strong>Disponibilidad:</strong>{{disponibilidad}}</li>
-                        <li ><strong>Plazas:</strong> {{plazasDisponibles}}</li>
-                        <li ><strong>Puntuación:</strong> {{puntuacion}} / 5</li>
-                        <li ><strong>Vehículo:</strong> {{vehiculo}}</li>
-                    </ul>
+
+
+        
+            <div class="row justify-content-end mb-4">
+                <div class="col-auto">
+                    <a class="btn btn-primary" href="/newdriver?editAdd=add">Añadir conductor <i class="bi bi-bookmark-plus"></i></a>
                 </div>
-            </div>  
-        {{/filtro}}
-        </div>
+            </div>
 
-    <nav aria-label="Navegación de páginas" class="mt-5">
-        <ul class="pagination justify-content-center text-center custom-pagination">
-            
-            {{#prevPage}}
-            <li class="page-item">
-                <a class="page-link" href="/?page={{prevPage}}{{#tipo}}&tipo={{tipo}}{{/tipo}}">Anterior</a>
-            </li>
-            {{/prevPage}}
 
-            {{#pages}}
-            <li class="page-item {{#isCurrent}}active{{/isCurrent}}">
-                <a class="page-link" href="/?page={{pageNumber}}{{#tipo}}&tipo={{tipo}}{{/tipo}}">
-                    {{pageNumber}}
-                </a>
-            </li>
-            {{/pages}}
+        
+           
+    
+<div class="row g-4">
 
-            {{#nextPage}}
-            <li class="page-item">
-                <a class="page-link" href="/?page={{nextPage}}{{#tipo}}&tipo={{tipo}}{{/tipo}}">Siguiente</a>
-            </li>
-            {{/nextPage}}
-            
-        </ul>
-    </nav>
+{{#filtro}}
 
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="driver-card card">
+                        <h3 class="display-6">{{nombre}}</h3>
+                        <a href="/detail/{{id}}"><img src="{{imagen}}" alt="{{nombre}} image" ></a>
+                        <ul class="list-unstyled">
+                            <li ><strong>Disponibilidad:</strong> {{#disponibilidad}}Sí{{/disponibilidad}}{{^disponibilidad}}No{{/disponibilidad}}</li>
+                            <li ><strong>Plazas:</strong> {{plazasDisponibles}}</li>
+                            <li ><strong>Puntuación:</strong> {{puntuacion}} / 5</li>
+                            <li ><strong>Vehículo:</strong> {{vehiculo}}</li>
+
+                        </ul>
+                    </div>
+                </div>  
+{{/filtro}}
+{{^filtro}}
+                <div class="col-12 col-sm-12 col-lg-12">
+                    <div class="driver-card card">
+                        <h3 class="display-6">No hay conductores de esas características</h3>
+                        
+                    </div>
+                </div>  
+
+{{/filtro}}
     </main>
 
-    {{> footer}}
+ {{>footer}}
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
