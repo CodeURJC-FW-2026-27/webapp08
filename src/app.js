@@ -1,10 +1,9 @@
 import express from 'express';
 import mustacheExpress from 'mustache-express';
 import bodyParser from 'body-parser';
-import { MongoClient } from 'mongodb';
-import fs from 'fs';
 
 import router from './router.js';
+import './load_data.js';
 
 const app = express();
 
@@ -16,42 +15,6 @@ app.set('views', './views');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const driversData = JSON.parse(fs.readFileSync('./data/drivers.json', 'utf8'));
-const tripsData = JSON.parse(fs.readFileSync('./data/trips.json', 'utf8'));
+app.use('/', router);
 
-const url = 'mongodb://localhost:27017';
-const dbName = 'webapp08';
-
-MongoClient.connect(url, function(err, client) {
-    if (err) {
-        console.error("Error conectando a MongoDB:", err);
-        return;
-    }
-    console.log("Conectado con éxito a MongoDB");
-    
-    const db = client.db(dbName);
-    app.locals.db = db;
-
-    const driversCollection = db.collection('drivers');
-    const tripsCollection = db.collection('trips');
-
-    driversCollection.deleteMany({}, function(err) {
-        if (err) console.error("Error borrando drivers:", err);
-        driversCollection.insertMany(driversData, function(err, result) {
-            if (err) console.error("Error insertando drivers:", err);
-            console.log("Datos de conductores actualizados desde el JSON.");
-        });
-    });
-
-    tripsCollection.deleteMany({}, function(err) {
-        if (err) console.error("Error borrando trips:", err);
-        tripsCollection.insertMany(tripsData, function(err, result) {
-            if (err) console.error("Error insertando trips:", err);
-            console.log("Datos de actividades actualizados desde el JSON.");
-        });
-    });
-
-    app.use('/', router);
-
-    app.listen(3000, () => console.log('Web ready in http://localhost:3000/ 🦹‍♂️​'));
-});
+app.listen(3000, () => console.log('Web ready in http://localhost:3000/'));
