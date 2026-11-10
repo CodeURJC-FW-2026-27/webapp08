@@ -1,0 +1,208 @@
+[
+  {
+    "nombre": "Alejandro Aparisi",
+    "comunidad": "Valencia",
+    "vehiculo": "Luxury",
+    "puntuacion": 4.8,
+    "experiencia": 6,
+    "plazasDisponibles": 3,
+    "disponibilidad": true,
+    "imagen": "/images/Alejandro_aparisi.avif"
+
+
+  },
+  {
+    "nombre": "Ana López",
+    "comunidad": "Madrid",
+    "vehiculo": "XL",
+    "puntuacion": 4.5,
+    "experiencia": 3,
+    "plazasDisponibles": 5,
+    "disponibilidad": true,
+    "imagen": "/images/ana_lopez.jpg",
+    "viajes": [
+        {
+        "imagen": "/images/madrid_getafe.jpg",
+        "titulo": "Madrid Central - Getafe",
+        "origen": "Calle de Atocha, 50, Madrid",
+        "destino": "Universidad Carlos III, Campus Getafe",
+        "fechaHora": "15/11/2026 10:00",
+        "precio": 5,
+        "intercomunitario": false
+  },
+  {
+        
+        "imagen": "/images/madrid_alcala.jpg",
+        "titulo": "Madrid - Alcalá de Henares",
+        "origen": "Intercambiador de Plaza de Castilla, Madrid",
+        "destino": "Plaza de Cervantes, Alcalá de Henares",
+        "fechaHora": "18/11/2026 16:30",
+        "precio": 4,
+        "intercomunitario": false
+  },
+  {
+        
+        "imagen": "/images/madrid_leganes.jpg",
+        "titulo": "Madrid - Leganés",
+        "origen": "Paseo de la Esperanza, 12, Madrid",
+        "destino": "C.C. Sambil Outlet, Leganés",
+        "fechaHora": "20/11/2026 09:15",
+        "precio": 4.5,
+        "intercomunitario": false
+  },
+  {
+        
+        "imagen": "/images/madrid_toledo.jpg",
+        "titulo": "Madrid - Toledo",
+        "origen": "Estación Sur de Autobuses, Méndez Álvaro, Madrid",
+        "destino": "Plaza de Zocodover, Toledo",
+        "fechaHora": "18/11/2026 09:00",
+        "precio": 12,
+        "intercomunitario": true
+  },
+  {
+        
+        "imagen": "/images/madrid_segovia.jpg",
+        "titulo": "Madrid - Segovia",
+        "origen": "Intercambiador de Moncloa, Madrid",
+        "destino": "Acueducto de Segovia, Segovia",
+        "fechaHora": "20/11/2026 08:30",
+        "precio": 15,
+        "intercomunitario": true
+  },
+  {
+        
+        "imagen": "/images/madrid_alcobendas.jpg",
+        "titulo": "Madrid - Alcobendas",
+        "origen": "Plaza de Castilla, Madrid",
+        "destino": "Parque Comercial La Moraleja, Alcobendas",
+        "fechaHora": "22/11/2026 14:00",
+        "precio": 3.5,
+        "intercomunitario": false
+  },
+  {
+        
+        "imagen": "/images/madrid_alcorcon.jpg",
+        "titulo": "Madrid - Alcorcón",
+        "origen": "Príncipe Pío, Madrid",
+        "destino": "Hospital Universitario Fundación Alcorcón",
+        "fechaHora": "25/11/2026 08:30",
+        "precio": 4,
+        "intercomunitario": false
+  },
+  {
+        
+        "imagen": "/images/madrid_pozuelo.jpg",
+        "titulo": "Madrid - Pozuelo",
+        "origen": "Moncloa, Madrid",
+        "destino": "Avenida de Europa, Pozuelo de Alarcón",
+        "fechaHora": "28/11/2026 11:00",
+        "precio": 3,
+        "intercomunitario": false
+  } 
+        
+        
+    
+    ]
+  },
+  {
+    "nombre": "Antonio Sánchez",
+    "comunidad": "Madrid",
+    "vehiculo": "Eco",
+    "puntuacion": 3.8,
+    "experiencia": 5,
+    "plazasDisponibles": 4,
+    "disponibilidad": true,
+    "imagen": "/images/Antonio_sanchez.jpg"
+  },
+  {
+    "nombre": "Apu Cherkvasky",
+    "comunidad": "Barcelona",
+    "vehiculo": "Normal",
+    "puntuacion": 4.2,
+    "experiencia": 2,
+    "plazasDisponibles": 3,
+    "disponibilidad": false,
+    "imagen": "/images/Apu_Cherkvasky.jpg"
+  },
+  {
+    "nombre": "Carlos Vicente",
+    "comunidad": "Madrid",
+    "vehiculo": "Normal",
+    "puntuacion": 3.5,
+    "experiencia": 1,
+    "plazasDisponibles": 3,
+    "disponibilidad": true,
+    "imagen": "/images/carlos_vicente.jpg"
+  },
+  {
+    "nombre": "Faustino Blázquez",
+    "comunidad": "Sevilla",
+    "vehiculo": "XL",
+    "puntuacion": 4.0,
+    "experiencia": 4,
+    "plazasDisponibles": 6,
+    "disponibilidad": true,
+    "imagen": "/images/Faustino_blazquez.jpg"
+  },
+  {
+    "nombre": "Fernando Redondo",
+    "comunidad": "Madrid",
+    "vehiculo": "Luxury",
+    "puntuacion": 5.0,
+    "experiencia": 10,
+    "plazasDisponibles": 2,
+    "disponibilidad": true,
+    "imagen": "/images/Fernando_redondo.jpg"
+  },
+  {
+    "nombre": "Makelelé Villalón",
+    "comunidad": "Andalucía",
+    "vehiculo": "Eco",
+    "puntuacion": 2.5,
+    "experiencia": 1,
+    "plazasDisponibles": 3,
+    "disponibilidad": false,
+    "imagen": "/images/Makelele_villalon.png"
+  },
+  {
+    "nombre": "Manolo Gutiérrez",
+    "comunidad": "Galicia",
+    "vehiculo": "Normal",
+    "puntuacion": 4.3,
+    "experiencia": 7,
+    "plazasDisponibles": 4,
+    "disponibilidad": true,
+    "imagen": "/images/Manolo_gutierrez.jpg"
+  },
+  {
+    "nombre": "Miguel Sansón",
+    "comunidad": "Madrid",
+    "vehiculo": "Eco",
+    "puntuacion": 4.7,
+    "experiencia": 3,
+    "plazasDisponibles": 3,
+    "disponibilidad": true,
+    "imagen": "/images/Miguel_sanson.jpg"
+  },
+  {
+    "nombre": "Pepe Barbacid",
+    "comunidad": "País Vasco",
+    "vehiculo": "XL",
+    "puntuacion": 4.1,
+    "experiencia": 8,
+    "plazasDisponibles": 5,
+    "disponibilidad": true,
+    "imagen": "/images/Pepe_barbacid.jpg"
+  },
+  {
+    "nombre": "Rigoberto Maldini",
+    "comunidad": "Madrid",
+    "vehiculo": "Luxury",
+    "puntuacion": 4.9,
+    "experiencia": 12,
+    "plazasDisponibles": 2,
+    "disponibilidad": true,
+    "imagen": "/images/Rigoberto_maldini.jpg"
+  }
+]
