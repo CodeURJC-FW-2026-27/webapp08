@@ -86,4 +86,4 @@ router.post('/newdriver', upload.single('image'), async (req, res) => {
         console.error("Error inserting the new driver:", error);
         res.status(500).send("Error while inserting the new driver on the database");
     }
-});
+});     
