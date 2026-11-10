@@ -46,6 +46,7 @@ router.get('/', (req, res) => {
             }
 
             res.render('main', {
+                pageTittle: 'Welcome - CarMe',
                 filtro: docs,
                 prevPage: prevPage,
                 nextPage: nextPage,
@@ -57,11 +58,15 @@ router.get('/', (req, res) => {
 });
 
 router.get('/newdriver', (req, res) => {
-    res.render('newdriver', {});
+    res.render('newdriver', {
+        pageTittle: 'New driver - CarMe'
+    });
 });
 
 router.get('/detail', (req, res) => {
-    res.render('detail', {});
+    res.render('detail', {
+        pageTittle: 'Driver information - CarMe'
+    });
 });
 
 router.post('/newdriver', upload.single('image'), async (req, res) => {
