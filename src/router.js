@@ -211,6 +211,8 @@ router.get('/detail/:id', async (req, res) => {
 
 
 
+
+
 router.post('/newdriver', upload.single('image'), async (req, res) => {
     const isEdit = Boolean(req.body.driverId);
     const currentID = req.body.driverId;
@@ -287,25 +289,24 @@ router.post('/newdriver', upload.single('image'), async (req, res) => {
 
 
 
+
+
 router.get('/post/:id/image', async (req, res) => {
 
-    try {
-        const driver = await board.getDriver(req.params.id);
+    let driver = await board.getDriver(req.params.id);
 
-        if (!driver || !driver.image) {
-            return res.status(404).send('Image not found');
-        }
+    res.download(board.UPLOADS_FOLDER + '/' + driver.image);
 
-        const imagePath = driver.image.startsWith('/images/') 
-            ? path.resolve('./public', driver.image.slice(1))
-            : path.resolve(board.UPLOADS_FOLDER, driver.image);
-
-        res.sendFile(imagePath);
-    } catch (error) {
-        console.error('Error retrieving image:', error);
-        res.status(500).send('Internal Server Error');
-    }
 });
+
+
+
+
+
+
+
+
+
 
 router.get('/trip/:driverId/:tripId/image', async (req, res) => {
     try {
@@ -326,6 +327,19 @@ router.get('/trip/:driverId/:tripId/image', async (req, res) => {
         res.status(500).send('Internal Server Error');
     }
 });
+
+
+router.get('/delete/:id', async (req, res) => {
+    const id = req.params.id;
+    await board.deleteDriver(id);
+    res.redirect('/');
+});
+
+
+
+
+
+
 
 router.get('/post/video', (req, res) => {
     // Reemplaza 'nombre_de_tu_video.mp4' por el nombre real del archivo
