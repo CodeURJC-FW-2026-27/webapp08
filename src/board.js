@@ -89,6 +89,12 @@ export async function deleteTrip(driverId, tripId) {
     );
 }
 
+function escapeRegex(text) {
+    return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+
+
 
 export async function getDriversPaginated({ vehicle, search, page = 1, limit = 6 } = {}) {
     const query = {};
