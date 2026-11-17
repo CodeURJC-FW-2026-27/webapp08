@@ -36,7 +36,7 @@ async function validateDriver(body, isEdit, currentID) {
     }
 
     // Check for duplicate names
-    const duplicate = await board.getDriversByName(name);
+    const duplicate = await board.getDriverByName(name);
 
     if (duplicate) {
         const duplicateId = duplicate._id ? duplicate._id.toString() : duplicate.id;
