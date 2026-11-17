@@ -44,6 +44,16 @@ export async function getDriverByName(name) {
 }
 
 
+
+
+function escapeRegex(text) {
+    return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+
+
+
+
 export async function getDrivers({ vehicle, search, page = 1, limit = 6 } = {}) {
     const query = {};
     if (vehicle) {

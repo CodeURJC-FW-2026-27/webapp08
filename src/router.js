@@ -47,6 +47,19 @@ async function validateDriver(body, isEdit, currentID) {
     return null; // No validation errors
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 router.get('/', (req, res) => {
     const db = req.app.locals.db;
     const driversCollection = db.collection('drivers');
@@ -98,11 +111,32 @@ router.get('/', (req, res) => {
     });
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 router.get('/newdriver', (req, res) => {
     res.render('newdriver', {
         pageTittle: 'New driver - CarMe'
     });
 });
+
+
+
+
+
+
 
 router.get('/editdriver/:id', async (req, res) => {
     try {
@@ -136,11 +170,26 @@ router.get('/editdriver/:id', async (req, res) => {
     }
 });
 
+
+
+
+
+
+
+
+
 router.get('/detail', (req, res) => {
     res.render('detail', {
         pageTittle: 'Driver information - CarMe'
     });
 });
+
+
+
+
+
+
+
 
 router.post('/newdriver', upload.single('image'), async (req, res) => {
     const isEdit = Boolean(req.body.driverId);
