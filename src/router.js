@@ -2,6 +2,7 @@ import express from 'express';
 import multer from 'multer';
 import * as board from './board.js';
 import fs from 'node:fs/promises';
+import path from 'node:path';
 
 const router = express.Router();
 export default router;
@@ -163,8 +164,8 @@ router.get('/editdriver/:id', async (req, res) => {
 
 
 
-router.get('/detail', async (req, res) => {
-    const driverId = req.query.id;
+router.get('/detail/:id', async (req, res) => {
+    const driverId = req.params.id;
 
     if (!driverId) {
         return res.status(400).render('confirmation', {
@@ -288,9 +289,41 @@ router.post('/newdriver', upload.single('image'), async (req, res) => {
 
 router.get('/post/:id/image', async (req, res) => {
 
-    let driver = await board.getDriver(req.params.id);
+    try {
+        const driver = await board.getDriver(req.params.id);
 
-    res.download(board.UPLOADS_FOLDER + '/' + driver.image);
+        if (!driver || !driver.image) {
+            return res.status(404).send('Image not found');
+        }
 
+        const imagePath = driver.image.startsWith('/images/') 
+            ? path.resolve('./public', driver.image.slice(1))
+            : path.resolve(board.UPLOADS_FOLDER, driver.image);
+
+        res.sendFile(imagePath);
+    } catch (error) {
+        console.error('Error retrieving image:', error);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
+router.get('/trip/:driverId/:tripId/image', async (req, res) => {
+    try {
+        const driver = await board.getDriver(req.params.driverId);
+        const trip = driver?.trips?.find(t => t._id === req.params.tripId);
+
+        if (!trip || !trip.image) {
+            return res.status(404).send('Image not found');
+        }
+
+        const imagePath = trip.image.startsWith('/images/')
+            ? path.resolve('./public', trip.image.slice(1))
+            : path.resolve(board.UPLOADS_FOLDER, trip.image);
+        
+        res.sendFile(imagePath);
+    } catch (error) {
+        console.error('Error retrieving trip image:', error);
+        res.status(500).send('Internal Server Error');
+    }
 });
 
