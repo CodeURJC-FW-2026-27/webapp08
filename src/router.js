@@ -167,10 +167,11 @@ router.get('/editdriver/:id', async (req, res) => {
 router.get('/detail/:id', async (req, res) => {
    const id = req.params.id;
    const driver = await board.getDriver(id);
-   
+   const driverTrips = await board.getTripsByDriverId(id);
     
     res.render('detail', {
-        driver
+        driver,
+        trips: driverTrips
     });
 
 });

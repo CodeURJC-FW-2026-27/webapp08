@@ -9,6 +9,8 @@ const client = new MongoClient('mongodb://localhost:27017');
 
 const db = client.db('CarMe');
 const drivers = db.collection('drivers');
+const trips = db.collection('trips');
+
 
 export const UPLOADS_FOLDER = './uploads';
 
@@ -44,6 +46,14 @@ export async function getDriverByName(name) {
 }
 
 
+export async function getTripsByDriverId(driverId) {
+
+    return await trips.find({ driverId: driverId.toString()}).toArray;
+}
+
+export async function deleteTrip(tripId) {
+    return await trips.findOneAndDelete({ _id: new ObjectId(tripId)});
+}
 
 
 function escapeRegex(text) {
