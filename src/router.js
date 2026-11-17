@@ -264,3 +264,10 @@ router.get('/post/:id/image', async (req, res) => {
 
 });
 
+
+
+router.get('/delete/:id', async (req, res) => {
+    const id = req.params.id;
+    await board.deleteDriver(id);
+    res.redirect('/');
+});
