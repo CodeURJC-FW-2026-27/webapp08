@@ -31,8 +31,8 @@ async function validateDriver(body, isEdit, currentID) {
     if (isNaN(experience) || experience < 0) {
         return "Experience must be a non-negative number.";
     }
-    if (isNaN(availableSpots) || availableSpots < 1 || availableSpots > 4) {
-        return "Available spots must be a number between 1 and 4.";
+    if (isNaN(availableSpots) || availableSpots < 1 || availableSpots > 8) {
+        return "Available spots must be a number between 1 and 8.";
     }
 
     // Check for duplicate names
@@ -56,11 +56,11 @@ router.get('/', (req, res) => {
     const search = req.query.search;
     let query = {};
     if (tipo) {
-        query.vehiculo = tipo;
+        query.vehicle = tipo;
     }
 
     if (search) {
-        query.nombre = { $regex: search, $options: 'i' };
+        query.name = { $regex: search, $options: 'i' };
     }
     const limit = 6; 
     const page = parseInt(req.query.page) || 1; 
