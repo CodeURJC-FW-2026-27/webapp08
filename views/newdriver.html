@@ -14,21 +14,21 @@
                 <label for="AutonomousComunity">Comunidad Autónoma:</label>
                 <select id="AutonomousComunity" name="AutonomousComunity" required>
                     <option value="">Selecciona una comunidad...</option>
-                    <option value="andalucia" {{#selectedCommunity.Andalucia}}selected{{/selectedCommunity.Andalucia}}>Andalucía</option>
-                    <option value="cataluna" {{#selectedCommunity.Cataluña}}selected{{/selectedCommunity.Cataluña}}>Cataluña</option>
-                    <option value="madrid" {{#selectedCommunity.Madrid}}selected{{/selectedCommunity.Madrid}}>Comunidad de Madrid</option>
-                    <option value="valencia" {{#selectedCommunity.Valencia}}selected{{/selectedCommunity.Valencia}}>Comunidad Valenciana</option>
-                    <option value="galicia" {{#selectedCommunity.Galicia}}selected{{/selectedCommunity.Galicia}}>Galicia</option>
-                    <option value="murcia" {{#selectedCommunity.Murcia}}selected{{/selectedCommunity.Murcia}}>Murcia</option>
-                    <option value="vasco" {{#selectedCommunity.Vasco}}selected{{/selectedCommunity.Vasco}}>País Vasco</option>
-                    <option value="navarra" {{#selectedCommunity.Navarra}}selected{{/selectedCommunity.Navarra}}>Navarra</option>
-                    <option value="extremadura" {{#selectedCommunity.Extremadura}}selected{{/selectedCommunity.Extremadura}}>Extremadura</option>
-                    <option value="canarias" {{#selectedCommunity.Canarias}}selected{{/selectedCommunity.Canarias}}>Canarias</option>
-                    <option value="baleares" {{#selectedCommunity.Baleares}}selected{{/selectedCommunity.Baleares}}>Baleares</option>
-                    <option value="ceuta" {{#selectedCommunity.Ceuta}}selected{{/selectedCommunity.Ceuta}}>Ceuta</option>
-                    <option value="melilla" {{#selectedCommunity.Melilla}}selected{{/selectedCommunity.Melilla}}>Melilla</option>
-                    <option value="asturias" {{#selectedCommunity.Asturias}}selected{{/selectedCommunity.Asturias}}>Asturias</option>
-                    <option value="cantabria" {{#selectedCommunity.Cantabria}}selected{{/selectedCommunity.Cantabria}}>Cantabria</option>
+                    <option value="Andalucia" {{#selectedCommunity.Andalucia}}selected{{/selectedCommunity.Andalucia}}>Andalucía</option>
+                    <option value="Cataluña" {{#selectedCommunity.Cataluña}}selected{{/selectedCommunity.Cataluña}}>Cataluña</option>
+                    <option value="Madrid" {{#selectedCommunity.Madrid}}selected{{/selectedCommunity.Madrid}}>Comunidad de Madrid</option>
+                    <option value="Valencia" {{#selectedCommunity.Valencia}}selected{{/selectedCommunity.Valencia}}>Comunidad Valenciana</option>
+                    <option value="Galicia" {{#selectedCommunity.Galicia}}selected{{/selectedCommunity.Galicia}}>Galicia</option>
+                    <option value="Murcia" {{#selectedCommunity.Murcia}}selected{{/selectedCommunity.Murcia}}>Murcia</option>
+                    <option value="Vasco" {{#selectedCommunity.Vasco}}selected{{/selectedCommunity.Vasco}}>País Vasco</option>
+                    <option value="Navarra" {{#selectedCommunity.Navarra}}selected{{/selectedCommunity.Navarra}}>Navarra</option>
+                    <option value="Extremadura" {{#selectedCommunity.Extremadura}}selected{{/selectedCommunity.Extremadura}}>Extremadura</option>
+                    <option value="Canarias" {{#selectedCommunity.Canarias}}selected{{/selectedCommunity.Canarias}}>Canarias</option>
+                    <option value="Baleares" {{#selectedCommunity.Baleares}}selected{{/selectedCommunity.Baleares}}>Baleares</option>
+                    <option value="Ceuta" {{#selectedCommunity.Ceuta}}selected{{/selectedCommunity.Ceuta}}>Ceuta</option>
+                    <option value="Melilla" {{#selectedCommunity.Melilla}}selected{{/selectedCommunity.Melilla}}>Melilla</option>
+                    <option value="Asturias" {{#selectedCommunity.Asturias}}selected{{/selectedCommunity.Asturias}}>Asturias</option>
+                    <option value="Cantabria" {{#selectedCommunity.Cantabria}}selected{{/selectedCommunity.Cantabria}}>Cantabria</option>
 
                 </select>
                 
@@ -36,10 +36,10 @@
                 <label for="vehicle">Vehículo:</label>
                 <select id="Cartype" name="Cartype" required>
                 <option value="">Selecciona el tipo de coche...</option>
-                <option value="normal" {{#selectedVehicle.Normal}}selected{{/selectedVehicle.Normal}}>Normal</option>
-                <option value="xl" {{#selectedVehicle.XL}}selected{{/selectedVehicle.XL}}>XL</option>
-                <option value="eco" {{#selectedVehicle.Eco}}selected{{/selectedVehicle.Eco}}>Eco</option>
-                <option value="luxury" {{#selectedVehicle.Luxury}}selected{{/selectedVehicle.Luxury}}>Luxury</option>
+                <option value="Normal" {{#selectedVehicle.Normal}}selected{{/selectedVehicle.Normal}}>Normal</option>
+                <option value="XL" {{#selectedVehicle.XL}}selected{{/selectedVehicle.XL}}>XL</option>
+                <option value="Eco" {{#selectedVehicle.Eco}}selected{{/selectedVehicle.Eco}}>Eco</option>
+                <option value="Luxury" {{#selectedVehicle.Luxury}}selected{{/selectedVehicle.Luxury}}>Luxury</option>
                 </select>
                 
 
@@ -50,7 +50,7 @@
                 <input type="number" id="experience" name="experience" min="0" step="1" value="{{driver.experience}}" required placeholder="0">
 
                 <label for="AvailableSpots">Plazas Disponibles:</label>
-                <input type="number" id="AvailableSpots" name="AvailableSpots" min="1" max="4" step="1" value="{{driver.availableSpots}}" required placeholder="1">
+                <input type="number" id="AvailableSpots" name="AvailableSpots" min="1" max="8" step="1" value="{{driver.availableSpots}}" required placeholder="1">
 
                 <label for="image">Foto del conductor:</label>
                 <input type="file" id="image" name="image" accept="image/*">

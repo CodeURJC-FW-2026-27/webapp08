@@ -12,7 +12,7 @@ async function validateDriver(body, isEdit, currentID) {
     const name = body.DriverName ? body.DriverName.trim() : '';
     const community = body.AutonomousComunity;
     const cartype = body.Cartype;
-    const punctuation = parseFloat(body.punctuation);
+    const punctuation = parseFloat(body.puntuation);
     const experience = parseInt(body.experience);
     const availableSpots = parseInt(body.AvailableSpots);
 
@@ -31,8 +31,8 @@ async function validateDriver(body, isEdit, currentID) {
     if (isNaN(experience) || experience < 0) {
         return "Experience must be a non-negative number.";
     }
-    if (isNaN(availableSpots) || availableSpots < 1 || availableSpots > 4) {
-        return "Available spots must be a number between 1 and 4.";
+    if (isNaN(availableSpots) || availableSpots < 1 || availableSpots > 8) {
+        return "Available spots must be a number between 1 and 8.";
     }
 
     // Check for duplicate names
@@ -56,11 +56,11 @@ router.get('/', (req, res) => {
     const search = req.query.search;
     let query = {};
     if (tipo) {
-        query.vehiculo = tipo;
+        query.vehicle = tipo;
     }
 
     if (search) {
-        query.nombre = { $regex: search, $options: 'i' };
+        query.name = { $regex: search, $options: 'i' };
     }
     const limit = 6; 
     const page = parseInt(req.query.page) || 1; 
@@ -117,7 +117,7 @@ router.get('/editdriver/:id', async (req, res) => {
             });
         }
 
-        driver._id = driver.id;
+        driver._id = driver._id || driver.id;
 
         res.render('newdriver', {
             pageTittle: 'Edit driver - CarMe',
@@ -182,12 +182,12 @@ router.post('/newdriver', upload.single('image'), async (req, res) => {
         };
 
         if (isEdit) {
-            driverData.id = currentId;
+            driverData.id = currentID;
             await board.updateDriver(driverData);
             return res.render('confirmation', {
                 pageTittle: 'Conductor actualizado - CarMe',
                 message: 'El conductor ha sido actualizado con éxito.',
-                nextUrl: `/detail?id=${currentId}`,
+                nextUrl: `/detail?id=${currentID}`,
                 buttonText: 'Ver detalle del conductor'
             });
         } else {
