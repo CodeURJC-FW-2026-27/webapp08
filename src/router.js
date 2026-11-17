@@ -368,3 +368,8 @@ router.get('/post/video', (req, res) => {
     // Reemplaza 'nombre_de_tu_video.mp4' por el nombre real del archivo
     res.download(board.UPLOADS_FOLDER + '/video.mp4');
 });
+
+router.get('/trip/:id/image', async (req, res) => {
+    const trip = await board.getTrip(req.params.id);
+    res.download(board.UPLOADS_FOLDER + '/' + trip.image);
+});

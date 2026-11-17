@@ -58,27 +58,36 @@ export async function updateDriver(driver) {
 //--------------Trips----------------
 
 
-export async function getTripsByDriverId(driverId) {
-    return await trips.find({ driverId: driverId.toString() }).toArray();
-}
-
-export async function deleteTrip(tripId) {
-    return await trips.findOneAndDelete({ _id: new ObjectId(tripId) });
-}
 export async function addTrip(driverId, trip) {
+    const newTrip = { _id: new ObjectId(), ...trip };
     return await drivers.updateOne(
         { _id: new ObjectId(driverId) },
-        { $push: { trips: trip } }
+        { $push: { trips: newTrip } }
     );
 }
 
 
-function escapeRegex(text) {
-    return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+export async function getTripsByDriverId(driverId) {
+    const driver = await drivers.findOne({ _id: new ObjectId(driverId) });
+    return driver?.trips ?? [];
 }
 
 
+export async function getTrip(tripId) {
+    const driver = await drivers.findOne(
+        { 'trips._id': new ObjectId(tripId) },
+        { projection: { 'trips.$': 1 } }
+    );
+    return driver?.trips?.[0] ?? null;
+}
 
+
+export async function deleteTrip(driverId, tripId) {
+    return await drivers.updateOne(
+        { _id: new ObjectId(driverId) },
+        { $pull: { trips: { _id: new ObjectId(tripId) } } }
+    );
+}
 
 
 export async function getDriversPaginated({ vehicle, search, page = 1, limit = 6 } = {}) {
