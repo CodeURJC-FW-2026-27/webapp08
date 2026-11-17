@@ -353,8 +353,28 @@ router.get('/trip/:driverId/:tripId/image', async (req, res) => {
 
 router.get('/delete/:id', async (req, res) => {
     const id = req.params.id;
-    await board.deleteDriver(id);
-    res.redirect('/');
+
+    try {
+        await board.deleteDriver(id);
+        
+        // Si todo va bien (Éxito)
+        res.render('confirmation', {
+            pageTittle: 'Conductor eliminado - CarMe',
+            message: 'El perfil del conductor ha sido eliminado correctamente.',
+            nextUrl: '/',
+            buttonText: 'Volver a la página principal'
+        });
+
+    } catch (error) {
+        console.error('Error al eliminar el conductor:', error);
+        
+        res.status(500).render('confirmation', {
+            pageTittle: 'Error - CarMe',
+            message: 'Ha ocurrido un problema y no se ha podido eliminar al conductor.',
+            backUrl: `/detail/${id}`,
+            buttonText: 'Volver al perfil del conductor'
+        });
+    }
 });
 
 
@@ -362,9 +382,7 @@ router.get('/delete/:id', async (req, res) => {
 
 
 
-
 router.get('/post/video', (req, res) => {
-    // Reemplaza 'nombre_de_tu_video.mp4' por el nombre real del archivo
     res.download(board.UPLOADS_FOLDER + '/video.mp4');
 });
 
