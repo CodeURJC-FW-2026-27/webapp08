@@ -104,6 +104,35 @@ router.get('/newdriver', (req, res) => {
     });
 });
 
+router.get('/editdriver/:id', async (req, res) => {
+    try {
+        const driver = await board.getDriver(req.params.id);
+
+        if (!driver) {
+            return res.status(404).render('error', {
+                pageTittle: 'Error - CarMe',
+                message: 'Driver not found.',
+                backUrl: '/',
+                buttonText: 'Go back to main page'
+            });
+        }
+
+        driver._id = driver.id;
+
+        res.render('newdriver', {
+            pageTittle: 'Edit driver - CarMe',
+            driver: driver,
+        });
+    } catch (error) {
+        console.error('Error loading driver:', error);
+        res.status(500).render('error', {
+            pageTittle: 'Error - CarMe',
+            message: 'An error occurred while loading the driver data. Please try again later.',
+            backUrl: '/',
+            buttonText: 'Go back to main page'
+        });
+    }
+});
 
 router.get('/detail', (req, res) => {
     res.render('detail', {
