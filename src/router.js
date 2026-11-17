@@ -122,6 +122,8 @@ router.get('/editdriver/:id', async (req, res) => {
         res.render('newdriver', {
             pageTittle: 'Edit driver - CarMe',
             driver: driver,
+            selectedCommunity: {[driver.community]: true},
+            selectedVehicle: {[driver.vehicle]: true}
         });
     } catch (error) {
         console.error('Error loading driver:', error);

@@ -6,7 +6,7 @@
             <form action="/newdriver" method="POST" enctype="multipart/form-data">
 
                 <input type="hidden" name="driverId" value="{{driver._id}}">
-                <input type="hidden" name="oldImage" value="{{driver.imageFileName}}">
+                <input type="hidden" name="oldImage" value="{{driver.imageFilename}}">
 
                 <label for="DriverName">Nombre:</label>
                 <input type="text" id="DriverName" name="DriverName" value="{{driver.name}}" required minlength="3" maxlength="50" placeholder="Nombre del conductor">
@@ -14,21 +14,21 @@
                 <label for="AutonomousComunity">Comunidad Autónoma:</label>
                 <select id="AutonomousComunity" name="AutonomousComunity" required>
                     <option value="">Selecciona una comunidad...</option>
-                    <option value="andalucia">Andalucía</option>
-                    <option value="cataluna">Cataluña</option>
-                    <option value="madrid">Comunidad de Madrid</option>
-                    <option value="valencia">Comunidad Valenciana</option>
-                    <option value="galicia">Galicia</option>
-                    <option value="murcia">Murcia</option>
-                    <option value="vasco">País Vasco</option>
-                    <option value="navarra">Navarra</option>
-                    <option value="extremadura">Extremadura</option>
-                    <option value="canarias">Canarias</option>
-                    <option value="baleares">Baleares</option>
-                    <option value="ceuta">Ceuta</option>
-                    <option value="melilla">Melilla</option>
-                    <option value="asturias">Asturias</option>
-                    <option value="cantabria">Cantabria</option>
+                    <option value="andalucia" {{#selectedCommunity.Andalucia}}selected{{/selectedCommunity.Andalucia}}>Andalucía</option>
+                    <option value="cataluna" {{#selectedCommunity.Cataluña}}selected{{/selectedCommunity.Cataluña}}>Cataluña</option>
+                    <option value="madrid" {{#selectedCommunity.Madrid}}selected{{/selectedCommunity.Madrid}}>Comunidad de Madrid</option>
+                    <option value="valencia" {{#selectedCommunity.Valencia}}selected{{/selectedCommunity.Valencia}}>Comunidad Valenciana</option>
+                    <option value="galicia" {{#selectedCommunity.Galicia}}selected{{/selectedCommunity.Galicia}}>Galicia</option>
+                    <option value="murcia" {{#selectedCommunity.Murcia}}selected{{/selectedCommunity.Murcia}}>Murcia</option>
+                    <option value="vasco" {{#selectedCommunity.Vasco}}selected{{/selectedCommunity.Vasco}}>País Vasco</option>
+                    <option value="navarra" {{#selectedCommunity.Navarra}}selected{{/selectedCommunity.Navarra}}>Navarra</option>
+                    <option value="extremadura" {{#selectedCommunity.Extremadura}}selected{{/selectedCommunity.Extremadura}}>Extremadura</option>
+                    <option value="canarias" {{#selectedCommunity.Canarias}}selected{{/selectedCommunity.Canarias}}>Canarias</option>
+                    <option value="baleares" {{#selectedCommunity.Baleares}}selected{{/selectedCommunity.Baleares}}>Baleares</option>
+                    <option value="ceuta" {{#selectedCommunity.Ceuta}}selected{{/selectedCommunity.Ceuta}}>Ceuta</option>
+                    <option value="melilla" {{#selectedCommunity.Melilla}}selected{{/selectedCommunity.Melilla}}>Melilla</option>
+                    <option value="asturias" {{#selectedCommunity.Asturias}}selected{{/selectedCommunity.Asturias}}>Asturias</option>
+                    <option value="cantabria" {{#selectedCommunity.Cantabria}}selected{{/selectedCommunity.Cantabria}}>Cantabria</option>
 
                 </select>
                 
@@ -36,10 +36,10 @@
                 <label for="vehicle">Vehículo:</label>
                 <select id="Cartype" name="Cartype" required>
                 <option value="">Selecciona el tipo de coche...</option>
-                <option value="normal">Normal</option>
-                <option value="xl">XL</option>
-                <option value="eco">Eco</option>
-                <option value="luxury">Luxury</option>
+                <option value="normal" {{#selectedVehicle.Normal}}selected{{/selectedVehicle.Normal}}>Normal</option>
+                <option value="xl" {{#selectedVehicle.XL}}selected{{/selectedVehicle.XL}}>XL</option>
+                <option value="eco" {{#selectedVehicle.Eco}}selected{{/selectedVehicle.Eco}}>Eco</option>
+                <option value="luxury" {{#selectedVehicle.Luxury}}selected{{/selectedVehicle.Luxury}}>Luxury</option>
                 </select>
                 
 
@@ -50,7 +50,7 @@
                 <input type="number" id="experience" name="experience" min="0" step="1" value="{{driver.experience}}" required placeholder="0">
 
                 <label for="AvailableSpots">Plazas Disponibles:</label>
-                <input type="number" id="AvailableSpots" name="AvailableSpots" min="1" max="4" step="1" value="{{driver.availabeSpots}}" required placeholder="1">
+                <input type="number" id="AvailableSpots" name="AvailableSpots" min="1" max="4" step="1" value="{{driver.availableSpots}}" required placeholder="1">
 
                 <label for="image">Foto del conductor:</label>
                 <input type="file" id="image" name="image" accept="image/*">
