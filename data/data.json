@@ -4,12 +4,39 @@
     "community": "Valencia",
     "vehicle": "Luxury",
     "puntuation": 4.8,
-    "experiencia": 6,
     "availableSpots": 3,
     "availability": true,
-    "image": "Alejandro_aparisi.avif"
-
-
+    "image": "Alejandro_aparisi.avif",
+    "experience": 6,
+    "trips": [
+      {
+        "image": "valencia_sagunto.jpg",
+        "title": "Valencia - Sagunto",
+        "origin": "Estación del Norte, Valencia",
+        "destination": "Castillo de Sagunto, Sagunto",
+        "dateHour": "20/11/2026 09:00",
+        "price": 4,
+        "intercommunity": false
+      },
+      {
+        "image": "valencia_alicante.jpg",
+        "title": "Valencia - Alicante",
+        "origin": "Estación de Autobuses, Valencia",
+        "destination": "Explanada de España, Alicante",
+        "dateHour": "27/11/2026 08:00",
+        "price": 14,
+        "intercommunity": false
+      },
+      {
+        "image": "valencia_cuenca.jpg",
+        "title": "Valencia - Cuenca",
+        "origin": "Estación Joaquín Sorolla, Valencia",
+        "destination": "Plaza Mayor, Cuenca",
+        "dateHour": "29/11/2026 10:00",
+        "price": 13,
+        "intercommunity": true
+      }
+    ]
   },
   {
     "name": "Ana López",
@@ -21,7 +48,7 @@
     "availability": true,
     "image": "ana_lopez.jpg",
     "trips": [
-        {
+      {
         "image": "madrid_getafe.jpg",
         "title": "Madrid Central - Getafe",
         "origin": "Calle de Atocha, 50, Madrid",
@@ -29,9 +56,8 @@
         "dateHour": "15/11/2026 10:00",
         "price": 5,
         "intercommunity": false
-  },
-  {
-        
+      },
+      {
         "image": "madrid_alcala.jpg",
         "title": "Madrid - Alcalá de Henares",
         "origin": "Intercambiador de Plaza de Castilla, Madrid",
@@ -39,9 +65,8 @@
         "dateHour": "18/11/2026 16:30",
         "price": 4,
         "intercommunity": false
-  },
-  {
-        
+      },
+      {
         "image": "madrid_leganes.jpg",
         "title": "Madrid - Leganés",
         "origin": "Paseo de la Esperanza, 12, Madrid",
@@ -49,9 +74,8 @@
         "dateHour": "20/11/2026 09:15",
         "price": 4.5,
         "intercommunity": false
-  },
-  {
-        
+      },
+      {
         "image": "madrid_toledo.jpg",
         "title": "Madrid - Toledo",
         "origin": "Estación Sur de Autobuses, Méndez Álvaro, Madrid",
@@ -59,9 +83,8 @@
         "dateHour": "18/11/2026 09:00",
         "price": 12,
         "intercommunity": true
-  },
-  {
-        
+      },
+      {
         "image": "madrid_segovia.jpg",
         "title": "Madrid - Segovia",
         "origin": "Intercambiador de Moncloa, Madrid",
@@ -69,9 +92,8 @@
         "dateHour": "20/11/2026 08:30",
         "price": 15,
         "intercommunity": true
-  },
-  {
-        
+      },
+      {
         "image": "madrid_alcobendas.jpg",
         "title": "Madrid - Alcobendas",
         "origin": "Plaza de Castilla, Madrid",
@@ -79,9 +101,8 @@
         "dateHour": "22/11/2026 14:00",
         "price": 3.5,
         "intercommunity": false
-  },
-  {
-        
+      },
+      {
         "image": "madrid_alcorcon.jpg",
         "title": "Madrid - Alcorcón",
         "origin": "Príncipe Pío, Madrid",
@@ -89,9 +110,8 @@
         "dateHour": "25/11/2026 08:30",
         "price": 4,
         "intercommunity": false
-  },
-  {
-        
+      },
+      {
         "image": "madrid_pozuelo.jpg",
         "title": "Madrid - Pozuelo",
         "origin": "Moncloa, Madrid",
@@ -99,10 +119,7 @@
         "dateHour": "28/11/2026 11:00",
         "price": 3,
         "intercommunity": false
-  } 
-        
-        
-    
+      }
     ]
   },
   {
@@ -110,99 +127,389 @@
     "community": "Madrid",
     "vehicle": "Eco",
     "puntuation": 3.8,
-    "experiencia": 5,
     "availableSpots": 4,
     "availability": true,
-    "image": "Antonio_sanchez.jpg"
+    "image": "Antonio_sanchez.jpg",
+    "experience": 5,
+    "trips": [
+      {
+        "image": "madrid_rivas.jpg",
+        "title": "Madrid - Rivas-Vaciamadrid",
+        "origin": "Intercambiador de Conde de Casal, Madrid",
+        "destination": "Parque del Cerro del Telégrafo, Rivas-Vaciamadrid",
+        "dateHour": "19/11/2026 08:00",
+        "price": 3,
+        "intercommunity": false
+      },
+      {
+        "image": "madrid_aranjuez.jpg",
+        "title": "Madrid - Aranjuez",
+        "origin": "Estación de Atocha, Madrid",
+        "destination": "Palacio Real de Aranjuez, Aranjuez",
+        "dateHour": "23/11/2026 10:30",
+        "price": 6,
+        "intercommunity": false
+      },
+      {
+        "image": "madrid_avila.jpg",
+        "title": "Madrid - Ávila",
+        "origin": "Estación Sur de Autobuses, Madrid",
+        "destination": "Murallas de Ávila, Ávila",
+        "dateHour": "30/11/2026 09:30",
+        "price": 13,
+        "intercommunity": true
+      }
+    ]
   },
   {
     "name": "Apu Cherkvasky",
     "community": "Barcelona",
     "vehicle": "Normal",
     "puntuation": 4.2,
-    "experiencia": 2,
     "availableSpots": 3,
     "availability": false,
-    "image": "Apu_Cherkvasky.jpg"
+    "image": "Apu_Cherkvasky.jpg",
+    "experience": 2,
+    "trips": [
+      {
+        "image": "barcelona_sitges.jpg",
+        "title": "Barcelona - Sitges",
+        "origin": "Estació de Sants, Barcelona",
+        "destination": "Passeig de la Ribera, Sitges",
+        "dateHour": "21/11/2026 10:00",
+        "price": 5,
+        "intercommunity": false
+      },
+      {
+        "image": "barcelona_girona.jpg",
+        "title": "Barcelona - Girona",
+        "origin": "Estació del Nord, Barcelona",
+        "destination": "Plaça de la Independència, Girona",
+        "dateHour": "24/11/2026 08:15",
+        "price": 9,
+        "intercommunity": false
+      },
+      {
+        "image": "barcelona_zaragoza.jpg",
+        "title": "Barcelona - Zaragoza",
+        "origin": "Estació de Sants, Barcelona",
+        "destination": "Plaza del Pilar, Zaragoza",
+        "dateHour": "28/11/2026 07:30",
+        "price": 25,
+        "intercommunity": true
+      }
+    ]
   },
   {
     "name": "Carlos Vicente",
     "community": "Madrid",
     "vehicle": "Normal",
     "puntuation": 3.5,
-    "experiencia": 1,
     "availableSpots": 3,
     "availability": true,
-    "image": "carlos_vicente.jpg"
+    "image": "carlos_vicente.jpg",
+    "experience": 1,
+    "trips": [
+      {
+        "image": "madrid_majadahonda.jpg",
+        "title": "Madrid - Majadahonda",
+        "origin": "Moncloa, Madrid",
+        "destination": "Hospital Puerta de Hierro, Majadahonda",
+        "dateHour": "19/11/2026 07:45",
+        "price": 3.5,
+        "intercommunity": false
+      },
+      {
+        "image": "madrid_torrejon.jpg",
+        "title": "Madrid - Torrejón de Ardoz",
+        "origin": "Intercambiador de Avenida de América, Madrid",
+        "destination": "Parque Europa, Torrejón de Ardoz",
+        "dateHour": "26/11/2026 17:00",
+        "price": 4,
+        "intercommunity": false
+      },
+      {
+        "image": "madrid_guadalajara.jpg",
+        "title": "Madrid - Guadalajara",
+        "origin": "Intercambiador de Avenida de América, Madrid",
+        "destination": "Plaza Mayor, Guadalajara",
+        "dateHour": "01/12/2026 09:00",
+        "price": 8,
+        "intercommunity": true
+      }
+    ]
   },
   {
     "name": "Faustino Blázquez",
     "community": "Sevilla",
     "vehicle": "XL",
     "puntuation": 4.0,
-    "experiencia": 4,
     "availableSpots": 6,
     "availability": true,
-    "image": "Faustino_blazquez.jpg"
+    "image": "Faustino_blazquez.jpg",
+    "experience": 4,
+    "trips": [
+      {
+        "image": "sevilla_cordoba.jpg",
+        "title": "Sevilla - Córdoba",
+        "origin": "Estación de Plaza de Armas, Sevilla",
+        "destination": "Mezquita-Catedral, Córdoba",
+        "dateHour": "20/11/2026 09:30",
+        "price": 10,
+        "intercommunity": false
+      },
+      {
+        "image": "sevilla_cadiz.jpg",
+        "title": "Sevilla - Cádiz",
+        "origin": "Estación de Santa Justa, Sevilla",
+        "destination": "Playa de la Caleta, Cádiz",
+        "dateHour": "22/11/2026 10:00",
+        "price": 11,
+        "intercommunity": false
+      },
+      {
+        "image": "sevilla_merida.jpg",
+        "title": "Sevilla - Mérida",
+        "origin": "Estación de Plaza de Armas, Sevilla",
+        "destination": "Teatro Romano, Mérida",
+        "dateHour": "29/11/2026 08:45",
+        "price": 18,
+        "intercommunity": true
+      }
+    ]
   },
   {
     "name": "Fernando Redondo",
     "community": "Madrid",
     "vehicle": "Luxury",
     "puntuation": 5.0,
-    "experiencia": 10,
     "availableSpots": 2,
     "availability": true,
-    "image": "Fernando_redondo.jpg"
+    "image": "Fernando_redondo.jpg",
+    "experience": 10,
+    "trips": [
+      {
+        "image": "madrid_escorial.jpg",
+        "title": "Madrid - El Escorial",
+        "origin": "Moncloa, Madrid",
+        "destination": "Monasterio de El Escorial, San Lorenzo de El Escorial",
+        "dateHour": "21/11/2026 10:00",
+        "price": 9,
+        "intercommunity": false
+      },
+      {
+        "image": "madrid_barajas.jpg",
+        "title": "Madrid - Aeropuerto Barajas",
+        "origin": "Estación de Atocha, Madrid",
+        "destination": "Terminal 4, Aeropuerto Adolfo Suárez Madrid-Barajas",
+        "dateHour": "24/11/2026 06:30",
+        "price": 15,
+        "intercommunity": false
+      },
+      {
+        "image": "madrid_cuenca.jpg",
+        "title": "Madrid - Cuenca",
+        "origin": "Estación de Atocha, Madrid",
+        "destination": "Casas Colgadas, Cuenca",
+        "dateHour": "02/12/2026 09:00",
+        "price": 20,
+        "intercommunity": true
+      }
+    ]
   },
   {
     "name": "Makelelé Villalón",
     "community": "Andalucía",
     "vehicle": "Eco",
     "puntuation": 2.5,
-    "experiencia": 1,
     "availableSpots": 3,
     "availability": false,
-    "image": "Makelele_villalon.png"
+    "image": "Makelele_villalon.png",
+    "experience": 1,
+    "trips": [
+      {
+        "image": "granada_malaga.jpg",
+        "title": "Granada - Málaga",
+        "origin": "Estación de Autobuses, Granada",
+        "destination": "Alcazaba de Málaga, Málaga",
+        "dateHour": "22/11/2026 09:00",
+        "price": 9,
+        "intercommunity": false
+      },
+      {
+        "image": "granada_sierranevada.jpg",
+        "title": "Granada - Sierra Nevada",
+        "origin": "Plaza de Isabel la Católica, Granada",
+        "destination": "Estación de esquí de Sierra Nevada",
+        "dateHour": "27/11/2026 07:30",
+        "price": 7,
+        "intercommunity": false
+      },
+      {
+        "image": "granada_murcia.jpg",
+        "title": "Granada - Murcia",
+        "origin": "Estación de Autobuses, Granada",
+        "destination": "Plaza del Cardenal Belluga, Murcia",
+        "dateHour": "03/12/2026 08:00",
+        "price": 20,
+        "intercommunity": true
+      }
+    ]
   },
   {
     "name": "Manolo Gutiérrez",
     "community": "Galicia",
     "vehicle": "Normal",
     "puntuation": 4.3,
-    "experiencia": 7,
     "availableSpots": 4,
     "availability": true,
-    "image": "Manolo_gutierrez.jpg"
+    "image": "Manolo_gutierrez.jpg",
+    "experience": 7,
+    "trips": [
+      {
+        "image": "santiago_coruna.jpg",
+        "title": "Santiago - A Coruña",
+        "origin": "Estación de Autobuses, Santiago de Compostela",
+        "destination": "Torre de Hércules, A Coruña",
+        "dateHour": "20/11/2026 11:00",
+        "price": 6,
+        "intercommunity": false
+      },
+      {
+        "image": "vigo_pontevedra.jpg",
+        "title": "Vigo - Pontevedra",
+        "origin": "Estación de Vigo-Urzaiz, Vigo",
+        "destination": "Plaza de la Ferrería, Pontevedra",
+        "dateHour": "25/11/2026 17:30",
+        "price": 4,
+        "intercommunity": false
+      },
+      {
+        "image": "lugo_oviedo.jpg",
+        "title": "Lugo - Oviedo",
+        "origin": "Estación de Autobuses, Lugo",
+        "destination": "Catedral de Oviedo, Oviedo",
+        "dateHour": "01/12/2026 09:00",
+        "price": 16,
+        "intercommunity": true
+      }
+    ]
   },
   {
     "name": "Miguel Sansón",
     "community": "Madrid",
     "vehicle": "Eco",
     "puntuation": 4.7,
-    "experiencia": 3,
     "availableSpots": 3,
     "availability": true,
-    "image": "Miguel_sanson.jpg"
+    "image": "Miguel_sanson.jpg",
+    "experience": 3,
+    "trips": [
+      {
+        "image": "madrid_fuenlabrada.jpg",
+        "title": "Madrid - Fuenlabrada",
+        "origin": "Estación de Atocha, Madrid",
+        "destination": "Hospital Universitario de Fuenlabrada",
+        "dateHour": "19/11/2026 07:30",
+        "price": 3.5,
+        "intercommunity": false
+      },
+      {
+        "image": "madrid_trescantos.jpg",
+        "title": "Madrid - Tres Cantos",
+        "origin": "Plaza de Castilla, Madrid",
+        "destination": "Centro Comercial Zielo, Tres Cantos",
+        "dateHour": "27/11/2026 18:00",
+        "price": 3,
+        "intercommunity": false
+      },
+      {
+        "image": "madrid_toledo2.jpg",
+        "title": "Madrid - Toledo",
+        "origin": "Estación de Atocha, Madrid",
+        "destination": "Catedral de Toledo, Toledo",
+        "dateHour": "05/12/2026 10:00",
+        "price": 11,
+        "intercommunity": true
+      }
+    ]
   },
   {
     "name": "Pepe Barbacid",
     "community": "País Vasco",
     "vehicle": "XL",
     "puntuation": 4.1,
-    "experiencia": 8,
     "availableSpots": 5,
     "availability": true,
-    "image": "Pepe_barbacid.jpg"
+    "image": "Pepe_barbacid.jpg",
+    "experience": 8,
+    "trips": [
+      {
+        "image": "bilbao_sansebastian.jpg",
+        "title": "Bilbao - San Sebastián",
+        "origin": "Termibus, Bilbao",
+        "destination": "Playa de La Concha, San Sebastián",
+        "dateHour": "21/11/2026 10:00",
+        "price": 10,
+        "intercommunity": false
+      },
+      {
+        "image": "bilbao_vitoria.jpg",
+        "title": "Bilbao - Vitoria-Gasteiz",
+        "origin": "Termibus, Bilbao",
+        "destination": "Plaza de la Virgen Blanca, Vitoria-Gasteiz",
+        "dateHour": "26/11/2026 08:30",
+        "price": 8,
+        "intercommunity": false
+      },
+      {
+        "image": "bilbao_santander.jpg",
+        "title": "Bilbao - Santander",
+        "origin": "Termibus, Bilbao",
+        "destination": "Palacio de la Magdalena, Santander",
+        "dateHour": "04/12/2026 09:15",
+        "price": 12,
+        "intercommunity": true
+      }
+    ]
   },
   {
     "name": "Rigoberto Maldini",
     "community": "Madrid",
     "vehicle": "Luxury",
     "puntuation": 4.9,
-    "experiencia": 12,
     "availableSpots": 2,
     "availability": true,
-    "image": "Rigoberto_maldini.jpg"
+    "image": "Rigoberto_maldini.jpg",
+    "experience": 12,
+    "trips": [
+      {
+        "image": "madrid_barajas2.jpg",
+        "title": "Madrid - Aeropuerto Barajas",
+        "origin": "Paseo de la Castellana, Madrid",
+        "destination": "Terminal 1, Aeropuerto Adolfo Suárez Madrid-Barajas",
+        "dateHour": "19/11/2026 05:45",
+        "price": 20,
+        "intercommunity": false
+      },
+      {
+        "image": "madrid_lasrozas.jpg",
+        "title": "Madrid - Las Rozas",
+        "origin": "Moncloa, Madrid",
+        "destination": "Las Rozas Village, Las Rozas",
+        "dateHour": "28/11/2026 12:00",
+        "price": 8,
+        "intercommunity": false
+      },
+      {
+        "image": "madrid_salamanca.jpg",
+        "title": "Madrid - Salamanca",
+        "origin": "Estación Sur de Autobuses, Madrid",
+        "destination": "Plaza Mayor, Salamanca",
+        "dateHour": "06/12/2026 09:00",
+        "price": 28,
+        "intercommunity": true
+      }
+    ]
   }
 ]
