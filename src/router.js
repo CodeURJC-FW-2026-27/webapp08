@@ -60,56 +60,41 @@ async function validateDriver(body, isEdit, currentID) {
 
 
 
-router.get('/', (req, res) => {
-    const db = req.app.locals.db;
-    const driversCollection = db.collection('drivers');
-
-
+router.get('/', async (req, res) => {
     const tipo = req.query.tipo;
     const search = req.query.search;
-    let query = {};
-    if (tipo) {
-        query.vehicle = tipo;
-    }
+    const page = parseInt(req.query.page) || 1;
 
-    if (search) {
-        query.name = { $regex: search, $options: 'i' };
-    }
-    const limit = 6; 
-    const page = parseInt(req.query.page) || 1; 
-    const skip = (page - 1) * limit;
+    const { drivers, totalPages } = await getDriversPaginated({
+        vehicle: tipo,
+        search,
+        page
+    });
 
-    driversCollection.countDocuments(query, function(err, totalDocs) {
-        if (err) return res.status(500).send("Error al contar documentos");
+    const prevPage = page > 1 ? page - 1 : null;
+    const nextPage = page < totalPages ? page + 1 : null;
 
-        const totalPages = Math.ceil(totalDocs / limit);
-
-        driversCollection.find(query).skip(skip).limit(limit).toArray(function(err, docs) {
-            if (err) return res.status(500).send("Error al buscar documentos");
-
-            const prevPage = page > 1 ? page - 1 : null;
-            const nextPage = page < totalPages ? page + 1 : null;
-            
-            let pagesArray = [];
-            for (let i = 1; i <= totalPages; i++) {
-                pagesArray.push({
-                    pageNumber: i,
-                    isCurrent: i === page,
-                    tipo: tipo 
-                });
-            }
-
-            res.render('main', {
-                pageTittle: 'Welcome - CarMe',
-                filtro: docs,
-                prevPage: prevPage,
-                nextPage: nextPage,
-                pages: pagesArray,
-                tipo: tipo
-            });
+    const pagesArray = [];
+    for (let i = 1; i <= totalPages; i++) {
+        pagesArray.push({
+            pageNumber: i,
+            isCurrent: i === page,
+            tipo: tipo,
+            search: search
         });
+    }
+
+    res.render('main', {
+        pageTittle: 'Welcome - CarMe',
+        filtro: drivers,
+        prevPage: prevPage,
+        nextPage: nextPage,
+        pages: pagesArray,
+        tipo: tipo,
+        search: search
     });
 });
+
 
 
 

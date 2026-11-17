@@ -27,10 +27,10 @@ export async function deleteDriver(){
     return await drivers.deleteMany();
 }
 
-//export async function getDrivers(){
+export async function getDrivers(){
 
- //   return await drivers.find().toArray();
-//}
+    return await drivers.find().toArray();
+}
 
 export async function getDriver(id){
 
@@ -54,7 +54,7 @@ function escapeRegex(text) {
 
 
 
-export async function getDrivers({ vehicle, search, page = 1, limit = 6 } = {}) {
+export async function getDriversPaginated({ vehicle, search, page = 1, limit = 6 } = {}) {
     const query = {};
     if (vehicle) {
         query.vehicle = vehicle;
