@@ -233,7 +233,7 @@ router.post('/newdriver', upload.single('image'), async (req, res) => {
 
         let finalImage = '/images/default_driver.png';
         if (req.file) {
-            finalImage = `/uploads/${req.file.filename}`;
+            finalImage = req.file.filename;
         } else if (isEdit && req.body.oldImage) {
             finalImage = req.body.oldImage;
         }
@@ -246,7 +246,7 @@ router.post('/newdriver', upload.single('image'), async (req, res) => {
             experience: parseInt(req.body.experience),
             availableSpots: parseInt(req.body.AvailableSpots),
             availability: req.body.Availability === 'on',
-            imageFilename: finalImage
+            image: finalImage
         };
 
         if (isEdit) {
