@@ -155,7 +155,7 @@ router.post('/newdriver', upload.single('image'), async (req, res) => {
             }
 
             const backUrl = isEdit ? `/editdriver/${currentID}` : '/newdriver';
-            return res.status(400).render('error', {
+            return res.status(400).render('confirmation', {
                 pageTittle: 'Error - CarMe',
                 message: validationError,
                 backUrl: backUrl,
@@ -206,7 +206,7 @@ router.post('/newdriver', upload.single('image'), async (req, res) => {
         if (req.file) {
             await fs.unlink(req.file.path);
         }
-        res.status(500).render('error', {
+        res.status(500).render('confirmation', {
             pageTittle: 'Error del servidor - CarMe',
             message: 'Ocurrió un error al procesar la solicitud. Por favor, inténtelo de nuevo más tarde.',
             backUrl: isEdit ? `/editdriver/${currentID}` : '/newdriver',
