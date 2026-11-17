@@ -130,7 +130,7 @@ router.get('/editdriver/:id', async (req, res) => {
         const driver = await board.getDriver(req.params.id);
 
         if (!driver) {
-            return res.status(404).render('error', {
+            return res.status(404).render('confirmation', {
                 pageTittle: 'Error - CarMe',
                 message: 'Driver not found.',
                 backUrl: '/',
