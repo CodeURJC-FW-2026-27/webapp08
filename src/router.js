@@ -61,37 +61,39 @@ async function validateDriver(body, isEdit, currentID) {
 
 
 router.get('/', async (req, res) => {
-    const tipo = req.query.tipo;
-    const search = req.query.search;
-    const page = parseInt(req.query.page) || 1;
 
-    const { drivers, totalPages } = await getDriversPaginated({
-        vehicle: tipo,
-        search,
-        page
-    });
+    const drivers = await getDrivers();
+    //const tipo = req.query.tipo;
+    //const search = req.query.search;
+    //const page = parseInt(req.query.page) || 1;
 
-    const prevPage = page > 1 ? page - 1 : null;
-    const nextPage = page < totalPages ? page + 1 : null;
+    //const { drivers, totalPages } = await getDriversPaginated({
+    //    vehicle: tipo,
+    //    search,
+    //    page
+    //});
 
-    const pagesArray = [];
-    for (let i = 1; i <= totalPages; i++) {
-        pagesArray.push({
-            pageNumber: i,
-            isCurrent: i === page,
-            tipo: tipo,
-            search: search
-        });
-    }
+    //const prevPage = page > 1 ? page - 1 : null;
+    //const nextPage = page < totalPages ? page + 1 : null;
+
+    //const pagesArray = [];
+    //for (let i = 1; i <= totalPages; i++) {
+    //    pagesArray.push({
+    //        pageNumber: i,
+    //        isCurrent: i === page,
+     //       tipo: tipo,
+     //       search: search
+    //    });
+    //}
 
     res.render('main', {
         pageTittle: 'Welcome - CarMe',
         filtro: drivers,
-        prevPage: prevPage,
-        nextPage: nextPage,
-        pages: pagesArray,
-        tipo: tipo,
-        search: search
+        //prevPage: prevPage,
+        //nextPage: nextPage,
+        //pages: pagesArray,
+        //tipo: tipo,
+       // search: search
     });
 });
 

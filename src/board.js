@@ -22,7 +22,7 @@ export async function deleteDriver(id){
     return await drivers.findOneAndDelete({ _id: new ObjectId(id) });
 }
 
-export async function deleteDriver(){
+export async function deleteDrivers(){
 
     return await drivers.deleteMany();
 }

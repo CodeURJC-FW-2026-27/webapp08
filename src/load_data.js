@@ -12,7 +12,7 @@ const drivers = JSON.parse(dataString);
 
 await board.deleteDriver();
 for(let driver of drivers){
-    await board.addPost(driver);
+    await board.addDriver(driver);
 }
 
 await fs.rm(UPLOADS_FOLDER, { recursive: true, force: true });
