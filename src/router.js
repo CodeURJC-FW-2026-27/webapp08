@@ -327,3 +327,7 @@ router.get('/trip/:driverId/:tripId/image', async (req, res) => {
     }
 });
 
+router.get('/post/video', (req, res) => {
+    // Reemplaza 'nombre_de_tu_video.mp4' por el nombre real del archivo
+    res.download(board.UPLOADS_FOLDER + '/video.mp4');
+});
