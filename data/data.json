@@ -7,7 +7,7 @@
     "experiencia": 6,
     "availableSpots": 3,
     "availability": true,
-    "image": "/images/Alejandro_aparisi.avif"
+    "image": "Alejandro_aparisi.avif"
 
 
   },
@@ -19,10 +19,10 @@
     "experiencia": 3,
     "availableSpots": 5,
     "availability": true,
-    "image": "/images/ana_lopez.jpg",
+    "image": "ana_lopez.jpg",
     "trips": [
         {
-        "image": "/images/madrid_getafe.jpg",
+        "image": "madrid_getafe.jpg",
         "title": "Madrid Central - Getafe",
         "origin": "Calle de Atocha, 50, Madrid",
         "destination": "Universidad Carlos III, Campus Getafe",
@@ -32,7 +32,7 @@
   },
   {
         
-        "image": "/images/madrid_alcala.jpg",
+        "image": "madrid_alcala.jpg",
         "title": "Madrid - Alcalá de Henares",
         "origin": "Intercambiador de Plaza de Castilla, Madrid",
         "destination": "Plaza de Cervantes, Alcalá de Henares",
@@ -42,7 +42,7 @@
   },
   {
         
-        "image": "/images/madrid_leganes.jpg",
+        "image": "madrid_leganes.jpg",
         "title": "Madrid - Leganés",
         "origin": "Paseo de la Esperanza, 12, Madrid",
         "destination": "C.C. Sambil Outlet, Leganés",
@@ -52,7 +52,7 @@
   },
   {
         
-        "image": "/images/madrid_toledo.jpg",
+        "image": "madrid_toledo.jpg",
         "title": "Madrid - Toledo",
         "origin": "Estación Sur de Autobuses, Méndez Álvaro, Madrid",
         "destination": "Plaza de Zocodover, Toledo",
@@ -62,7 +62,7 @@
   },
   {
         
-        "image": "/images/madrid_segovia.jpg",
+        "image": "madrid_segovia.jpg",
         "title": "Madrid - Segovia",
         "origin": "Intercambiador de Moncloa, Madrid",
         "destination": "Acueducto de Segovia, Segovia",
@@ -72,7 +72,7 @@
   },
   {
         
-        "image": "/images/madrid_alcobendas.jpg",
+        "image": "madrid_alcobendas.jpg",
         "title": "Madrid - Alcobendas",
         "origin": "Plaza de Castilla, Madrid",
         "destination": "Parque Comercial La Moraleja, Alcobendas",
@@ -82,7 +82,7 @@
   },
   {
         
-        "image": "/images/madrid_alcorcon.jpg",
+        "image": "madrid_alcorcon.jpg",
         "title": "Madrid - Alcorcón",
         "origin": "Príncipe Pío, Madrid",
         "destination": "Hospital Universitario Fundación Alcorcón",
@@ -92,7 +92,7 @@
   },
   {
         
-        "image": "/images/madrid_pozuelo.jpg",
+        "image": "madrid_pozuelo.jpg",
         "title": "Madrid - Pozuelo",
         "origin": "Moncloa, Madrid",
         "destination": "Avenida de Europa, Pozuelo de Alarcón",
@@ -113,7 +113,7 @@
     "experiencia": 5,
     "availableSpots": 4,
     "availability": true,
-    "image": "/images/Antonio_sanchez.jpg"
+    "image": "Antonio_sanchez.jpg"
   },
   {
     "name": "Apu Cherkvasky",
@@ -123,7 +123,7 @@
     "experiencia": 2,
     "availableSpots": 3,
     "availability": false,
-    "image": "/images/Apu_Cherkvasky.jpg"
+    "image": "Apu_Cherkvasky.jpg"
   },
   {
     "name": "Carlos Vicente",
@@ -133,7 +133,7 @@
     "experiencia": 1,
     "availableSpots": 3,
     "availability": true,
-    "image": "/images/carlos_vicente.jpg"
+    "image": "carlos_vicente.jpg"
   },
   {
     "name": "Faustino Blázquez",
@@ -143,7 +143,7 @@
     "experiencia": 4,
     "availableSpots": 6,
     "availability": true,
-    "image": "/images/Faustino_blazquez.jpg"
+    "image": "Faustino_blazquez.jpg"
   },
   {
     "name": "Fernando Redondo",
@@ -153,7 +153,7 @@
     "experiencia": 10,
     "availableSpots": 2,
     "availability": true,
-    "image": "/images/Fernando_redondo.jpg"
+    "image": "Fernando_redondo.jpg"
   },
   {
     "name": "Makelelé Villalón",
@@ -163,7 +163,7 @@
     "experiencia": 1,
     "availableSpots": 3,
     "availability": false,
-    "image": "/images/Makelele_villalon.png"
+    "image": "Makelele_villalon.png"
   },
   {
     "name": "Manolo Gutiérrez",
@@ -173,7 +173,7 @@
     "experiencia": 7,
     "availableSpots": 4,
     "availability": true,
-    "image": "/images/Manolo_gutierrez.jpg"
+    "image": "Manolo_gutierrez.jpg"
   },
   {
     "name": "Miguel Sansón",
@@ -183,7 +183,7 @@
     "experiencia": 3,
     "availableSpots": 3,
     "availability": true,
-    "image": "/images/Miguel_sanson.jpg"
+    "image": "Miguel_sanson.jpg"
   },
   {
     "name": "Pepe Barbacid",
@@ -193,7 +193,7 @@
     "experiencia": 8,
     "availableSpots": 5,
     "availability": true,
-    "image": "/images/Pepe_barbacid.jpg"
+    "image": "Pepe_barbacid.jpg"
   },
   {
     "name": "Rigoberto Maldini",
@@ -203,6 +203,6 @@
     "experiencia": 12,
     "availableSpots": 2,
     "availability": true,
-    "image": "/images/Rigoberto_maldini.jpg"
+    "image": "Rigoberto_maldini.jpg"
   }
 ]
