@@ -62,7 +62,7 @@ async function validateDriver(body, isEdit, currentID) {
 
 router.get('/', async (req, res) => {
 
-    const drivers = await getDrivers();
+    const drivers = await board.getDrivers();
     //const tipo = req.query.tipo;
     //const search = req.query.search;
     //const page = parseInt(req.query.page) || 1;

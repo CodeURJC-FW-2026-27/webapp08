@@ -10,7 +10,7 @@ const dataString = await fs.readFile(DATA_FOLDER + '/' + dataFile, 'utf8');
 
 const drivers = JSON.parse(dataString);
 
-await board.deleteDriver();
+await board.deleteDrivers();
 for(let driver of drivers){
     await board.addDriver(driver);
 }
