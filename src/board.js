@@ -44,7 +44,13 @@ export async function getDriverByName(name) {
     });
 }
 
-
+export async function updateDriver(driver) {
+    const { id, ...fieldsToUpdate } = driver;
+    return await drivers.updateOne(
+        { _id: new ObjectId(id) },
+        { $set: fieldsToUpdate }
+    );
+}
 
 
 function escapeRegex(text) {
