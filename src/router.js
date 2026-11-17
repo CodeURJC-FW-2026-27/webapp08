@@ -206,7 +206,30 @@ router.get('/detail/:id', async (req, res) => {
 });
 
 
-
+router.get('/deletetrip/:tripId/:driverId', async (req, res) => {
+    try {
+        await board.deleteTrip(req.params.tripId);
+        
+        // Renderizamos la vista de confirmación (éxito) en lugar de redirigir directamente
+        res.render('confirmation', {
+            pageTittle: 'Viaje eliminado - CarMe',
+            message: 'El viaje ha sido eliminado con éxito.',
+            nextUrl: `/detail?id=${req.params.driverId}`,
+            buttonText: 'Volver al perfil del conductor'
+        });
+        
+    } catch (error) {
+        console.error("Error al borrar el viaje:", error);
+        
+        // Renderizamos la vista de confirmación (error)
+        res.status(500).render('confirmation', {
+            pageTittle: 'Error - CarMe',
+            message: 'No se pudo eliminar el viaje.',
+            backUrl: `/detail?id=${req.params.driverId}`,
+            buttonText: 'Volver al perfil'
+        });
+    }
+});
 
 
 
