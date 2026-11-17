@@ -2,7 +2,7 @@
 
     <div class="presentacion">
         <video autoplay muted loop playsinline class="video-fondo">
-            <source src="/video" type="video/mp4">
+            <source src="/post/video" type="video/mp4">
         </video>
 
         <div class="contenido-texto">
@@ -24,9 +24,9 @@
             <div class="col-12 col-sm-6 col-lg-4">
                 <div class="driver-card card">
                     <h3 class="display-6">{{name}}</h3>
-                    <a href="/detail?id={{_id}}"><img src="/post/{{_id}}/image" alt="{{name}} image"></a>
+                    <a href="/detail/{{_id}}"><img src="/post/{{_id}}/image" alt="{{name}} image"></a>
                     <ul class="list-unstyled">
-                        <li ><strong>Disponibilidad:</strong>{{availability}}</li>
+                        <li ><strong>Disponibilidad:</strong>{{#availability}}Sí{{/availability}}{{^availability}}No{{/availability}}</li>
                         <li ><strong>Plazas:</strong> {{availableSpots}}</li>
                         <li ><strong>Puntuación:</strong> {{puntuation}} / 5</li>
                         <li ><strong>Vehículo:</strong> {{vehicle}}</li>
