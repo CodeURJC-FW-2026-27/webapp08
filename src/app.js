@@ -6,8 +6,9 @@ import router from './router.js';
 import './load_data.js';
 
 const app = express();
-
 app.use(express.static('./public'));
+app.use('/images', express.static('./uploads'));
+
 
 app.set('view engine', 'html');
 app.engine('html', mustacheExpress(), ".html");
