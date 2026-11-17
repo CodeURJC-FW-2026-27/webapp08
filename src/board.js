@@ -9,6 +9,7 @@ const client = new MongoClient('mongodb://localhost:27017');
 
 const db = client.db('CarMe');
 const drivers = db.collection('drivers');
+const COLLATION = { locale: 'es', strength: 1 };
 
 export const UPLOADS_FOLDER = './uploads';
 
