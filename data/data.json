@@ -20,85 +20,85 @@
     "availableSpots": 5,
     "availability": true,
     "image": "/images/ana_lopez.jpg",
-    "viajes": [
+    "trips": [
         {
         "image": "/images/madrid_getafe.jpg",
         "title": "Madrid Central - Getafe",
-        "origen": "Calle de Atocha, 50, Madrid",
-        "destino": "Universidad Carlos III, Campus Getafe",
-        "fechaHora": "15/11/2026 10:00",
-        "precio": 5,
-        "intercomunitario": false
+        "origin": "Calle de Atocha, 50, Madrid",
+        "destination": "Universidad Carlos III, Campus Getafe",
+        "dateHour": "15/11/2026 10:00",
+        "price": 5,
+        "intercommunity": false
   },
   {
         
         "image": "/images/madrid_alcala.jpg",
-        "titulo": "Madrid - Alcalá de Henares",
-        "origen": "Intercambiador de Plaza de Castilla, Madrid",
-        "destino": "Plaza de Cervantes, Alcalá de Henares",
-        "fechaHora": "18/11/2026 16:30",
-        "precio": 4,
-        "intercomunitario": false
+        "title": "Madrid - Alcalá de Henares",
+        "origin": "Intercambiador de Plaza de Castilla, Madrid",
+        "destination": "Plaza de Cervantes, Alcalá de Henares",
+        "dateHour": "18/11/2026 16:30",
+        "price": 4,
+        "intercommunity": false
   },
   {
         
         "image": "/images/madrid_leganes.jpg",
-        "titulo": "Madrid - Leganés",
-        "origen": "Paseo de la Esperanza, 12, Madrid",
-        "destino": "C.C. Sambil Outlet, Leganés",
-        "fechaHora": "20/11/2026 09:15",
-        "precio": 4.5,
-        "intercomunitario": false
+        "title": "Madrid - Leganés",
+        "origin": "Paseo de la Esperanza, 12, Madrid",
+        "destination": "C.C. Sambil Outlet, Leganés",
+        "dateHour": "20/11/2026 09:15",
+        "price": 4.5,
+        "intercommunity": false
   },
   {
         
         "image": "/images/madrid_toledo.jpg",
-        "titulo": "Madrid - Toledo",
-        "origen": "Estación Sur de Autobuses, Méndez Álvaro, Madrid",
-        "destino": "Plaza de Zocodover, Toledo",
-        "fechaHora": "18/11/2026 09:00",
-        "precio": 12,
-        "intercomunitario": true
+        "title": "Madrid - Toledo",
+        "origin": "Estación Sur de Autobuses, Méndez Álvaro, Madrid",
+        "destination": "Plaza de Zocodover, Toledo",
+        "dateHour": "18/11/2026 09:00",
+        "price": 12,
+        "intercommunity": true
   },
   {
         
         "image": "/images/madrid_segovia.jpg",
-        "titulo": "Madrid - Segovia",
-        "origen": "Intercambiador de Moncloa, Madrid",
-        "destino": "Acueducto de Segovia, Segovia",
-        "fechaHora": "20/11/2026 08:30",
-        "precio": 15,
-        "intercomunitario": true
+        "title": "Madrid - Segovia",
+        "origin": "Intercambiador de Moncloa, Madrid",
+        "destination": "Acueducto de Segovia, Segovia",
+        "dateHour": "20/11/2026 08:30",
+        "price": 15,
+        "intercommunity": true
   },
   {
         
         "image": "/images/madrid_alcobendas.jpg",
-        "titulo": "Madrid - Alcobendas",
-        "origen": "Plaza de Castilla, Madrid",
-        "destino": "Parque Comercial La Moraleja, Alcobendas",
-        "fechaHora": "22/11/2026 14:00",
-        "precio": 3.5,
-        "intercomunitario": false
+        "title": "Madrid - Alcobendas",
+        "origin": "Plaza de Castilla, Madrid",
+        "destination": "Parque Comercial La Moraleja, Alcobendas",
+        "dateHour": "22/11/2026 14:00",
+        "price": 3.5,
+        "intercommunity": false
   },
   {
         
         "image": "/images/madrid_alcorcon.jpg",
-        "titulo": "Madrid - Alcorcón",
-        "origen": "Príncipe Pío, Madrid",
-        "destino": "Hospital Universitario Fundación Alcorcón",
-        "fechaHora": "25/11/2026 08:30",
-        "precio": 4,
-        "intercomunitario": false
+        "title": "Madrid - Alcorcón",
+        "origin": "Príncipe Pío, Madrid",
+        "destination": "Hospital Universitario Fundación Alcorcón",
+        "dateHour": "25/11/2026 08:30",
+        "price": 4,
+        "intercommunity": false
   },
   {
         
         "image": "/images/madrid_pozuelo.jpg",
-        "titulo": "Madrid - Pozuelo",
-        "origen": "Moncloa, Madrid",
-        "destino": "Avenida de Europa, Pozuelo de Alarcón",
-        "fechaHora": "28/11/2026 11:00",
-        "precio": 3,
-        "intercomunitario": false
+        "title": "Madrid - Pozuelo",
+        "origin": "Moncloa, Madrid",
+        "destination": "Avenida de Europa, Pozuelo de Alarcón",
+        "dateHour": "28/11/2026 11:00",
+        "price": 3,
+        "intercommunity": false
   } 
         
         
