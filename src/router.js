@@ -137,7 +137,7 @@ router.get('/editdriver/:id', async (req, res) => {
             });
         }
 
-        driver._id = driver._id || driver.id;
+        driver._id = driver._id ? driver._id.toString() : driver.id;
 
         res.render('newdriver', {
             pageTittle: 'Edit driver - CarMe',
@@ -163,15 +163,45 @@ router.get('/editdriver/:id', async (req, res) => {
 
 
 
-router.get('/detail/:id', async (req, res) => {
-   const id = req.params.id;
-   const driver = await board.getDriver(id);
-   
-    
-    res.render('detail', {
-        driver
-    });
+router.get('/detail', async (req, res) => {
+    const driverId = req.query.id;
 
+    if (!driverId) {
+        return res.status(400).render('confirmation', {
+            pageTittle: 'Error - CarMe',
+            message: 'Driver ID is required.',
+            backUrl: '/',
+            buttonText: 'Go back to main page'
+        });
+    }
+
+    try {
+        const driver = await board.getDriver(driverId);
+
+        if (!driver) {
+            return res.status(404).render('confirmation', {
+                pageTittle: 'Error - CarMe',
+                message: 'Driver not found.',
+                backUrl: '/',
+                buttonText: 'Go back to main page'
+            });
+        }
+
+        driver._id = driver._id ? driver._id.toString() : driver.id;
+
+        res.render('detail', {
+            pageTittle: `${driver.name} - CarMe`,
+            driver: driver
+        });
+    } catch (error) {
+        console.error('Error loading driver details:', error);
+        res.status(500).render('confirmation', {
+            pageTittle: 'Error - CarMe',
+            message: 'An error occurred while loading the driver details. Please try again later.',
+            backUrl: '/',
+            buttonText: 'Go back to main page'
+        });
+    }
 });
 
 
@@ -201,11 +231,11 @@ router.post('/newdriver', upload.single('image'), async (req, res) => {
             });
         }
 
-        let finalImageFilename = null;
+        let finalImage = '/images/default_driver.png';
         if (req.file) {
-            finalImageFilename = req.file.filename;
+            finalImage = `/uploads/${req.file.filename}`;
         } else if (isEdit && req.body.oldImage) {
-            finalImageFilename = req.body.oldImage;
+            finalImage = req.body.oldImage;
         }
 
         const driverData = {
@@ -216,7 +246,7 @@ router.post('/newdriver', upload.single('image'), async (req, res) => {
             experience: parseInt(req.body.experience),
             availableSpots: parseInt(req.body.AvailableSpots),
             availability: req.body.Availability === 'on',
-            imageFilename: finalImageFilename
+            imageFilename: finalImage
         };
 
         if (isEdit) {

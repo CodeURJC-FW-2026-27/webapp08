@@ -6,7 +6,7 @@
             <form action="/newdriver" method="POST" enctype="multipart/form-data">
 
                 <input type="hidden" name="driverId" value="{{driver._id}}">
-                <input type="hidden" name="oldImage" value="{{driver.imageFilename}}">
+                <input type="hidden" name="oldImage" value="{{driver.image}}">
 
                 <label for="DriverName">Nombre:</label>
                 <input type="text" id="DriverName" name="DriverName" value="{{driver.name}}" required minlength="3" maxlength="50" placeholder="Nombre del conductor">
