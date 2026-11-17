@@ -81,8 +81,8 @@ router.get('/', async (req, res) => {
     //    pagesArray.push({
     //        pageNumber: i,
     //        isCurrent: i === page,
-     //       tipo: tipo,
-     //       search: search
+    //       tipo: tipo,
+    //       search: search
     //    });
     //}
 
@@ -164,13 +164,16 @@ router.get('/editdriver/:id', async (req, res) => {
 
 
 
-
-router.get('/detail', (req, res) => {
+router.get('/detail/:id', async (req, res) => {
+   const id = req.params.id;
+   const driver = await board.getDriver(id);
+   
+    
     res.render('detail', {
-        pageTittle: 'Driver information - CarMe'
+        driver
     });
-});
 
+});
 
 
 
@@ -250,3 +253,15 @@ router.post('/newdriver', upload.single('image'), async (req, res) => {
         });
     }
 });     
+
+
+
+
+router.get('/post/:id/image', async (req, res) => {
+
+    let driver = await board.getDriver(req.params.id);
+
+    res.download(board.UPLOADS_FOLDER + '/' + driver.image);
+
+});
+
