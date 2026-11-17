@@ -26,7 +26,7 @@
                     <h3 class="display-6">{{name}}</h3>
                     <a href="/detail?id={{_id}}"><img src="/post/{{_id}}/image" alt="{{name}} image"></a>
                     <ul class="list-unstyled">
-                        <li ><strong>Disponibilidad:</strong>{{availability}}</li>
+                        <li ><strong>Disponibilidad:</strong>{{#availability}}Sí{{/availability}}{{^availability}}No{{/availability}}</li>
                         <li ><strong>Plazas:</strong> {{availableSpots}}</li>
                         <li ><strong>Puntuación:</strong> {{puntuation}} / 5</li>
                         <li ><strong>Vehículo:</strong> {{vehicle}}</li>
