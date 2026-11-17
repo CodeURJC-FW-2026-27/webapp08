@@ -12,7 +12,7 @@ async function validateDriver(body, isEdit, currentID) {
     const name = body.DriverName ? body.DriverName.trim() : '';
     const community = body.AutonomousComunity;
     const cartype = body.Cartype;
-    const punctuation = parseFloat(body.punctuation);
+    const punctuation = parseFloat(body.puntuation);
     const experience = parseInt(body.experience);
     const availableSpots = parseInt(body.AvailableSpots);
 
@@ -117,7 +117,7 @@ router.get('/editdriver/:id', async (req, res) => {
             });
         }
 
-        driver._id = driver.id;
+        driver._id = driver._id || driver.id;
 
         res.render('newdriver', {
             pageTittle: 'Edit driver - CarMe',
@@ -182,12 +182,12 @@ router.post('/newdriver', upload.single('image'), async (req, res) => {
         };
 
         if (isEdit) {
-            driverData.id = currentId;
+            driverData.id = currentID;
             await board.updateDriver(driverData);
             return res.render('confirmation', {
                 pageTittle: 'Conductor actualizado - CarMe',
                 message: 'El conductor ha sido actualizado con éxito.',
-                nextUrl: `/detail?id=${currentId}`,
+                nextUrl: `/detail?id=${currentID}`,
                 buttonText: 'Ver detalle del conductor'
             });
         } else {
