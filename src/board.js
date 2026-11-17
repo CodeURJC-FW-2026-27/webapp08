@@ -9,8 +9,7 @@ const client = new MongoClient('mongodb://localhost:27017');
 
 const db = client.db('CarMe');
 const drivers = db.collection('drivers');
-const trips = db.collection('trips');
-
+const COLLATION = { locale: 'es', strength: 1 };
 
 export const UPLOADS_FOLDER = './uploads';
 
@@ -45,14 +44,12 @@ export async function getDriverByName(name) {
     });
 }
 
-
-export async function getTripsByDriverId(driverId) {
-
-    return await trips.find({ driverId: driverId.toString()}).toArray;
-}
-
-export async function deleteTrip(tripId) {
-    return await trips.findOneAndDelete({ _id: new ObjectId(tripId)});
+export async function updateDriver(driver) {
+    const { id, ...fieldsToUpdate } = driver;
+    return await drivers.updateOne(
+        { _id: new ObjectId(id) },
+        { $set: fieldsToUpdate }
+    );
 }
 
 

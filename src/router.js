@@ -62,38 +62,37 @@ async function validateDriver(body, isEdit, currentID) {
 
 router.get('/', async (req, res) => {
 
-    const drivers = await board.getDrivers();
-    //const tipo = req.query.tipo;
-    //const search = req.query.search;
-    //const page = parseInt(req.query.page) || 1;
+    const tipo = req.query.tipo;
+    const search = req.query.search;
+    const page = parseInt(req.query.page) || 1;
 
-    //const { drivers, totalPages } = await getDriversPaginated({
-    //    vehicle: tipo,
-    //    search,
-    //    page
-    //});
+    const { drivers, totalPages } = await board.getDriversPaginated({
+        vehicle: tipo,
+        search,
+        page
+    });
 
-    //const prevPage = page > 1 ? page - 1 : null;
-    //const nextPage = page < totalPages ? page + 1 : null;
+    const prevPage = page > 1 ? page - 1 : null;
+    const nextPage = page < totalPages ? page + 1 : null;
 
-    //const pagesArray = [];
-    //for (let i = 1; i <= totalPages; i++) {
-    //    pagesArray.push({
-    //        pageNumber: i,
-    //        isCurrent: i === page,
-    //       tipo: tipo,
-    //       search: search
-    //    });
-    //}
+    const pagesArray = [];
+    for (let i = 1; i <= totalPages; i++) {
+        pagesArray.push({
+            pageNumber: i,
+            isCurrent: i === page,
+            tipo: tipo,
+            search: search
+        });
+    }
 
     res.render('main', {
         pageTittle: 'Welcome - CarMe',
         filtro: drivers,
-        //prevPage: prevPage,
-        //nextPage: nextPage,
-        //pages: pagesArray,
-        //tipo: tipo,
-       // search: search
+        prevPage: prevPage,
+        nextPage: nextPage,
+        pages: pagesArray,
+        tipo: tipo,
+        search: search
     });
 });
 
@@ -138,7 +137,7 @@ router.get('/editdriver/:id', async (req, res) => {
             });
         }
 
-        driver._id = driver._id || driver.id;
+        driver._id = driver._id ? driver._id.toString() : driver.id;
 
         res.render('newdriver', {
             pageTittle: 'Edit driver - CarMe',
@@ -164,16 +163,45 @@ router.get('/editdriver/:id', async (req, res) => {
 
 
 
-router.get('/detail/:id', async (req, res) => {
-   const id = req.params.id;
-   const driver = await board.getDriver(id);
-   const driverTrips = await board.getTripsByDriverId(id);
-    
-    res.render('detail', {
-        driver,
-        trips: driverTrips
-    });
+router.get('/detail', async (req, res) => {
+    const driverId = req.query.id;
 
+    if (!driverId) {
+        return res.status(400).render('confirmation', {
+            pageTittle: 'Error - CarMe',
+            message: 'Driver ID is required.',
+            backUrl: '/',
+            buttonText: 'Go back to main page'
+        });
+    }
+
+    try {
+        const driver = await board.getDriver(driverId);
+
+        if (!driver) {
+            return res.status(404).render('confirmation', {
+                pageTittle: 'Error - CarMe',
+                message: 'Driver not found.',
+                backUrl: '/',
+                buttonText: 'Go back to main page'
+            });
+        }
+
+        driver._id = driver._id ? driver._id.toString() : driver.id;
+
+        res.render('detail', {
+            pageTittle: `${driver.name} - CarMe`,
+            driver: driver
+        });
+    } catch (error) {
+        console.error('Error loading driver details:', error);
+        res.status(500).render('confirmation', {
+            pageTittle: 'Error - CarMe',
+            message: 'An error occurred while loading the driver details. Please try again later.',
+            backUrl: '/',
+            buttonText: 'Go back to main page'
+        });
+    }
 });
 
 
@@ -203,11 +231,11 @@ router.post('/newdriver', upload.single('image'), async (req, res) => {
             });
         }
 
-        let finalImageFilename = null;
+        let finalImage = '/images/default_driver.png';
         if (req.file) {
-            finalImageFilename = req.file.filename;
+            finalImage = `/uploads/${req.file.filename}`;
         } else if (isEdit && req.body.oldImage) {
-            finalImageFilename = req.body.oldImage;
+            finalImage = req.body.oldImage;
         }
 
         const driverData = {
@@ -218,7 +246,7 @@ router.post('/newdriver', upload.single('image'), async (req, res) => {
             experience: parseInt(req.body.experience),
             availableSpots: parseInt(req.body.AvailableSpots),
             availability: req.body.Availability === 'on',
-            imageFilename: finalImageFilename
+            imageFilename: finalImage
         };
 
         if (isEdit) {
