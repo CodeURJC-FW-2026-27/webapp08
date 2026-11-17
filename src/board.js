@@ -53,6 +53,11 @@ export async function updateDriver(driver) {
     );
 }
 
+
+
+//--------------Trips----------------
+
+
 export async function getTripsByDriverId(driverId) {
     return await trips.find({ driverId: driverId.toString() }).toArray();
 }
@@ -60,7 +65,12 @@ export async function getTripsByDriverId(driverId) {
 export async function deleteTrip(tripId) {
     return await trips.findOneAndDelete({ _id: new ObjectId(tripId) });
 }
-
+export async function addTrip(driverId, trip) {
+    return await drivers.updateOne(
+        { _id: new ObjectId(driverId) },
+        { $push: { trips: trip } }
+    );
+}
 
 
 function escapeRegex(text) {
