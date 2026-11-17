@@ -163,7 +163,7 @@ router.get('/editdriver/:id', async (req, res) => {
 
 
 
-router.get('/detail/:id', async (req, res) => {
+router.get('/detail', async (req, res) => {
     const driverId = req.query.id;
 
     if (!driverId) {
@@ -231,11 +231,11 @@ router.post('/newdriver', upload.single('image'), async (req, res) => {
             });
         }
 
-        let finalImageFilename = '/images/default_driver.png';
+        let finalImage = '/images/default_driver.png';
         if (req.file) {
-            finalImageFilename = `/uploads/${req.file.filename}`;
+            finalImage = `/uploads/${req.file.filename}`;
         } else if (isEdit && req.body.oldImage) {
-            finalImageFilename = req.body.oldImage;
+            finalImage = req.body.oldImage;
         }
 
         const driverData = {
@@ -246,7 +246,7 @@ router.post('/newdriver', upload.single('image'), async (req, res) => {
             experience: parseInt(req.body.experience),
             availableSpots: parseInt(req.body.AvailableSpots),
             availability: req.body.Availability === 'on',
-            imageFilename: finalImageFilename
+            imageFilename: finalImage
         };
 
         if (isEdit) {
