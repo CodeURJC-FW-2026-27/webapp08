@@ -190,13 +190,6 @@ router.get('/detail/:id', async (req, res) => {
 
         driver._id = driver._id ? driver._id.toString() : driver.id;
 
-        if (driver.trips && driver.trips.length > 0) {
-            driver.trips = driver.trips.map(trip => {
-                trip._id = trip._id ? trip._id.toString() : trip.id;
-                return trip;
-            });
-        }
-        
         res.render('detail', {
             pageTittle: `${driver.name} - CarMe`,
             driver: driver,
@@ -221,7 +214,7 @@ router.get('/deletetrip/:tripId/:driverId', async (req, res) => {
         res.render('confirmation', {
             pageTittle: 'Viaje eliminado - CarMe',
             message: 'El viaje ha sido eliminado con éxito.',
-            nextUrl: `/detail/${req.params.driverId}`,
+            nextUrl: `/detail?id=${req.params.driverId}`,
             buttonText: 'Volver al perfil del conductor'
         });
         
@@ -231,7 +224,7 @@ router.get('/deletetrip/:tripId/:driverId', async (req, res) => {
         res.status(500).render('confirmation', {
             pageTittle: 'Error - CarMe',
             message: 'No se pudo eliminar el viaje.',
-            backUrl: `/detail/${req.params.driverId}`,
+            backUrl: `/detail?id=${req.params.driverId}`,
             buttonText: 'Volver al perfil'
         });
     }
