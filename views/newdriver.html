@@ -53,7 +53,7 @@
                 <input type="number" id="AvailableSpots" name="AvailableSpots" min="1" max="8" step="1" value="{{driver.availableSpots}}" required placeholder="1">
 
                 <label for="image">Foto del conductor:</label>
-                <input type="file" id="image" name="image" accept="image/*">
+                <input type="file" id="image" name="image" accept="image/*" {{^driver}}required{{/driver}}>
 
                 <div class="checkbox-group">
                     <label for="Availability">¿Está disponible?</label>
