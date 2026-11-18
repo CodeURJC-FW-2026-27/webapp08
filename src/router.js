@@ -48,9 +48,23 @@ async function validateDriver(body, isEdit, currentID) {
     return null; // No validation errors
 }
 
+function renderConfirmation(res, { title, message, nextUrl, buttonText }) {
+    return res.render('confirmation', {
+        pageTittle: `${title} - CarMe`,
+        message,
+        nextUrl,
+        buttonText
+    });
+}
 
-
-
+function renderError(res, status, message, backUrl = '/', buttonText = 'Volver a la página principal', title = 'Error') {
+    return res.status(status).render('confirmation', {
+        pageTittle: `${title} - CarMe`,
+        message,
+        backUrl,
+        buttonText
+    });
+}
 
 // Validates a text field of a trip (title, origin, destination)
 function validateTripText(value, label) {
@@ -212,12 +226,7 @@ router.get('/editdriver/:id', async (req, res) => {
         const driver = await board.getDriver(req.params.id);
 
         if (!driver) {
-            return res.status(404).render('confirmation', {
-                pageTittle: 'Error - CarMe',
-                message: 'Conductor no encontrado.',
-                backUrl: '/',
-                buttonText: 'Volver a la página principal'
-            });
+            return renderError(res, 404, 'Conductor no encontrado.');
         }
 
         driver._id = driver._id ? driver._id.toString() : driver.id;
@@ -230,12 +239,7 @@ router.get('/editdriver/:id', async (req, res) => {
         });
     } catch (error) {
         console.error('Error loading driver:', error);
-        res.status(500).render('confirmation', {
-            pageTittle: 'Error - CarMe',
-            message: 'Ocurrió un error mientras se cargaban los datos del conductor. Por favor, inténtelo de nuevo más tarde.',
-            backUrl: '/',
-            buttonText: 'Volver a la página principal'
-        });
+        return renderError(res, 500, 'Ocurrió un error mientras se cargaban los datos del conductor. Por favor, inténtelo de nuevo más tarde.');
     }
 });
 
@@ -250,24 +254,14 @@ router.get('/detail/:id', async (req, res) => {
     const driverId = req.params.id;
 
     if (!driverId) {
-        return res.status(400).render('confirmation', {
-            pageTittle: 'Error - CarMe',
-            message: 'Se requiere el ID del conductor.',
-            backUrl: '/',
-            buttonText: 'Volver a la página principal'
-        });
+        return renderError(res, 400, 'Se requiere el ID del conductor.');
     }
 
     try {
         const driver = await board.getDriver(driverId);
 
         if (!driver) {
-            return res.status(404).render('confirmation', {
-                pageTittle: 'Error - CarMe',
-                message: 'Conductor no encontrado.',
-                backUrl: '/',
-                buttonText: 'Volver a la página principal'
-            });
+            return renderError(res, 404, 'Conductor no encontrado.');
         }
 
         driver._id = driver._id ? driver._id.toString() : driver.id;
@@ -279,12 +273,7 @@ router.get('/detail/:id', async (req, res) => {
         });
     } catch (error) {
         console.error('Error loading driver details:', error);
-        res.status(500).render('confirmation', {
-            pageTittle: 'Error - CarMe',
-            message: 'Ocurrió un error mientras se cargaban los detalles del conductor. Por favor, inténtelo de nuevo más tarde.',
-            backUrl: '/',
-            buttonText: 'Volver a la página principal'
-        });
+        return renderError(res, 500, 'Ocurrió un error mientras se cargaban los detalles del conductor. Por favor, inténtelo de nuevo más tarde.');
     }
 });
 
@@ -304,12 +293,7 @@ router.post('/newtrip', upload.single('tripImage'), async (req, res) => {
             if (req.file) {
                 await fs.unlink(req.file.path);
             }
-            return res.status(404).render('confirmation', {
-                pageTittle: 'Error - CarMe',
-                message: 'Conductor no encontrado.',
-                backUrl: '/',
-                buttonText: 'Volver a la página principal'
-            });
+            return renderError(res, 404, 'Conductor no encontrado.');
         }
 
         const validationError = validateTrip(req.body, driver, req.file);
@@ -318,12 +302,7 @@ router.post('/newtrip', upload.single('tripImage'), async (req, res) => {
             if (req.file) {
                 await fs.unlink(req.file.path);
             }
-            return res.status(400).render('confirmation', {
-                pageTittle: 'Error - CarMe',
-                message: validationError,
-                backUrl: detailUrl,
-                buttonText: 'Volver al perfil del conductor'
-            });
+            return renderError(res, 400, validationError, detailUrl, 'Volver al perfil del conductor');
         }
 
         const trip = {
@@ -338,8 +317,8 @@ router.post('/newtrip', upload.single('tripImage'), async (req, res) => {
 
         await board.addTrip(driverId, trip);
 
-        res.render('confirmation', {
-            pageTittle: 'Viaje creado - CarMe',
+        return renderConfirmation(res, {
+            title: 'Viaje creado',
             message: 'El viaje ha sido añadido con éxito.',
             nextUrl: detailUrl,
             buttonText: 'Ver detalle del conductor'
@@ -350,12 +329,7 @@ router.post('/newtrip', upload.single('tripImage'), async (req, res) => {
         if (req.file) {
             await fs.unlink(req.file.path);
         }
-        res.status(500).render('confirmation', {
-            pageTittle: 'Error del servidor - CarMe',
-            message: 'Ocurrió un error al procesar la solicitud. Por favor, inténtelo de nuevo más tarde.',
-            backUrl: '/',
-            buttonText: 'Volver a la página principal'
-        });
+        return renderError(res, 500, 'Ocurrió un error al procesar la solicitud. Por favor, inténtelo de nuevo más tarde.', '/', 'Volver a la página principal', 'Error del servidor');
     }
 });
 
@@ -374,22 +348,16 @@ router.get('/deletetrip/:tripId/:driverId', async (req, res) => {
     try {
         await board.deleteTrip(req.params.driverId, req.params.tripId);
         
-        res.render('confirmation', {
-            pageTittle: 'Viaje eliminado - CarMe',
+        return renderConfirmation(res, {
+            title: 'Viaje eliminado',
             message: 'El viaje ha sido eliminado con éxito.',
-            nextUrl: `/detail/${req.params.driverId}`,
+            nextUrl: `/detail/${driverId}`,
             buttonText: 'Volver al perfil del conductor'
         });
         
     } catch (error) {
         console.error("Error al borrar el viaje:", error);
-        
-        res.status(500).render('confirmation', {
-            pageTittle: 'Error - CarMe',
-            message: 'No se pudo eliminar el viaje.',
-            backUrl: `/detail/${req.params.driverId}`,
-            buttonText: 'Volver al perfil'
-        });
+        return renderError(res, 500, 'No se pudo eliminar el viaje.', `/detail/${driverId}`, 'Volver al perfil');
     }
 });
 
@@ -401,12 +369,7 @@ router.get('/edittrip/:tripId/:driverId', async (req, res) => {
         const trip = driver?.trips?.find(t => t._id.toString() === tripId);
 
         if (!driver || !trip) {
-            return res.status(404).render('confirmation', {
-                pageTittle: 'Error - CarMe',
-                message: 'Conductor o viaje no encontrado.',
-                backUrl: driver ? `/detail/${driverId}` : '/',
-                buttonText: 'Volver'
-            });
+            return renderError(res, 404, 'Conductor o viaje no encontrado.', driver ? `/detail/${driverId}` : '/', 'Volver');
         }
 
         trip._id = trip._id.toString();
@@ -419,12 +382,7 @@ router.get('/edittrip/:tripId/:driverId', async (req, res) => {
         });
     } catch (error) {
         console.error('Error al cargar el viaje para editar:', error);
-        res.status(500).render('confirmation', {
-            pageTittle: 'Error del servidor - CarMe',
-            message: 'Ocurrió un error al cargar el viaje. Por favor, inténtelo de nuevo más tarde.',
-            backUrl: `/detail/${driverId}`,
-            buttonText: 'Volver al perfil del conductor'
-        });
+        return renderError(res, 500, 'Ocurrió un error al cargar el viaje. Por favor, inténtelo de nuevo más tarde.', `/detail/${driverId}`, 'Volver al perfil del conductor', 'Error del servidor');
     }
 });
 
@@ -438,24 +396,14 @@ router.post('/edittrip', upload.single('tripImage'), async (req, res) => {
 
         if (!driver) {
             if (req.file) await fs.unlink(req.file.path);
-            return res.status(404).render('confirmation', {
-                pageTittle: 'Error - CarMe',
-                message: 'Conductor no encontrado.',
-                backUrl: '/',
-                buttonText: 'Volver a la página principal'
-            });
+            return renderError(res, 404, 'Conductor no encontrado.');
         }
 
         const validationError = validateTrip(req.body, driver, req.file, true, tripId);
 
         if (validationError) {
             if (req.file) await fs.unlink(req.file.path);
-            return res.status(400).render('confirmation', {
-                pageTittle: 'Error - CarMe',
-                message: validationError,
-                backUrl: editUrl,
-                buttonText: 'Volver al formulario de edición'
-            });
+            return renderError(res, 400, validationError, editUrl, 'Volver al formulario de edición');
         }
 
         const updatedTrip = {
@@ -470,8 +418,8 @@ router.post('/edittrip', upload.single('tripImage'), async (req, res) => {
 
         await board.updateTrip(driverId, tripId, updatedTrip);
 
-        res.render('confirmation', {
-            pageTitle: 'Viaje actualizado - CarMe',
+        return renderConfirmation(res, {
+            title: 'Viaje actualizado',
             message: 'El viaje ha sido actualizado con éxito.',
             nextUrl: detailUrl,
             buttonText: 'Ver detalle del conductor'
@@ -479,12 +427,7 @@ router.post('/edittrip', upload.single('tripImage'), async (req, res) => {
     } catch (error) {
         console.error('Error al actualizar el viaje:', error);
         if (req.file) await fs.unlink(req.file.path);
-        res.status(500).render('confirmation', {
-            pageTittle: 'Error del servidor - CarMe',
-            message: 'Ocurrió un error al procesar la solicitud. Por favor, inténtelo de nuevo más tarde.',
-            backUrl: editUrl,
-            buttonText: 'Volver al formulario de edición'
-        });
+        return renderError(res, 500, 'Ocurrió un error al procesar la solicitud. Por favor, inténtelo de nuevo más tarde.', editUrl, 'Volver al formulario de edición', 'Error del servidor');
     }
 });
 
@@ -505,12 +448,7 @@ router.post('/newdriver', upload.single('image'), async (req, res) => {
             }
 
             const backUrl = isEdit ? `/editdriver/${currentID}` : '/newdriver';
-            return res.status(400).render('confirmation', {
-                pageTittle: 'Error - CarMe',
-                message: validationError,
-                backUrl: backUrl,
-                buttonText: 'Volver al formulario'
-            });
+            return renderError(res, 400, validationError, formUrl, 'Volver al formulario');
         }
 
         let finalImage = '/images/default_driver.png';
@@ -534,8 +472,8 @@ router.post('/newdriver', upload.single('image'), async (req, res) => {
         if (isEdit) {
             driverData.id = currentID;
             await board.updateDriver(driverData);
-            return res.render('confirmation', {
-                pageTittle: 'Conductor actualizado - CarMe',
+            return renderConfirmation(res, {
+                title: 'Conductor actualizado',
                 message: 'El conductor ha sido actualizado con éxito.',
                 nextUrl: `/detail/${currentID}`,
                 buttonText: 'Ver detalle del conductor'
@@ -544,8 +482,8 @@ router.post('/newdriver', upload.single('image'), async (req, res) => {
             const createdId = await board.addDriver(driverData);
             const newId = driverData._id || (result && result.insertedId);
             const targetId = newId ? newId.toString() : '';
-            return res.render('confirmation', {
-                pageTittle: 'Conductor creado - CarMe',
+            return renderConfirmation(res, {
+                title: 'Conductor creado',
                 message: 'El conductor ha sido creado con éxito.',
                 nextUrl: `/detail/${targetId}`,
                 buttonText: 'Ver detalle del conductor'
@@ -557,12 +495,7 @@ router.post('/newdriver', upload.single('image'), async (req, res) => {
         if (req.file) {
             await fs.unlink(req.file.path);
         }
-        res.status(500).render('confirmation', {
-            pageTittle: 'Error del servidor - CarMe',
-            message: 'Ocurrió un error al procesar la solicitud. Por favor, inténtelo de nuevo más tarde.',
-            backUrl: isEdit ? `/editdriver/${currentID}` : '/newdriver',
-            buttonText: 'Volver al formulario'
-        });
+        return renderError(res, 500, 'Ocurrió un error al procesar la solicitud. Por favor, inténtelo de nuevo más tarde.', formUrl, 'Volver al formulario', 'Error del servidor');
     }
 });     
 
@@ -616,22 +549,15 @@ router.get('/delete/:id', async (req, res) => {
         await board.deleteDriver(id);
         
         // Si todo va bien (Éxito)
-        res.render('confirmation', {
-            pageTittle: 'Conductor eliminado - CarMe',
+        return renderConfirmation(res, {
+            title: 'Conductor eliminado',
             message: 'El perfil del conductor ha sido eliminado correctamente.',
             nextUrl: '/',
             buttonText: 'Volver a la página principal'
         });
-
     } catch (error) {
         console.error('Error al eliminar el conductor:', error);
-        
-        res.status(500).render('confirmation', {
-            pageTittle: 'Error - CarMe',
-            message: 'Ha ocurrido un problema y no se ha podido eliminar al conductor.',
-            backUrl: `/detail/${id}`,
-            buttonText: 'Volver al perfil del conductor'
-        });
+        return renderError(res, 500, 'Ha ocurrido un problema y no se ha podido eliminar al conductor.', `/detail/${id}`, 'Volver al perfil del conductor');
     }
 });
 
