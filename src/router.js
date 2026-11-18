@@ -184,7 +184,7 @@ router.get('/', async (req, res) => {
 
     res.render('main', {
         pageTittle: 'Welcome - CarMe',
-        filtro: drivers,
+        filter: drivers,
         prevPage: prevPage,
         nextPage: nextPage,
         pages: pagesArray,
@@ -407,7 +407,7 @@ router.post('/edittrip', upload.single('tripImage'), async (req, res) => {
         }
 
         const updatedTrip = {
-            tittle: req.body.tripTitle.trim(),
+            title: req.body.tripTitle.trim(),
             origin: req.body.tripOrigin.trim(),
             destination: req.body.tripDestination.trim(),
             dateHour: formatDateHour(req.body.tripDateTime),

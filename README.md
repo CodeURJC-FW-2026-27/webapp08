@@ -168,3 +168,24 @@ It consists on a button that filter the drivers that can be seen on the page dep
   - `board.js`
   - `load_data.js`
   - `data.json`
+
+
+
+➡ **Raúl García Piedra**
+-For this assignment, I handled the database connection and Express configuration, ensuring everything functions correctly. I designed the core functions for interacting with MongoDB, integrated Mustache into the main page, and fixed parsing errors in the `load_data` file. I also incorporated new image files for the trips, correctly linking each one so they display properly—including the video—and implemented router functions, such as the ability to delete the main entity. Furthermore, I established the overall architecture for the project, creating the necessary files to properly separate functional responsibilities. I ensured that all pages are correctly linked and that the entire application compiles successfully, transforming the static version from the previous assignment into a dynamic one.
+
+
+- **Commits**:
+  - [Images of the secondary entity showed](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/5ae0b693f963486e26ac68ca9c0e46dc396ecd0f)
+  - [Redistribution of the arquitecture](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/c50fa2e3c311e17105c11516a22f7addcc15137a)
+  - [Connection to mongoDB]([https://github.com/CodeURJC-FW-2026-27/webapp08/commit/3bc082954488fdce969b8e7ea600a6c5e8e556b0](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/1633c47935d70802fc527cece734683b8830c235))
+  - [Images of data.json]([https://github.com/CodeURJC-FW-2026-27/webapp08/commit/07641bd81851f105c1740aee7d9772b1de7e3c52](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/12144fbdd488d2e08161e89b7daf326287e77df4))
+  - [Images router to show]([https://github.com/CodeURJC-FW-2026-27/webapp08/commit/0045e66cb6ce639760f3d614db4b7dfe1166436d](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/87389c19320c08d491ee3306a44e78df6690e9da))
+  
+- **Files I have worked on:**
+  - `router.js`
+  - `app.js`
+  - `board.js`
+  - `load_data.js`
+  - `data.json`
+  - `main.html`
