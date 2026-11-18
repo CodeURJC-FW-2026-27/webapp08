@@ -54,6 +54,14 @@
 
                 <label for="image">Foto del conductor:</label>
                 <input type="file" id="image" name="image" accept="image/*" {{^driver}}required{{/driver}}>
+                {{#driver}}
+                    <div class="mt-2">
+                        <p>Imagen actual:</p>
+                        <img src="/post/{{driver._id}}/image" alt="Foto de {{driver.name}}" style="max-width: 200px;">
+                        <input type="hidden" name="oldImage" value="{{driver.image}}">
+                        <input type="hidden" name="driverId" value="{{driver._id}}">
+                    </div>
+                {{/driver}}
 
                 <div class="checkbox-group">
                     <label for="Availability">¿Está disponible?</label>
