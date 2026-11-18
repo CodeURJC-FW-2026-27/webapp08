@@ -189,3 +189,19 @@ It consists on a button that filter the drivers that can be seen on the page dep
   - `load_data.js`
   - `data.json`
   - `main.html`
+
+➡ **Rodrigo Blázquez Barbacid**
+-For this phase of the project, I was responsible for template modularization and the backend deletion logic for the secondary entity (Trips). My work included extracting repetitive HTML code into reusable Mustache partials (header and footer) and designing a universal, dynamic template (confirmation.html) to handle all success and error confirmations. Additionally, I implemented the delete functionality for the secondary entity, ensuring proper removal from the MongoDB database and correctly routing the action through the intermediate dynamic message pages.
+
+**Commits**:
+  - [Finish confirmation](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/fb818b7631a601495d383b81fcbbceeefdba9157)
+  - [Delete trip](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/5fe3ddae75d19b7db27fb1346d88a3db321ed21b)
+  - [Delete driver](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/efd5aade6b184f7e122d75ef125a013a3cfb6005)
+  - [Adding trip function to board](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/11ec2f9d6f62a7498139b480ed6f44ac0dbdc89c)
+  - [Adjustments when editing](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/0764ac0559bf39d91847a611294380ecd5b18cf1)
+
+  - **Files I have worked on:**
+  - `router.js`
+  - `confirmation.html`
+  - `board.js`
+  - `detail.html`
