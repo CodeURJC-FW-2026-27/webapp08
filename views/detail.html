@@ -17,7 +17,7 @@
                                 <p><strong>Plazas disponibles:</strong> {{driver.availableSpots}}</p>
 
                                 <div class="d-flex flex-row justify-content-center gap-2 mt-3 flex-wrap">
-                                    <a href="/editdriver/{{driver._id}}" class="btn btn-success">Editar</a>
+                                    <button type="button" class="btn btn-success" onclick="window.location.href='/editdriver/{{driver._id}}'">Editar</button>
                                     <button type="button" class="btn btn-danger" onclick="window.location.href='/delete/{{driver._id}}'">Eliminar</button>
                                     <button type="button" class="btn btn-primary" onclick="window.location.href='/'">Volver a la Página Principal</button>
                                 </div>
