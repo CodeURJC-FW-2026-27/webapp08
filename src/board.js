@@ -89,6 +89,26 @@ export async function deleteTrip(driverId, tripId) {
     );
 }
 
+export async function updateTrip(driverId, tripId, updatedFields) {
+    const tripIdFilter = ObjectId.isValid(tripId)
+    ? { $in: [new ObjectId(tripId), tripId] } : tripId;
+
+    return await drivers.updateOne(
+        { _id: new ObjectId(driverId), 'trips._id': tripIdFilter },
+        {
+            $set: {
+                'trips.$.title': updatedFields.title,
+                'trips.$.origin': updatedFields.origin,
+                'trips.$.destination': updatedFields.destination,
+                'trips.$.dateHour': updatedFields.dateHour,
+                'trips.$.price': updatedFields.price,
+                'trips.$.intercommunity': updatedFields.intercommunity,
+                'trips.$.image': updatedFields.image
+            }
+        }
+    );
+}
+
 function escapeRegex(text) {
     return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }

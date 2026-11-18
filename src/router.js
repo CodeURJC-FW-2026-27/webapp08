@@ -70,7 +70,15 @@ function formatDateHour(value) {
     return `${day}/${month}/${year} ${time}`;
 }
 
-function validateTrip(body, driver, file) {
+// Converts "20/11/2026 09:00" to "2026-11-20T09:00"
+function toDateTimeLocal(dateHour) {
+    if (!dateHour || !dateHour.includes(' ')) return '';
+    const [date, time] = dateHour.split(' ');
+    const [day, month, year] = date.split('/');
+    return `${year}-${month}-${day}T${time}`;
+}
+
+function validateTrip(body, driver, file, isEdit = false, currentTripId = null) {
     const title = body.tripTitle ? body.tripTitle.trim() : '';
     const origin = body.tripOrigin ? body.tripOrigin.trim() : '';
     const destination = body.tripDestination ? body.tripDestination.trim() : '';
@@ -102,16 +110,19 @@ function validateTrip(body, driver, file) {
     if (price < 0 || price > 500) {
         return "El precio debe ser un número entre 0 y 500.";
     }
-    if (!file) {
+    if (!isEdit && !file) {
         return "Se requiere una imagen de portada.";
     }
 
     // Check for duplicate trips of the same driver
     const formattedDate = formatDateHour(dateTime);
-    const duplicate = (driver.trips || []).some(trip =>
-        trip.origin.toLowerCase() === origin.toLowerCase() &&
-        trip.destination.toLowerCase() === destination.toLowerCase() &&
-        trip.dateHour === formattedDate);
+    const duplicate = (driver.trips || []).some(trip => {
+        const tripIdStr = trip._id ? trip._id.toString() : '';
+        if (isEdit && tripIdStr === currentTripId) return false; // Skip the current trip when editing  
+        return trip.origin.toLowerCase() === origin.toLowerCase() &&
+            trip.destination.toLowerCase() === destination.toLowerCase() &&
+            trip.dateHour === formattedDate;
+    });
     if (duplicate) {
         return "Este conductor ya tiene un viaje con el mismo origen, destino y fecha.";
     }
@@ -219,7 +230,7 @@ router.get('/editdriver/:id', async (req, res) => {
         });
     } catch (error) {
         console.error('Error loading driver:', error);
-        res.status(500).render('error', {
+        res.status(500).render('confirmation', {
             pageTittle: 'Error - CarMe',
             message: 'Ocurrió un error mientras se cargaban los datos del conductor. Por favor, inténtelo de nuevo más tarde.',
             backUrl: '/',
@@ -382,6 +393,100 @@ router.get('/deletetrip/:tripId/:driverId', async (req, res) => {
     }
 });
 
+router.get('/edittrip/:tripId/:driverId', async (req, res) => {
+    const { tripId, driverId } = req.params;
+
+    try {
+        const driver = await board.getDriver(driverId);
+        const trip = driver?.trips?.find(t => t._id.toString() === tripId);
+
+        if (!driver || !trip) {
+            return res.status(404).render('confirmation', {
+                pageTittle: 'Error - CarMe',
+                message: 'Conductor o viaje no encontrado.',
+                backUrl: driver ? `/detail/${driverId}` : '/',
+                buttonText: 'Volver'
+            });
+        }
+
+        trip._id = trip._id.toString();
+        trip.dateTimeInput = toDateTimeLocal(trip.dateHour);
+
+        res.render('editTrip', {
+            pageTittle: 'Editar viaje - CarMe',
+            trip: trip,
+            driverId: driverId
+        });
+    } catch (error) {
+        console.error('Error al cargar el viaje para editar:', error);
+        res.status(500).render('confirmation', {
+            pageTittle: 'Error del servidor - CarMe',
+            message: 'Ocurrió un error al cargar el viaje. Por favor, inténtelo de nuevo más tarde.',
+            backUrl: `/detail/${driverId}`,
+            buttonText: 'Volver al perfil del conductor'
+        });
+    }
+});
+
+router.post('/edittrip', upload.single('tripImage'), async (req, res) => {
+    const { driverId, tripId, oldImage } = req.body;
+    const detailUrl = `/detail/${driverId}`;
+    const editUrl = `/edittrip/${tripId}/${driverId}`;
+
+    try {
+        const driver = await board.getDriver(driverId);
+
+        if (!driver) {
+            if (req.file) await fs.unlink(req.file.path);
+            return res.status(404).render('confirmation', {
+                pageTittle: 'Error - CarMe',
+                message: 'Conductor no encontrado.',
+                backUrl: '/',
+                buttonText: 'Volver a la página principal'
+            });
+        }
+
+        const validationError = validateTrip(req.body, driver, req.file, true, tripId);
+
+        if (validationError) {
+            if (req.file) await fs.unlink(req.file.path);
+            return res.status(400).render('confirmation', {
+                pageTittle: 'Error - CarMe',
+                message: validationError,
+                backUrl: editUrl,
+                buttonText: 'Volver al formulario de edición'
+            });
+        }
+
+        const updatedTrip = {
+            tittle: req.body.tripTitle.trim(),
+            origin: req.body.tripOrigin.trim(),
+            destination: req.body.tripDestination.trim(),
+            dateHour: formatDateHour(req.body.tripDateTime),
+            price: parseFloat(req.body.tripPrice),
+            intercommunity: req.body.isIntercommunity === 'on',
+            image: req.file ? req.file.filename : oldImage
+        };
+
+        await board.updateTrip(driverId, tripId, updatedTrip);
+
+        res.render('confirmation', {
+            pageTitle: 'Viaje actualizado - CarMe',
+            message: 'El viaje ha sido actualizado con éxito.',
+            nextUrl: detailUrl,
+            buttonText: 'Ver detalle del conductor'
+        });
+    } catch (error) {
+        console.error('Error al actualizar el viaje:', error);
+        if (req.file) await fs.unlink(req.file.path);
+        res.status(500).render('confirmation', {
+            pageTittle: 'Error del servidor - CarMe',
+            message: 'Ocurrió un error al procesar la solicitud. Por favor, inténtelo de nuevo más tarde.',
+            backUrl: editUrl,
+            buttonText: 'Volver al formulario de edición'
+        });
+    }
+});
 
 
 
@@ -389,7 +494,7 @@ router.get('/deletetrip/:tripId/:driverId', async (req, res) => {
 
 router.post('/newdriver', upload.single('image'), async (req, res) => {
     const isEdit = Boolean(req.body.driverId);
-    const currentID = req.body.driverId;
+    const currentID = req.body.driverId ? req.body.driverId.trim() : '';
 
     try {
         const validationError = await validateDriver(req.body, isEdit, currentID);
@@ -437,7 +542,7 @@ router.post('/newdriver', upload.single('image'), async (req, res) => {
             });
         } else {
             const createdId = await board.addDriver(driverData);
-            const newId = driverData._id || (result && result.insertedId) || (result && result.ops && result.ops[0]._id);
+            const newId = driverData._id || (result && result.insertedId);
             const targetId = newId ? newId.toString() : '';
             return res.render('confirmation', {
                 pageTittle: 'Conductor creado - CarMe',

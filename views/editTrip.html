@@ -1,0 +1,51 @@
+{{> header}}
+        <div class="form-align">
+            <div class="form-container mt-5 mb-5 card" >
+                <h2 class="text-center mb-4 text-dark">Editar viaje</h2>
+                <form action="/edittrip" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="driverId" value="{{driverId}}">
+                    <input type="hidden" name="tripId" value="{{trip._id}}">
+                    <input type="hidden" name="oldImage" value="{{trip.image}}">
+
+                    <div class="mb-3">
+                        <label for="tripTitle" class="form-label">Título:</label>
+                        <input type="text" class="form-control" id="tripTitle" name="tripTitle" required minlength="3" maxlength="100" value="{{trip.title}}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="tripOrigin" class="form-label">Origen:</label>
+                        <input type="text" class="form-control" id="tripOrigin" name="tripOrigin" value="{{trip.origin}}" required minlength="3" maxlength="100">
+                    </div>
+                    <div class="mb-3">
+                        <label for="tripDestination" class="form-label">Destino:</label>
+                        <input type="text" class="form-control" id="tripDestination" name="tripDestination" value="{{trip.destination}}" required minlength="3" maxlength="100">
+                    </div>
+                    <div class="mb-3">
+                        <label for="tripDateTime" class="form-label">Fecha y hora:</label>
+                        <input type="datetime-local" class="form-control" id="tripDateTime" name="tripDateTime" value="{{trip.dateTimeInput}}" required>
+                    </div>
+                
+                    <div class="mb-3">
+                        <label for="tripPrice" class="form-label">Precio (€):</label>
+                        <input type="number" class="form-control" id="tripPrice" name="tripPrice" value="{{trip.price}}" min="0" max="500" step="0.5" required>
+                    </div>
+                
+                    <div class="mb-3">
+                        <label for="tripImage" class="form-label">Foto de portada (opcional, dejar vacío para mantener la actual):</label>
+                        <input type="file" class="form-control" id="tripImage" name="tripImage" accept="image/*">
+                    </div>
+                
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="isIntercommunity" name="isIntercommunity" {{#trip.intercommunity}}checked{{/trip.intercommunity}}>
+                        <label class="form-check-label" for="isIntercommunity">¿Es intercomunitario?</label>
+                    </div>
+                
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-dark">Guardar</button>
+                        <a href="/detail/{{driverId}}" class="btn btn-outline-dark">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        {{> footer}}
+    </body>
+</html>    

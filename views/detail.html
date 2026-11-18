@@ -40,8 +40,8 @@
                                     <p class="mb-3"><strong>Intercomunitario:</strong> {{#intercommunity}}<span class="badge-intercomunitary">Sí</span>{{/intercommunity}}{{^intercommunity}}No{{/intercommunity}}</p>
                                 </div>
                                 <div class="d-flex justify-content-center gap-2">
-                                    <button type="button" class="btn btn-success px-3">Editar</button>
-                                    <a href="/deletetrip/{{_id}}/{{driverId}}" class="btn btn-danger px-3">Eliminar</a>
+                                    <button type="button" class="btn btn-success px-3" onclick="window.location.href='/edittrip/{{_id}}/{{driverId}}'">Editar</button>
+                                    <button type="button" class="btn btn-danger px-3" onclick="window.location.href='/deletetrip/{{_id}}/{{driverId}}'">Eliminar</button>
                                 </div>
                             </article>
                         </div>
