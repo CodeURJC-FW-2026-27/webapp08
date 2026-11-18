@@ -437,7 +437,8 @@ router.post('/newdriver', upload.single('image'), async (req, res) => {
             });
         } else {
             const createdId = await board.addDriver(driverData);
-            const targetId = createdId || driverData.id;
+            const newId = driverData._id || (result && result.insertedId) || (result && result.ops && result.ops[0]._id);
+            const targetId = newId ? newId.toString() : '';
             return res.render('confirmation', {
                 pageTittle: 'Conductor creado - CarMe',
                 message: 'El conductor ha sido creado con éxito.',
