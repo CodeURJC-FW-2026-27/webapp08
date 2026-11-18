@@ -590,3 +590,8 @@ router.get('/trip/:id/image', async (req, res) => {
     const trip = await board.getTrip(req.params.id);
     res.download(board.UPLOADS_FOLDER + '/' + trip.image);
 });
+
+
+router.get('/image/:name', (req, res) => {
+    res.download(board.UPLOADS_FOLDER + '/' + req.params.name);
+});
