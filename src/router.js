@@ -432,7 +432,7 @@ router.post('/newdriver', upload.single('image'), async (req, res) => {
             return res.render('confirmation', {
                 pageTittle: 'Conductor actualizado - CarMe',
                 message: 'El conductor ha sido actualizado con éxito.',
-                nextUrl: `/detail?id=${currentID}`,
+                nextUrl: `/detail/${currentID}`,
                 buttonText: 'Ver detalle del conductor'
             });
         } else {
@@ -441,7 +441,7 @@ router.post('/newdriver', upload.single('image'), async (req, res) => {
             return res.render('confirmation', {
                 pageTittle: 'Conductor creado - CarMe',
                 message: 'El conductor ha sido creado con éxito.',
-                nextUrl: `/detail?id=${targetId}`,
+                nextUrl: `/detail/${targetId}`,
                 buttonText: 'Ver detalle del conductor'
             });
         }
