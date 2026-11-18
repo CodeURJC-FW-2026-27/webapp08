@@ -424,7 +424,7 @@
         "intercommunity": false
       },
       {
-        "image": "madrid_toledo2.jpg",
+        "image": "madrid_toledo.jpg",
         "title": "Madrid - Toledo",
         "origin": "Estación de Atocha, Madrid",
         "destination": "Catedral de Toledo, Toledo",
@@ -484,7 +484,7 @@
     "experience": 12,
     "trips": [
       {
-        "image": "madrid_barajas2.jpg",
+        "image": "madrid_barajas.jpg",
         "title": "Madrid - Aeropuerto Barajas",
         "origin": "Paseo de la Castellana, Madrid",
         "destination": "Terminal 1, Aeropuerto Adolfo Suárez Madrid-Barajas",
