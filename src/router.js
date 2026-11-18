@@ -361,8 +361,10 @@ router.post('/newtrip', upload.single('tripImage'), async (req, res) => {
 
 
 router.get('/deletetrip/:tripId/:driverId', async (req, res) => {
+    const { tripId, driverId } = req.params;
+
     try {
-        await board.deleteTrip(req.params.driverId, req.params.tripId);
+        await board.deleteTrip(driverId, tripId);
         
         return renderConfirmation(res, {
             title: 'Viaje eliminado',
