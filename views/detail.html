@@ -86,7 +86,7 @@
 
                                     <div class="mb-3">
                                         <label for="tripImage" class="form-label">Foto de portada:</label>
-                                        <input type="file" class="form-control" id="tripImage" name="tripImage" accept="image/*">
+                                        <input type="file" class="form-control" id="tripImage" name="tripImage" accept="image/*" required>
                                     </div>
 
                                     <div class="mb-3 form-check">
@@ -96,7 +96,7 @@
 
                                     <div class="d-grid gap-2">
                                         <button type="submit" class="btn btn-dark">Guardar</button>
-                                        <a href="/detail?id={{driver._id}}" class="btn btn-outline-dark">Cancelar</a>
+                                        <a href="/detail/{{driver._id}}" class="btn btn-outline-dark">Cancelar</a>
                                     </div>
                                 </form>
                             </div>

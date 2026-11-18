@@ -52,6 +52,77 @@ async function validateDriver(body, isEdit, currentID) {
 
 
 
+// Validates a text field of a trip (title, origin, destination)
+function validateTripText(value, label) {
+    if (value.length < 3 || value.length > 100) {
+        return `The ${label} must be between 3 and 100 characters long.`;
+    }
+    if (!/^[A-ZÁÉÍÓÚÑ]/.test(value)) {
+        return `The ${label} must start with a capital letter.`;
+    }
+    return null;
+}
+
+// Converts "2026-11-20T09:00" (datetime-local) to "20/11/2026 09:00" (format used in the data)
+function formatDateHour(value) {
+    const [date, time] = value.split('T');
+    const [year, month, day] = date.split('-');
+    return `${day}/${month}/${year} ${time}`;
+}
+
+function validateTrip(body, driver, file) {
+    const title = body.tripTitle ? body.tripTitle.trim() : '';
+    const origin = body.tripOrigin ? body.tripOrigin.trim() : '';
+    const destination = body.tripDestination ? body.tripDestination.trim() : '';
+    const dateTime = body.tripDateTime;
+    const price = parseFloat(body.tripPrice);
+
+    if (!title || !origin || !destination || !dateTime || isNaN(price)) {
+        return "All fields are required and must be valid.";
+    }
+
+    const textError = validateTripText(title, 'title')
+        || validateTripText(origin, 'origin')
+        || validateTripText(destination, 'destination');
+    if (textError) {
+        return textError;
+    }
+    if (origin.toLowerCase() === destination.toLowerCase()) {
+        return "The origin and the destination must be different.";
+    }
+
+    const date = new Date(dateTime);
+    if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(dateTime) || isNaN(date.getTime())) {
+        return "The date and time are not valid.";
+    }
+    if (date <= new Date()) {
+        return "The date and time must be in the future.";
+    }
+
+    if (price < 0 || price > 500) {
+        return "Price must be a number between 0 and 500.";
+    }
+    if (!file) {
+        return "A cover photo is required.";
+    }
+
+    // Check for duplicate trips of the same driver
+    const formattedDate = formatDateHour(dateTime);
+    const duplicate = (driver.trips || []).some(trip =>
+        trip.origin.toLowerCase() === origin.toLowerCase() &&
+        trip.destination.toLowerCase() === destination.toLowerCase() &&
+        trip.dateHour === formattedDate);
+    if (duplicate) {
+        return "This driver already has a trip with the same origin, destination and date.";
+    }
+    return null; // No validation errors
+}
+
+
+
+
+
+
 
 
 
@@ -205,6 +276,87 @@ router.get('/detail/:id', async (req, res) => {
         });
     }
 });
+
+
+
+
+
+
+router.post('/newtrip', upload.single('tripImage'), async (req, res) => {
+    const driverId = req.body.driverId;
+    const detailUrl = `/detail/${driverId}`;
+
+    try {
+        const driver = await board.getDriver(driverId);
+
+        if (!driver) {
+            if (req.file) {
+                await fs.unlink(req.file.path);
+            }
+            return res.status(404).render('confirmation', {
+                pageTittle: 'Error - CarMe',
+                message: 'Driver not found.',
+                backUrl: '/',
+                buttonText: 'Go back to main page'
+            });
+        }
+
+        const validationError = validateTrip(req.body, driver, req.file);
+
+        if (validationError) {
+            if (req.file) {
+                await fs.unlink(req.file.path);
+            }
+            return res.status(400).render('confirmation', {
+                pageTittle: 'Error - CarMe',
+                message: validationError,
+                backUrl: detailUrl,
+                buttonText: 'Go back to driver'
+            });
+        }
+
+        const trip = {
+            image: req.file.filename,
+            title: req.body.tripTitle.trim(),
+            origin: req.body.tripOrigin.trim(),
+            destination: req.body.tripDestination.trim(),
+            dateHour: formatDateHour(req.body.tripDateTime),
+            price: parseFloat(req.body.tripPrice),
+            intercommunity: req.body.isIntercommunity === 'on'
+        };
+
+        await board.addTrip(driverId, trip);
+
+        res.render('confirmation', {
+            pageTittle: 'Viaje creado - CarMe',
+            message: 'El viaje ha sido añadido con éxito.',
+            nextUrl: detailUrl,
+            buttonText: 'Ver detalle del conductor'
+        });
+
+    } catch (error) {
+        console.error('Error processing trip data:', error);
+        if (req.file) {
+            await fs.unlink(req.file.path);
+        }
+        res.status(500).render('confirmation', {
+            pageTittle: 'Error del servidor - CarMe',
+            message: 'Ocurrió un error al procesar la solicitud. Por favor, inténtelo de nuevo más tarde.',
+            backUrl: '/',
+            buttonText: 'Volver a la página principal'
+        });
+    }
+});
+
+
+
+
+
+
+
+
+
+
 
 
 router.get('/deletetrip/:tripId/:driverId', async (req, res) => {
