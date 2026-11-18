@@ -41,13 +41,13 @@
             
             {{#prevPage}}
             <li class="page-item">
-                <a class="page-link" href="/?page={{prevPage}}{{#tipo}}&tipo={{tipo}}{{/tipo}}">Anterior</a>
+                <a class="page-link" href="/?page={{prevPage}}{{#tipo}}&tipo={{tipo}}{{/tipo}}{{#search}}&search={{search}}{{/search}}">Anterior</a>
             </li>
             {{/prevPage}}
 
             {{#pages}}
             <li class="page-item {{#isCurrent}}active{{/isCurrent}}">
-                <a class="page-link" href="/?page={{pageNumber}}{{#tipo}}&tipo={{tipo}}{{/tipo}}">
+                <a class="page-link" href="/?page={{pageNumber}}{{#tipo}}&tipo={{tipo}}{{/tipo}}{{#search}}&search={{search}}{{/search}}">
                     {{pageNumber}}
                 </a>
             </li>
@@ -55,7 +55,7 @@
 
             {{#nextPage}}
             <li class="page-item">
-                <a class="page-link" href="/?page={{nextPage}}{{#tipo}}&tipo={{tipo}}{{/tipo}}">Siguiente</a>
+                <a class="page-link" href="/?page={{nextPage}}{{#tipo}}&tipo={{tipo}}{{/tipo}}{{#search}}&search={{search}}{{/search}}">Siguiente</a>
             </li>
             {{/nextPage}}
             

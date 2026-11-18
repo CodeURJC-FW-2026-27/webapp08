@@ -454,6 +454,7 @@ router.post('/edittrip', upload.single('tripImage'), async (req, res) => {
 router.post('/newdriver', upload.single('image'), async (req, res) => {
     const isEdit = Boolean(req.body.driverId);
     const currentID = req.body.driverId ? req.body.driverId.trim() : '';
+    const formUrl = isEdit ? `/editdriver/${currentID}` : '/newdriver';
 
     try {
         const validationError = await validateDriver(req.body, isEdit, currentID, req.file);
@@ -463,7 +464,6 @@ router.post('/newdriver', upload.single('image'), async (req, res) => {
                 await fs.unlink(req.file.path);
             }
 
-            const backUrl = isEdit ? `/editdriver/${currentID}` : '/newdriver';
             return renderError(res, 400, validationError, formUrl, 'Volver al formulario');
         }
 
