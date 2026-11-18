@@ -170,7 +170,7 @@ router.get('/', async (req, res) => {
 
     res.render('main', {
         pageTittle: 'Welcome - CarMe',
-        filtro: drivers,
+        filter: drivers,
         prevPage: prevPage,
         nextPage: nextPage,
         pages: pagesArray,
