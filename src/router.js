@@ -18,22 +18,22 @@ async function validateDriver(body, isEdit, currentID) {
     const availableSpots = parseInt(body.AvailableSpots);
 
     if (!name || !community || !cartype || isNaN(punctuation) || isNaN(experience) || isNaN(availableSpots)) {
-        return "All fields are required and must be valid.";
+        return "Todas los campos son obligatorios y deben ser válidos.";
     }
     if (name.length < 3 || name.length > 50) {
-        return "The name must be between 3 and 50 characters long.";
+        return "El nombre debe tener entre 3 y 50 caracteres.";
     }
     if (!/^[A-ZÁÉÍÓÚÑ]/.test(name)) {
-        return "The name must start with a capital letter.";
+        return "El nombre debe comenzar con una letra mayúscula.";
     }
     if (isNaN(punctuation) || punctuation < 0 || punctuation > 5) {
-        return "Punctuation must be a number between 0 and 5.";
+        return "La puntuación debe ser un número entre 0 y 5.";
     }
     if (isNaN(experience) || experience < 0) {
-        return "Experience must be a non-negative number.";
+        return "La experiencia debe ser un número no negativo.";
     }
     if (isNaN(availableSpots) || availableSpots < 1 || availableSpots > 8) {
-        return "Available spots must be a number between 1 and 8.";
+        return "Los asientos disponibles deben ser un número entre 1 y 8.";
     }
 
     // Check for duplicate names
@@ -42,7 +42,7 @@ async function validateDriver(body, isEdit, currentID) {
     if (duplicate) {
         const duplicateId = duplicate._id ? duplicate._id.toString() : duplicate.id;
         if (!isEdit || duplicateId !== currentID) {
-            return "A driver with this name already exists.";
+            return "Un conductor con este nombre ya existe.";
         }
     }
     return null; // No validation errors
@@ -55,10 +55,10 @@ async function validateDriver(body, isEdit, currentID) {
 // Validates a text field of a trip (title, origin, destination)
 function validateTripText(value, label) {
     if (value.length < 3 || value.length > 100) {
-        return `The ${label} must be between 3 and 100 characters long.`;
+        return `El ${label} debe tener entre 3 y 100 caracteres.`;
     }
     if (!/^[A-ZÁÉÍÓÚÑ]/.test(value)) {
-        return `The ${label} must start with a capital letter.`;
+        return `El ${label} debe comenzar con una letra mayúscula.`;
     }
     return null;
 }
@@ -78,7 +78,7 @@ function validateTrip(body, driver, file) {
     const price = parseFloat(body.tripPrice);
 
     if (!title || !origin || !destination || !dateTime || isNaN(price)) {
-        return "All fields are required and must be valid.";
+        return "Todos los campos son obligatorios y deben ser válidos.";
     }
 
     const textError = validateTripText(title, 'title')
@@ -88,22 +88,22 @@ function validateTrip(body, driver, file) {
         return textError;
     }
     if (origin.toLowerCase() === destination.toLowerCase()) {
-        return "The origin and the destination must be different.";
+        return "El origen y el destino deben ser diferentes.";
     }
 
     const date = new Date(dateTime);
     if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(dateTime) || isNaN(date.getTime())) {
-        return "The date and time are not valid.";
+        return "La fecha y hora no son válidas.";
     }
     if (date <= new Date()) {
-        return "The date and time must be in the future.";
+        return "La fecha y hora deben estar en el futuro.";
     }
 
     if (price < 0 || price > 500) {
-        return "Price must be a number between 0 and 500.";
+        return "El precio debe ser un número entre 0 y 500.";
     }
     if (!file) {
-        return "A cover photo is required.";
+        return "Se requiere una imagen de portada.";
     }
 
     // Check for duplicate trips of the same driver
@@ -113,7 +113,7 @@ function validateTrip(body, driver, file) {
         trip.destination.toLowerCase() === destination.toLowerCase() &&
         trip.dateHour === formattedDate);
     if (duplicate) {
-        return "This driver already has a trip with the same origin, destination and date.";
+        return "Este conductor ya tiene un viaje con el mismo origen, destino y fecha.";
     }
     return null; // No validation errors
 }
@@ -203,9 +203,9 @@ router.get('/editdriver/:id', async (req, res) => {
         if (!driver) {
             return res.status(404).render('confirmation', {
                 pageTittle: 'Error - CarMe',
-                message: 'Driver not found.',
+                message: 'Conductor no encontrado.',
                 backUrl: '/',
-                buttonText: 'Go back to main page'
+                buttonText: 'Volver a la página principal'
             });
         }
 
@@ -221,9 +221,9 @@ router.get('/editdriver/:id', async (req, res) => {
         console.error('Error loading driver:', error);
         res.status(500).render('error', {
             pageTittle: 'Error - CarMe',
-            message: 'An error occurred while loading the driver data. Please try again later.',
+            message: 'Ocurrió un error mientras se cargaban los datos del conductor. Por favor, inténtelo de nuevo más tarde.',
             backUrl: '/',
-            buttonText: 'Go back to main page'
+            buttonText: 'Volver a la página principal'
         });
     }
 });
@@ -241,9 +241,9 @@ router.get('/detail/:id', async (req, res) => {
     if (!driverId) {
         return res.status(400).render('confirmation', {
             pageTittle: 'Error - CarMe',
-            message: 'Driver ID is required.',
+            message: 'Se requiere el ID del conductor.',
             backUrl: '/',
-            buttonText: 'Go back to main page'
+            buttonText: 'Volver a la página principal'
         });
     }
 
@@ -253,9 +253,9 @@ router.get('/detail/:id', async (req, res) => {
         if (!driver) {
             return res.status(404).render('confirmation', {
                 pageTittle: 'Error - CarMe',
-                message: 'Driver not found.',
+                message: 'Conductor no encontrado.',
                 backUrl: '/',
-                buttonText: 'Go back to main page'
+                buttonText: 'Volver a la página principal'
             });
         }
 
@@ -270,9 +270,9 @@ router.get('/detail/:id', async (req, res) => {
         console.error('Error loading driver details:', error);
         res.status(500).render('confirmation', {
             pageTittle: 'Error - CarMe',
-            message: 'An error occurred while loading the driver details. Please try again later.',
+            message: 'Ocurrió un error mientras se cargaban los detalles del conductor. Por favor, inténtelo de nuevo más tarde.',
             backUrl: '/',
-            buttonText: 'Go back to main page'
+            buttonText: 'Volver a la página principal'
         });
     }
 });
@@ -295,9 +295,9 @@ router.post('/newtrip', upload.single('tripImage'), async (req, res) => {
             }
             return res.status(404).render('confirmation', {
                 pageTittle: 'Error - CarMe',
-                message: 'Driver not found.',
+                message: 'Conductor no encontrado.',
                 backUrl: '/',
-                buttonText: 'Go back to main page'
+                buttonText: 'Volver a la página principal'
             });
         }
 
@@ -311,7 +311,7 @@ router.post('/newtrip', upload.single('tripImage'), async (req, res) => {
                 pageTittle: 'Error - CarMe',
                 message: validationError,
                 backUrl: detailUrl,
-                buttonText: 'Go back to driver'
+                buttonText: 'Volver al perfil del conductor'
             });
         }
 
@@ -404,7 +404,7 @@ router.post('/newdriver', upload.single('image'), async (req, res) => {
                 pageTittle: 'Error - CarMe',
                 message: validationError,
                 backUrl: backUrl,
-                buttonText: 'Go back to form'
+                buttonText: 'Volver al formulario'
             });
         }
 
