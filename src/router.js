@@ -7,9 +7,16 @@ import path from 'node:path';
 const router = express.Router();
 export default router;
 
-const upload = multer({ dest: 'uploads/' });
+const upload = multer({
+    dest: 'uploads/',
+    fileFilter: (req, file, cb) => cb(null, file.mimetype.startsWith('image/'))
+});
 
-async function validateDriver(body, isEdit, currentID) {
+const COMMUNITIES = ['Andalucia', 'Cataluña', 'Madrid', 'Valencia', 'Galicia', 'Murcia', 'Vasco',
+    'Navarra', 'Extremadura', 'Canarias', 'Baleares', 'Ceuta', 'Melilla', 'Asturias', 'Cantabria'];
+const VEHICLES = ['Normal', 'XL', 'Eco', 'Luxury'];
+
+async function validateDriver(body, isEdit, currentID, file) {
     const name = body.DriverName ? body.DriverName.trim() : '';
     const community = body.AutonomousComunity;
     const cartype = body.Cartype;
@@ -19,6 +26,15 @@ async function validateDriver(body, isEdit, currentID) {
 
     if (!name || !community || !cartype || isNaN(punctuation) || isNaN(experience) || isNaN(availableSpots)) {
         return "Todas los campos son obligatorios y deben ser válidos.";
+    }
+    if (!COMMUNITIES.includes(community)) {
+        return "La comunidad autónoma no es válida.";
+    }
+    if (!VEHICLES.includes(cartype)) {
+        return "El tipo de vehículo no es válido.";
+    }
+    if (!isEdit && !file) {
+        return "Se requiere una imagen válida para el conductor.";
     }
     if (name.length < 3 || name.length > 50) {
         return "El nombre debe tener entre 3 y 50 caracteres.";
@@ -89,9 +105,9 @@ function validateTrip(body, driver, file, isEdit = false, currentTripId = null) 
         return "Todos los campos son obligatorios y deben ser válidos.";
     }
 
-    const textError = validateTripText(title, 'title')
-        || validateTripText(origin, 'origin')
-        || validateTripText(destination, 'destination');
+    const textError = validateTripText(title, 'título')
+        || validateTripText(origin, 'origen')
+        || validateTripText(destination, 'destino');
     if (textError) {
         return textError;
     }
@@ -497,7 +513,7 @@ router.post('/newdriver', upload.single('image'), async (req, res) => {
     const currentID = req.body.driverId ? req.body.driverId.trim() : '';
 
     try {
-        const validationError = await validateDriver(req.body, isEdit, currentID);
+        const validationError = await validateDriver(req.body, isEdit, currentID, req.file);
 
         if (validationError) {
             if (req.file) {
@@ -513,11 +529,9 @@ router.post('/newdriver', upload.single('image'), async (req, res) => {
             });
         }
 
-        let finalImage = '/images/default_driver.png';
+        let finalImage = req.body.oldImage;
         if (req.file) {
             finalImage = req.file.filename;
-        } else if (isEdit && req.body.oldImage) {
-            finalImage = req.body.oldImage;
         }
 
         const driverData = {
