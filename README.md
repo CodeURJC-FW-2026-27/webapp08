@@ -205,3 +205,6 @@ It consists on a button that filter the drivers that can be seen on the page dep
   - `confirmation.html`
   - `board.js`
   - `detail.html`
+
+#### Video
+https://youtu.be/_vWRWs9w6as
