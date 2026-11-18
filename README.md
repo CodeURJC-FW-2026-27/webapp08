@@ -148,4 +148,23 @@ It consists on a button that filter the drivers that can be seen on the page dep
   - [3. newdriver.html](https://github.com/CodeURJC-FW-2026-27/webapp08/blob/main/views/newdriver.html)
   - [4. detail.html](https://github.com/CodeURJC-FW-2026-27/webapp08/blob/main/views/detail.html)
   - [5. editTrip.html](https://github.com/CodeURJC-FW-2026-27/webapp08/blob/main/views/editTrip.html)
-  
+
+➡ **Raúl Martín Sánchez**
+-For this phase of the project, I was responsible for the backend foundation of the application: setting up the Express server and router, the MongoDB connection and the data-access layer (board.js), including paging, name filtering and the initial data loading (load_data.js and the JSON files with sample drivers and trips). I also converted the detail page to Mustache to render each driver's trips dynamically, and implemented the creation of new trips (secondary entity) with both front-end and server-side validation.
+- **Commits**:
+  - [Router creation, package.json fixes and database connection logic](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/30443c3d5103cde1e1e4136c0e95a5d6647ab3d7)
+  - [Pagination, sample drivers loaded from the DB and correct MongoDB connection](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/73eb7dcbddab1afb49ab25c7de2bc2e1209aa6ae)
+  - [Filter by name](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/3bc082954488fdce969b8e7ea600a6c5e8e556b0)
+  - [Creation of board and loaddata](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/07641bd81851f105c1740aee7d9772b1de7e3c52)
+  - [MongoDB connection and operations in board.js](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/0045e66cb6ce639760f3d614db4b7dfe1166436d)
+  - [More sample data for trips](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/e23c590dda6b59aadb5cf1acdf2c4865c8f69fdb)
+  - [detail.html with Mustache for the secondary entities](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/e2011356d8abe830f83a00a0a332c75a34d90ce4)
+  - [Function to add a new trip (secondary entity)](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/3f79c38de27fe7889168c47e51040d478c29ac81)
+  - [Front-end validation of the form](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/cd8ab4f35b5d557831fa3181a8a4495c1d0686c7)
+  - [Add-trip route and back-end validation of the form](https://github.com/CodeURJC-FW-2026-27/webapp08/commit/6c9ab29ed8c210bbd91446d94ec6f445c3e1660d)
+- **Files I have worked on:**
+  - `router.js`
+  - `app.js`
+  - `board.js`
+  - `load_data.js`
+  - `data.json`
