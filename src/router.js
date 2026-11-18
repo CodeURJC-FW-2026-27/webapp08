@@ -459,7 +459,7 @@ router.post('/edittrip', upload.single('tripImage'), async (req, res) => {
         }
 
         const updatedTrip = {
-            tittle: req.body.tripTitle.trim(),
+            title: req.body.tripTitle.trim(),
             origin: req.body.tripOrigin.trim(),
             destination: req.body.tripDestination.trim(),
             dateHour: formatDateHour(req.body.tripDateTime),
@@ -471,7 +471,7 @@ router.post('/edittrip', upload.single('tripImage'), async (req, res) => {
         await board.updateTrip(driverId, tripId, updatedTrip);
 
         res.render('confirmation', {
-            pageTitle: 'Viaje actualizado - CarMe',
+            pageTittle: 'Viaje actualizado - CarMe',
             message: 'El viaje ha sido actualizado con éxito.',
             nextUrl: detailUrl,
             buttonText: 'Ver detalle del conductor'
